@@ -92,6 +92,8 @@ terraform apply
 
 ### 🤝 Contributing
 
+01️⃣ Developers should create a feature branch from the `develop` branch. Once code changes are complete, raise a Pull Request (PR) to get the code reviewed.
+
 We welcome contributions! To get started:
 
 1. Fork the repository
@@ -120,6 +122,8 @@ This project is licensed under the [MIT License](./LICENSE).
 Thanks to all the amazing contributors! If you contributed to this project, your name will appear here.
 
 - [Nishant Girdhar](mailto:nishantgirdhar052@gmail.com)
+- [Siddhant Rastogi](mailto:23x10sid@gmail.com)
+- [Raman Bhardwaj](mailto:ramanbhardwaj2005@gmail.com)
 - [All Contributors](https://github.com/girdharv18/SOT/graphs/contributors)
 
 ### 📞 Contact & Support
