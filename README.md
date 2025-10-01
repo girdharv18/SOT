@@ -6,7 +6,7 @@ A unified repository for **Spring Boot backend**, **React frontend**, and **Terr
 ![GitHub contributors](https://img.shields.io/github/contributors/girdharv18/SOT)
 ![GitHub issues](https://img.shields.io/github/issues/girdharv18/SOT)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/girdharv18/SOT)
-![License](https://img.shields.io/github/license/girdharv18/SOT)
+![License: Custom](https://img.shields.io/badge/License-Custom-blue.svg)
 
 ---
 
