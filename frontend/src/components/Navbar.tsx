@@ -26,7 +26,7 @@ function NavbarItemIcon({
 }) {
   return (
     <div
-      className={`px-[15px] py-[5px] flex items-center gap-[5px] rounded-full cursor-pointer hover:bg-hover-bg transition-colors duration-200 ${
+      className={`px-[12px] py-[5px] flex items-center gap-[5px] rounded-full cursor-pointer hover:bg-hover-bg transition-colors duration-200 ${
         isActive ? "bg-hover-bg" : ""
       }`}
       onClick={onClick}
@@ -65,11 +65,11 @@ export default function Navbar() {
 
   return (
     <div className="navbar max-w-[1350px] px-[25px] mx-auto flex justify-between items-center py-[20px]">
-      <h1 className="text-2xl font-semibold text-logo-heading cursor-pointer">
+      <h1 className="text-[22px] font-semibold text-logo-heading cursor-pointer">
         MindCure
       </h1>
 
-      <div className="flex items-center gap-[10px] text-[14px] relative">
+      <div className="flex items-center gap-[2px] text-[13px] relative">
         {weHelpWithModalOpen && <WeHelpWith modalRef={modalRef} />}
 
         <div ref={navbarItemRef}>
@@ -77,7 +77,7 @@ export default function Navbar() {
             text="We help with"
             icon={
               <ChevronDown
-                size={20}
+                size={15}
                 className={`text-light-text transition-transform duration-200 ${
                   weHelpWithModalOpen ? "rotate-180" : ""
                 }`}

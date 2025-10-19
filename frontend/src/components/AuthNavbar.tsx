@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 
 export default function AuthNavbar() {
   return (
-    <div className="auth-navbar mx-auto flex justify-between items-center py-[20px]">
+    <div className="auth-navbar max-w-[1350px] mx-auto flex justify-between items-center py-[20px]">
       <Link to="/">
-        <h1 className="text-2xl font-semibold text-logo-heading">MindCure</h1>
+        <h1 className="text-[22px] font-semibold text-logo-heading">
+          MindCure
+        </h1>
       </Link>
 
       {/* Logos */}
