@@ -1,5 +1,6 @@
 const CVTMockDataRowOne = [
   {
+    id: "1",
     title: "How has trauma impacted me?",
     description:
       "Understand the effects of past experiences on your current well-being",
@@ -7,6 +8,7 @@ const CVTMockDataRowOne = [
     borderColor: "#EC4C6C",
   },
   {
+    id: "2",
     title: "Do I have ADHD?",
     description:
       "Find out if you may have attention deficit hyperactivity disorder (ADHD)",
@@ -14,6 +16,7 @@ const CVTMockDataRowOne = [
     borderColor: "#FD6D9D",
   },
   {
+    id: "3",
     title: "What is my anxiety level?",
     description:
       "Find out your current level of anxiety and get a report to guide your next steps.",
@@ -24,18 +27,21 @@ const CVTMockDataRowOne = [
 
 const CVTMockDataRowTwo = [
   {
+    id: "4",
     title: "Is it just bad mood or more?",
     description: "Discover if your mood issues are more than just a bad day",
     cardColor: "#FFBC2C",
     borderColor: "#FFBC2C",
   },
   {
+    id: "5",
     title: "How resilient am I?",
     description: "Discover how resilient you are to stress and adversity",
     cardColor: "#83BEC7",
     borderColor: "#69A8B2",
   },
   {
+    id: "6",
     title: "Relationship Health Check",
     description:
       "Check your relationship health and get a report to guide your next steps.",
@@ -94,6 +100,7 @@ export default function ClinicallyValidatedTestsSection() {
       <div className="flex gap-[20px] mt-[100px]">
         {CVTMockDataRowOne.map((test) => (
           <ClinicallyValidatedTestsSectionCard
+            key={test.id}
             title={test.title}
             description={test.description}
             cardColor={test.cardColor}
@@ -105,6 +112,7 @@ export default function ClinicallyValidatedTestsSection() {
       <div className="flex gap-[20px] mt-[60px]">
         {CVTMockDataRowTwo.map((test) => (
           <ClinicallyValidatedTestsSectionCard
+            key={test.id}
             title={test.title}
             description={test.description}
             cardColor={test.cardColor}

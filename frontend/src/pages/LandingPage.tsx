@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 
 export default function UserDashboard() {
   return (
-    <div className="user-dashboard">
+    <div className="landing-page">
       <Navbar />
       <HeroSection />
       <AnalyticsSection />
