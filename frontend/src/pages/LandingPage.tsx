@@ -1,12 +1,12 @@
 import AnalyticsSection from "../components/AnalyticsSection";
 import ClinicallyValidatedTestsSection from "../components/ClinicallyValidatedTestsSection";
 import HeroSection from "../components/HeroSection";
-import Navbar from "../components/Navbar";
+import ResponsiveNavbar from "../components/ResponsiveNavbar";
 
 export default function UserDashboard() {
   return (
-    <div className="user-dashboard">
-      <Navbar />
+    <div className="landing-page">
+      <ResponsiveNavbar />
       <HeroSection />
       <AnalyticsSection />
       <ClinicallyValidatedTestsSection />
