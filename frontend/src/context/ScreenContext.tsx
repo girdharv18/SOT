@@ -43,6 +43,7 @@ export function ScreenProvider({ children }: ScreenProviderProps) {
 
 export function useScreen(): ScreenContextType {
   const context = useContext(ScreenContext);
+
   if (context === undefined) {
     throw new Error("useScreen must be used within a ScreenProvider");
   }

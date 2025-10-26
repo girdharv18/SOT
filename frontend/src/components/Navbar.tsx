@@ -5,11 +5,14 @@ import WeHelpWith from "./modals/WeHelpWith";
 
 const textColor = "hsl(194,57%,17%)";
 
-function NavbarItem({ text }: { text: string }) {
+function NavbarItem({ text, link }: { text: string; link: string }) {
   return (
-    <p className="cursor-pointer text-light-text px-[15px] py-[5px] hover:bg-hover-bg rounded-full transition-colors duration-200">
+    <Link
+      to={link}
+      className="cursor-pointer text-light-text px-[15px] py-[5px] hover:bg-hover-bg rounded-full transition-colors duration-200"
+    >
       {text}
-    </p>
+    </Link>
   );
 }
 
@@ -87,11 +90,11 @@ export default function Navbar() {
             isActive={weHelpWithModalOpen}
           />
         </div>
-        <NavbarItem text="Self Assessment" />
-        <NavbarItem text="Mental Health Tools" />
-        <NavbarItem text="Find a therapist" />
-        <NavbarItem text="Find counsellors" />
-        <NavbarItem text="Articles" />
+        <NavbarItem text="Self Assessment" link="/self-assessment" />
+        <NavbarItem text="Mental Health Tools" link="/mental-health-tools" />
+        <NavbarItem text="Find a therapist" link="/find-a-therapist" />
+        <NavbarItem text="Find counsellors" link="/find-counsellors" />
+        <NavbarItem text="Articles" link="/articles" />
       </div>
 
       {/* Logos */}

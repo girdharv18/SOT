@@ -2,25 +2,31 @@ import { Languages, Moon, Menu } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-export default function AuthNavbar() {
+export default function SelfAssessmentNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="auth-navbar max-w-[1350px] mx-auto flex justify-between items-center py-[20px] relative">
-      <Link to="/">
-        <h1 className="text-[22px] font-semibold text-logo-heading">
-          MindCure
-        </h1>
-      </Link>
+    <div className="auth-navbar max-w-[1350px] mx-auto flex gap-4 justify-between items-center py-[20px] relative">
+      <div className="flex items-center gap-4">
+        <Link to="/">
+          <h1 className="text-[clamp(14px,4vw,20px)] font-medium text-logo-heading">
+            MindCure
+          </h1>
+        </Link>
+        <p className="text-[20px] text-logo-heading">&bull;</p>
+        <p className="text-[clamp(14px,4vw,20px)] whitespace-nowrap font-medium text-logo-heading">
+          Self Assessment
+        </p>
+      </div>
 
       {/* Desktop Logos */}
       <div className="hidden sm:flex items-center gap-2">
         <div className="p-[8px] bg-light-100 rounded-full cursor-pointer">
-          <Languages size={20} color="hsl(194, 57%, 17%)" />
+          <Languages size={20} color="hsl(189, 62%, 25%)" />
         </div>
 
         <div className="p-[8px] bg-light-100 rounded-full cursor-pointer">
-          <Moon size={20} color="hsl(194, 57%, 17%)" />
+          <Moon size={20} color="hsl(189, 62%, 25%)" />
         </div>
       </div>
 
@@ -30,18 +36,22 @@ export default function AuthNavbar() {
           className="p-[8px] bg-light-100 rounded-full cursor-pointer"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          <Menu size={20} color="hsl(194, 57%, 17%)" />
+          <Menu
+            size={20}
+            color="hsl(189, 62%, 25%)"
+            className="cursor-pointer"
+          />
         </div>
 
         {/* Mobile Menu Dropdown */}
         {isMenuOpen && (
-          <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+          <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-300 py-2 z-50">
             <div className="p-3 hover:bg-light-100 cursor-pointer flex items-center gap-3">
-              <Languages size={18} color="hsl(194, 57%, 17%)" />
+              <Languages size={18} color="hsl(189, 62%, 25%)" />
               <span className="text-logo-heading">Language</span>
             </div>
             <div className="p-3 hover:bg-light-100 cursor-pointer flex items-center gap-3">
-              <Moon size={18} color="hsl(194, 57%, 17%)" />
+              <Moon size={18} color="hsl(189, 62%, 25%)" />
               <span className="text-logo-heading">Color Scheme</span>
             </div>
           </div>
