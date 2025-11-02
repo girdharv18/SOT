@@ -15,6 +15,12 @@ spring:
     properties:
       hibernate:
         format_sql: ${JPA_FORMAT_SQL:true}
+  security.oauth2.client:
+    registration:
+      google:
+        client-id:
+        client-secret: 
+
 
 jwt:
   secretkey: ${JWT_SECRET_KEY:404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970}
@@ -24,3 +30,4 @@ logging:
   level:
     root: ${LOGGING_LEVEL_ROOT:INFO}
     com.theskysid: ${LOGGING_LEVEL_COM_THESKYSID:DEBUG}
+
