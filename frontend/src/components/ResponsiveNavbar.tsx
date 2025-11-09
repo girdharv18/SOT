@@ -14,7 +14,7 @@ export default function ResponsiveNavbar() {
         {/* Mobile Header */}
         <div className="navbar max-w-[1350px] px-[25px] mx-auto flex justify-between items-center py-[20px]">
           <h1 className="text-[22px] font-semibold text-logo-heading cursor-pointer">
-            MindCure
+            MindCurePath
           </h1>
 
           {/* Mobile Menu Button */}

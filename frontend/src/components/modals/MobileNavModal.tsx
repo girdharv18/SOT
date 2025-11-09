@@ -10,17 +10,21 @@ interface MobileNavModalProps {
 function MobileNavItem({
   text,
   onClick,
+  to,
 }: {
   text: string;
   onClick?: () => void;
+  to?: string;
 }) {
   return (
-    <div
-      className="cursor-pointer text-light-text px-[25px] py-[12px] hover:bg-hover-bg rounded-full transition-colors duration-200 text-[16px]"
-      onClick={onClick}
-    >
-      {text}
-    </div>
+    <Link to={to || ""} onClick={onClick}>
+      <div
+        className="cursor-pointer text-light-text px-[25px] py-[12px] hover:bg-hover-bg rounded-full transition-colors duration-200 text-[16px]"
+        onClick={onClick}
+      >
+        {text}
+      </div>
+    </Link>
   );
 }
 
@@ -57,7 +61,7 @@ export default function MobileNavModal({
         {/* Header with close button */}
         <div className="flex justify-between items-center px-[25px] py-[20px] border-b border-gray-200 flex-shrink-0">
           <h1 className="text-[22px] font-semibold text-logo-heading">
-            MindCure
+            MindCurePath
           </h1>
           <button
             onClick={onClose}
@@ -94,26 +98,21 @@ export default function MobileNavModal({
             >
               <div className="pl-[30px] pt-[10px] flex flex-col gap-[8px]">
                 <div className="px-[20px] py-[10px] text-[16px] rounded-[10px] cursor-pointer hover:bg-gray-50 transition-colors duration-200">
-                  Therapists
+                  Health
                 </div>
                 <div className="px-[20px] py-[10px] text-[16px] rounded-[10px] cursor-pointer hover:bg-gray-50 transition-colors duration-200">
-                  Coaches
+                  Education
                 </div>
                 <div className="px-[20px] py-[10px] text-[16px] rounded-[10px] cursor-pointer hover:bg-gray-50 transition-colors duration-200">
-                  Dieticians
-                </div>
-                <div className="px-[20px] py-[10px] text-[16px] rounded-[10px] cursor-pointer hover:bg-gray-50 transition-colors duration-200">
-                  Yoga Experts
+                  Finance
                 </div>
               </div>
             </div>
           </div>
 
-          <MobileNavItem text="Self Assessment" />
-          <MobileNavItem text="Mental Health Tools" />
-          <MobileNavItem text="Find a therapist" />
-          <MobileNavItem text="Find counsellors" />
-          <MobileNavItem text="Articles" />
+          <MobileNavItem text="Self Assessment" to="/self-assessment" />
+          <MobileNavItem text="Find counsellors" to="/find-counsellors" />
+          <MobileNavItem text="Articles" to="/articles" />
         </div>
 
         {/* Bottom section with login and icons */}

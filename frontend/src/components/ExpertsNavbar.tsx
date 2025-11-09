@@ -9,7 +9,7 @@ function NavbarItem({ text, link }: { text: string; link: string }) {
   return (
     <Link
       to={link}
-      className="cursor-pointer text-light-text px-[15px] py-[5px] hover:bg-hover-bg rounded-full transition-colors duration-200"
+      className="cursor-pointer text-light-text py-[5px] hover:bg-hover-bg rounded-full transition-colors duration-200"
     >
       {text}
     </Link>
@@ -29,7 +29,7 @@ function NavbarItemIcon({
 }) {
   return (
     <div
-      className={`px-[12px] py-[5px] flex items-center gap-[5px] rounded-full cursor-pointer hover:bg-hover-bg transition-colors duration-200 ${
+      className={`py-[5px] flex items-center gap-[5px] rounded-full cursor-pointer hover:bg-hover-bg transition-colors duration-200 ${
         isActive ? "bg-hover-bg" : ""
       }`}
       onClick={onClick}
@@ -40,7 +40,7 @@ function NavbarItemIcon({
   );
 }
 
-export default function Navbar() {
+export default function ExpertsNavbar() {
   const [weHelpWithModalOpen, setWeHelpWithModalOpen] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
   const navbarItemRef = useRef<HTMLDivElement>(null);
@@ -68,11 +68,14 @@ export default function Navbar() {
 
   return (
     <div className="navbar max-w-[1350px] px-[25px] mx-auto flex justify-between items-center py-[20px]">
-      <h1 className="text-[22px] font-semibold text-logo-heading cursor-pointer">
+      <Link
+        to="/"
+        className="text-[22px] font-semibold text-logo-heading cursor-pointer"
+      >
         MindCurePath
-      </h1>
+      </Link>
 
-      <div className="flex items-center gap-[2px] text-[13px] relative">
+      <div className="flex items-center gap-[40px] text-[13px] relative">
         {weHelpWithModalOpen && (
           <WeHelpWith modalRef={modalRef} navbarType="landing" />
         )}
@@ -95,24 +98,6 @@ export default function Navbar() {
         <NavbarItem text="Self Assessment" link="/self-assessment" />
         <NavbarItem text="Find counsellors" link="/find-counsellors" />
         <NavbarItem text="Articles" link="/articles" />
-      </div>
-
-      {/* Logos */}
-      <div className="flex items-center gap-2">
-        <div className="p-[8px] bg-light-100 rounded-full cursor-pointer">
-          <Languages size={20} color={textColor} />
-        </div>
-
-        <div className="p-[8px] bg-light-100 rounded-full cursor-pointer">
-          <Moon size={20} color={textColor} />
-        </div>
-
-        <Link
-          to="/login"
-          className={`border border-border-light text-[${textColor}] transition-all duration-200 cursor-pointer rounded-full px-[20px] py-[6px] text-[15px] hover:bg-border-light hover:text-white`}
-        >
-          Login
-        </Link>
       </div>
     </div>
   );

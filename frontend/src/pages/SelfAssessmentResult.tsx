@@ -68,8 +68,9 @@ export default function SelfAssessmentResult() {
               </p>
             </div>
 
-            {/* Score Display */}
-            <div className="text-center mt-[50px]">
+            {/* Score Display and Progress Ring */}
+            <div className="flex flex-col md:flex-row items-center justify-center gap-[30px] md:gap-[50px] mt-[50px]">
+              {/* Score Display */}
               <div className="inline-block bg-[#F3F4F6] rounded-full px-[40px] py-[20px]">
                 <div className="text-[48px] md:text-[64px] font-bold text-[#44666C]">
                   {totalScore}
@@ -80,39 +81,47 @@ export default function SelfAssessmentResult() {
               </div>
 
               {/* Progress Ring */}
-              <div className="mt-[40px] mb-[20px]">
-                <div className="relative w-[200px] h-[200px] mx-auto">
-                  <svg className="transform -rotate-90 w-full h-full">
-                    <circle
-                      cx="100"
-                      cy="100"
-                      r="90"
-                      stroke="#E5E7EB"
-                      strokeWidth="12"
-                      fill="none"
-                    />
-                    <circle
-                      cx="100"
-                      cy="100"
-                      r="90"
-                      stroke={interpretation.color}
-                      strokeWidth="12"
-                      fill="none"
-                      strokeDasharray={`${2 * Math.PI * 90}`}
-                      strokeDashoffset={`${
-                        2 * Math.PI * 90 * (1 - percentage / 100)
-                      }`}
-                      strokeLinecap="round"
-                      className="transition-all duration-1000 ease-out"
-                    />
-                  </svg>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-[36px] font-bold text-[#44666C]">
-                      {percentage}%
-                    </span>
-                  </div>
+              <div className="relative w-[200px] h-[200px]">
+                <svg className="transform -rotate-90 w-full h-full">
+                  <circle
+                    cx="100"
+                    cy="100"
+                    r="90"
+                    stroke="#E5E7EB"
+                    strokeWidth="12"
+                    fill="none"
+                  />
+                  <circle
+                    cx="100"
+                    cy="100"
+                    r="90"
+                    stroke={interpretation.color}
+                    strokeWidth="12"
+                    fill="none"
+                    strokeDasharray={`${2 * Math.PI * 90}`}
+                    strokeDashoffset={`${
+                      2 * Math.PI * 90 * (1 - percentage / 100)
+                    }`}
+                    strokeLinecap="round"
+                    className="transition-all duration-1000 ease-out"
+                  />
+                </svg>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="text-[36px] font-bold text-[#44666C]">
+                    {percentage}%
+                  </span>
                 </div>
               </div>
+            </div>
+
+            {/* Save Result Button */}
+            <div className="mt-[40px] flex justify-center">
+              <Link
+                to="/login"
+                className="px-[40px] py-[12px] bg-[#44666C] text-white rounded-[30px] text-[18px] font-medium hover:bg-[#365a62] transition-colors duration-200 inline-block"
+              >
+                Save Your Assessment Result
+              </Link>
             </div>
           </div>
 

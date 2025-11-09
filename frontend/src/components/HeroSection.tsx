@@ -17,10 +17,12 @@ function HeroSectionCard({
 }) {
   return (
     <div
-      className={`shadow-drop-shadow flex flex-col gap-[8px] ${
+      className={`shadow-drop-shadow flex flex-col gap-[8px]${
         isHorizontal ? "" : "w-[274px]"
       } rounded-[15px] ${
-        isHorizontal ? "py-[20px] px-[15px]" : "py-[25px] px-[25px]"
+        isHorizontal
+          ? "py-[20px] px-[15px] border border-hero"
+          : "py-[25px] px-[25px]"
       } ${isHorizontal ? "relative" : "absolute"} ${className}`}
     >
       <div className="flex justify-center">{icon}</div>
@@ -48,13 +50,14 @@ function HeroSectionContent() {
   return (
     <div className="flex-1">
       <h1 className="font-bold text-[45px] leading-none text-hero-heading">
-        Transform Your Mental Health Journey
+        Transform Your Decisions Through Proven Expert Guidance
       </h1>
 
       <p className="font-light text-[15px] mt-[20px] text-[hsl(194,19%,18%)]">
-        Therapy is like cleaning that messy drawer. You keep what matters and
-        let go of what doesn't. We make therapy work for you with our
-        specialized professionals.
+        Unlock expert guidance in health, finance, and education—so every
+        decision strengthens your future, not risks it. Skip the confusion,
+        trust proven insight, and move forward with confidence, clarity, and
+        real results.
       </p>
 
       <div
@@ -82,15 +85,15 @@ function HeroSectionFloatingCards() {
     <div className="flex-1 relative">
       <HeroSectionCard
         icon={<HandHeart size={70} className="m-auto mb-[10px]" />}
-        title="Personalized Care"
-        description="Tailored to your unique needs"
+        title="Wellness Ecosystem"
+        description="Your mental health, your way"
         className="bg-[hsl(0,0%,98%,70%)] top-[-80px] right-[250px] z-2 text-hero-heading animate-float-1"
       />
 
       <HeroSectionCard
         icon={<UserStar size={70} className="m-auto mb-[10px]" />}
-        title="Expert Support"
-        description="Connect with licensed professionals"
+        title="Finance Sector"
+        description="Expert financial guidance"
         className="bg-[hsl(0,0%,98%,60%)] top-[140px] right-[285px] text-hero-heading z-1 animate-float-2"
       />
 
@@ -98,12 +101,12 @@ function HeroSectionFloatingCards() {
         icon={
           <img
             src="./images/healing.png"
-            alt="Emotional Healing"
+            alt="Education Sector"
             className="w-[70px] m-auto mb-[10px]"
           />
         }
-        title="Emotional Healing"
-        description="Find peace and emotional balance"
+        title="Education Sector"
+        description="Your learning, your way"
         className="bg-[hsl(194,19%,18%)] top-[50px] right-[0px] text-white z-1 animate-float-3"
       />
 

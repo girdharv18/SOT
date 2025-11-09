@@ -68,7 +68,7 @@ function ClinicallyValidatedTestsSectionCard({
 }) {
   return (
     <div
-      className="flex justify-between flex-col flex-1 border-2 p-[25px] relative rounded-[15px] mt-[40px]"
+      className="flex justify-between flex-col border-1 p-[25px] relative rounded-[15px] mt-[40px] w-full md:max-w-[calc(50%-10px)] lg:max-w-[calc(33.333%-14px)]"
       style={{ borderColor: borderColor }}
     >
       <div>

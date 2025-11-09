@@ -14,7 +14,7 @@ function AnalyticsSectionCard({
 }) {
   return (
     <div
-      className={`border-2 border-hero-heading bg-white rounded-[15px] ${
+      className={`border border-hero-heading bg-white rounded-[15px] ${
         isHorizontal ? "p-[15px]" : "p-[20px]"
       } ${isHorizontal ? "flex-1" : "min-w-[300px]"}`}
     >
@@ -76,7 +76,7 @@ export default function AnalyticsSection() {
 
   if (screenWidth <= 1170) {
     return (
-      <div className="px-[20px] py-[70px] bg-light-100">
+      <div className="px-[20px] pt-[20px] pb-[70px] bg-light-100">
         <div
           className={`flex items-stretch gap-[15px] ${
             screenWidth <= 600 ? "flex-col" : ""
@@ -109,7 +109,7 @@ export default function AnalyticsSection() {
 
   // Desktop layout
   return (
-    <div className="px-[20px] py-[70px] bg-light-100 flex justify-center items-center gap-[30px]">
+    <div className="px-[20px] pt-[20px] pb-[70px] bg-light-100 flex justify-center items-center gap-[30px]">
       <AnalyticsSectionCard
         value="120+"
         description="Mental Health Professionals"

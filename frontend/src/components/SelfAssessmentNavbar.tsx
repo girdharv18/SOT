@@ -10,7 +10,7 @@ export default function SelfAssessmentNavbar() {
       <div className="flex items-center gap-4">
         <Link to="/">
           <h1 className="text-[clamp(14px,4vw,20px)] font-medium text-logo-heading">
-            MindCure
+            MindCurePath
           </h1>
         </Link>
         <p className="text-[20px] text-logo-heading">&bull;</p>

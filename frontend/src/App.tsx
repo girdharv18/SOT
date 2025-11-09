@@ -6,6 +6,7 @@ import { ScreenProvider } from "./context/ScreenContext";
 import SelfAssessment from "./pages/SelfAssessment";
 import SelfAssessmentQuestions from "./pages/SelfAssessmentQuestions";
 import SelfAssessmentResult from "./pages/SelfAssessmentResult";
+import Experts from "./pages/Experts";
 
 export default function App() {
   return (
@@ -23,6 +24,9 @@ export default function App() {
           path="/self-assessment/result"
           element={<SelfAssessmentResult />}
         />
+        <Route path="/health-experts" element={<Experts />} />
+        <Route path="/education-experts" element={<Experts />} />
+        <Route path="/finance-experts" element={<Experts />} />
       </Routes>
     </ScreenProvider>
   );

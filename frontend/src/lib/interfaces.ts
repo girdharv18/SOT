@@ -1,4 +1,4 @@
-export type Role = "user" | "therapist" | "admin";
+export type Role = "user" | "expert" | "admin";
 
 export interface QuizOption {
   text: string;

@@ -90,9 +90,9 @@ export default function SelfAssessmentQuestions() {
         ></div>
       </div>
 
-      <div className="text-[16px] font-medium text-[#44666C] mt-[14px]">
+      {/* <div className="text-[16px] font-medium text-[#44666C] mt-[14px]">
         Total Score: {calculateTotalScore()} / {totalQuestions * 4}
-      </div>
+      </div> */}
 
       {/* Question Text Here*/}
       <h2 className="question-text text-[24px] font-medium text-[#44666C] mt-[50px]">
