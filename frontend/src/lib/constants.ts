@@ -228,11 +228,90 @@ export const REVIEWS = [
   },
 ];
 
-export const EXPERTS = [
+export type Expert = {
+  id: number;
+  name: string;
+  image: string;
+  rating: number;
+  ratingCount: number;
+  specialization: string;
+  tags: string;
+  languages: string;
+  nextSlot: string;
+  price: number;
+};
+
+export const EXPERTS: Expert[] = [
   {
     id: 1,
-    name: "Dr. John Doe",
-    image: "",
+    name: "Dr. Christian Buehner",
+    image: "images/experts/expert_profile_img.png",
     rating: 4.8,
+    ratingCount: 30,
+    specialization: "Counselling Psychologist (2+ yrs of experience)",
+    tags: "Anxiety, Relationship, Procrastination and Time Management",
+    languages: "English, German",
+    nextSlot: "Tue, Nov 12, 10:00 AM - 11:00 AM",
+    price: 1500,
+  },
+  {
+    id: 2,
+    name: "Dr. Aisha Kapoor",
+    image: "images/experts/expert_profile_img.png",
+    rating: 4.9,
+    ratingCount: 42,
+    specialization: "Clinical Psychologist (5+ yrs of experience)",
+    tags: "Depression, Stress, Burnout",
+    languages: "English, Hindi",
+    nextSlot: "Wed, Nov 13, 2:00 PM - 3:00 PM",
+    price: 1800,
+  },
+  {
+    id: 3,
+    name: "Dr. Miguel Santos",
+    image: "images/experts/expert_profile_img.png",
+    rating: 4.7,
+    ratingCount: 25,
+    specialization: "Therapist (3+ yrs of experience)",
+    tags: "Self-esteem, Motivation, Life Coaching",
+    languages: "English, Spanish",
+    nextSlot: "Thu, Nov 14, 9:30 AM - 10:30 AM",
+    price: 1200,
+  },
+  {
+    id: 4,
+    name: "Dr. Priya Nair",
+    image: "images/experts/expert_profile_img.png",
+    rating: 5.0,
+    ratingCount: 60,
+    specialization: "Psychiatrist (7+ yrs of experience)",
+    tags: "Mood Disorders, ADHD, Sleep",
+    languages: "English, Malayalam, Hindi",
+    nextSlot: "Fri, Nov 15, 11:00 AM - 12:00 PM",
+    price: 2200,
+  },
+  {
+    id: 5,
+    name: "Dr. Arjun Mehta",
+    image: "images/experts/expert_profile_img.png",
+    rating: 4.6,
+    ratingCount: 19,
+    specialization: "Counsellor (2+ yrs of experience)",
+    tags: "Work Anxiety, Communication, Anger",
+    languages: "English, Hindi",
+    nextSlot: "Sat, Nov 16, 4:00 PM - 5:00 PM",
+    price: 1000,
+  },
+  {
+    id: 6,
+    name: "Dr. Sana Qureshi",
+    image: "images/experts/expert_profile_img.png",
+    rating: 4.8,
+    ratingCount: 34,
+    specialization: "Family Therapist (4+ yrs of experience)",
+    tags: "Relationships, Parenting, Conflict Resolution",
+    languages: "English, Urdu",
+    nextSlot: "Sun, Nov 17, 1:00 PM - 2:00 PM",
+    price: 1600,
   },
 ];
