@@ -9,7 +9,7 @@ function Step({ title, description }: { title: string; description: string }) {
 
 export default function HowDoesItWork() {
   return (
-    <div className="mt-[30px] px-[20px] rounded-2xl">
+    <div className="mt-[30px] rounded-2xl">
       <div className="text-center">
         <h1 className="text-3xl font-bold">How Does It Work?</h1>
         <p className="text-[#4F5B64] mb-[40px]">

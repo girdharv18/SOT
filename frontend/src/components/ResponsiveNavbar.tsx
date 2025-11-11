@@ -3,6 +3,7 @@ import { Menu } from "lucide-react";
 import Navbar from "./Navbar";
 import MobileNavModal from "./modals/MobileNavModal";
 import { useScreen } from "../context/ScreenContext";
+import { Link } from "react-router-dom";
 
 export default function ResponsiveNavbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -12,10 +13,15 @@ export default function ResponsiveNavbar() {
     return (
       <>
         {/* Mobile Header */}
-        <div className="navbar max-w-[1350px] px-[25px] mx-auto flex justify-between items-center py-[20px]">
-          <h1 className="text-[22px] font-semibold text-logo-heading cursor-pointer">
-            MindCurePath
-          </h1>
+        <div className="navbar max-w-[1350px] mx-auto flex justify-between items-center py-[20px]">
+          <div className="flex items-center gap-[10px]">
+            <Link
+              to="/"
+              className="text-[22px] font-semibold text-logo-heading cursor-pointer"
+            >
+              MindCurePath
+            </Link>
+          </div>
 
           {/* Mobile Menu Button */}
           <button

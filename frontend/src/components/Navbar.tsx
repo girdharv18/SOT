@@ -87,10 +87,20 @@ export default function Navbar() {
   }, []);
 
   return (
-    <div className="navbar max-w-[1350px] px-[25px] mx-auto flex justify-between items-center py-[20px]">
-      <h1 className="text-[22px] font-semibold text-logo-heading cursor-pointer">
-        MindCurePath
-      </h1>
+    <div className="navbar max-w-[1350px] mx-auto flex justify-between items-center py-[20px]">
+      <div className="flex items-center gap-[10px]">
+        <img
+          src="/images/navbar/logo.png"
+          alt="MindCurePath Logo"
+          className="w-[60px]"
+        />
+        <Link
+          to="/"
+          className="text-[22px] font-semibold text-logo-heading cursor-pointer"
+        >
+          Mind<span className="text-[#45c2c7]">Cure</span>Path
+        </Link>
+      </div>
 
       <div className="flex items-center gap-[2px] text-[13px] relative">
         {weHelpWithModalOpen && (

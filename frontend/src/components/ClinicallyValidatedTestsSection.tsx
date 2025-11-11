@@ -97,7 +97,7 @@ function ClinicallyValidatedTestsSectionCard({
 
 export default function ClinicallyValidatedTestsSection() {
   return (
-    <div className="px-[20px] py-[50px] max-w-[1350px] mx-auto">
+    <div className="py-[50px] max-w-[1350px] mx-auto mt-[70px]">
       <h1 className="text-3xl font-bold text-center">
         Clinically Validated Tests
       </h1>

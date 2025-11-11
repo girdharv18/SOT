@@ -1,16 +1,11 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { EXPERT_CATEGORIES } from "../../lib/constants";
 
 interface WeHelpWithProps {
   modalRef: React.RefObject<HTMLDivElement | null>;
   navbarType: "landing" | "experts";
 }
-
-const expertCategories = {
-  health: ["Mental", "Physical", "Nutrition", "Wellness"],
-  education: ["Career", "Academic", "Skills", "Planning"],
-  finance: ["Investment", "Tax", "Budget", "Retirement"],
-};
 
 export default function WeHelpWith({
   modalRef,
@@ -22,7 +17,13 @@ export default function WeHelpWith({
 
   const getCategories = () => {
     if (!hoveredExpert) return [];
-    return expertCategories[hoveredExpert];
+    return EXPERT_CATEGORIES[hoveredExpert];
+  };
+
+  const getCategoryRoute = (category: string, expertType: string) => {
+    const baseRoute = `/${expertType}-experts`;
+    const categorySlug = category.toLowerCase().replace(/\s+/g, "-");
+    return `${baseRoute}/${categorySlug}`;
   };
 
   return (
@@ -72,17 +73,25 @@ export default function WeHelpWith({
 
       <div className="flex-3 w-full bg-navbar-dropdown-right-outer-bg border border-navbar-dropdown-right-outer text-white p-[5px] rounded-[10px] flex">
         {hoveredExpert ? (
-          <div className="grid grid-cols-2 grid-rows-2 gap-[5px] w-full h-full">
-            {getCategories().map((category, index) => (
-              <div
-                key={index}
-                className="group bg-navbar-dropdown-bg rounded-[10px] p-[15px] flex items-center justify-center text-center hover:bg-white hover:text-navbar-dropdown-bg transition-all cursor-pointer"
-              >
-                <span className="text-[13px] inline-block group-hover:scale-[1.3] transition-all">
-                  {category}
-                </span>
-              </div>
-            ))}
+          <div className="grid grid-cols-2 gap-[5px] w-full h-full">
+            {getCategories().map((category, index) => {
+              const isMultiLine = category.length > 18;
+              const categoryRoute = getCategoryRoute(category, hoveredExpert);
+
+              return (
+                <Link
+                  key={index}
+                  to={categoryRoute}
+                  className={`group bg-navbar-dropdown-bg rounded-[10px] p-[15px] flex items-center justify-center text-center hover:bg-white hover:text-navbar-dropdown-bg transition-all cursor-pointer ${
+                    isMultiLine ? "col-span-2" : ""
+                  }`}
+                >
+                  <span className="text-[13px] inline-block group-hover:scale-[1.3] transition-all">
+                    {category}
+                  </span>
+                </Link>
+              );
+            })}
           </div>
         ) : (
           <div className="w-full flex items-center justify-center text-gray-400">

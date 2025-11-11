@@ -228,6 +228,12 @@ export const REVIEWS = [
   },
 ];
 
+export const EXPERT_CATEGORIES = {
+  health: ["Therapists", "Yoga Experts", "Dieticians"],
+  education: ["Academic Counsellors", "Achievers"],
+  finance: ["Investment Counsellors", "Financial Experts"],
+};
+
 export type Expert = {
   id: number;
   name: string;
@@ -245,7 +251,7 @@ export const EXPERTS: Expert[] = [
   {
     id: 1,
     name: "Dr. Christian Buehner",
-    image: "images/experts/expert_profile_img.png",
+    image: "/images/experts/expert_profile_img.png",
     rating: 4.8,
     ratingCount: 30,
     specialization: "Counselling Psychologist (2+ yrs of experience)",
@@ -257,7 +263,7 @@ export const EXPERTS: Expert[] = [
   {
     id: 2,
     name: "Dr. Aisha Kapoor",
-    image: "images/experts/expert_profile_img.png",
+    image: "/images/experts/expert_profile_img.png",
     rating: 4.9,
     ratingCount: 42,
     specialization: "Clinical Psychologist (5+ yrs of experience)",
@@ -269,7 +275,7 @@ export const EXPERTS: Expert[] = [
   {
     id: 3,
     name: "Dr. Miguel Santos",
-    image: "images/experts/expert_profile_img.png",
+    image: "/images/experts/expert_profile_img.png",
     rating: 4.7,
     ratingCount: 25,
     specialization: "Therapist (3+ yrs of experience)",
@@ -281,7 +287,7 @@ export const EXPERTS: Expert[] = [
   {
     id: 4,
     name: "Dr. Priya Nair",
-    image: "images/experts/expert_profile_img.png",
+    image: "/images/experts/expert_profile_img.png",
     rating: 5.0,
     ratingCount: 60,
     specialization: "Psychiatrist (7+ yrs of experience)",
@@ -293,7 +299,7 @@ export const EXPERTS: Expert[] = [
   {
     id: 5,
     name: "Dr. Arjun Mehta",
-    image: "images/experts/expert_profile_img.png",
+    image: "/images/experts/expert_profile_img.png",
     rating: 4.6,
     ratingCount: 19,
     specialization: "Counsellor (2+ yrs of experience)",
@@ -305,7 +311,7 @@ export const EXPERTS: Expert[] = [
   {
     id: 6,
     name: "Dr. Sana Qureshi",
-    image: "images/experts/expert_profile_img.png",
+    image: "/images/experts/expert_profile_img.png",
     rating: 4.8,
     ratingCount: 34,
     specialization: "Family Therapist (4+ yrs of experience)",

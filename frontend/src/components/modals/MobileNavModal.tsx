@@ -97,15 +97,27 @@ export default function MobileNavModal({
               }`}
             >
               <div className="pl-[30px] pt-[10px] flex flex-col gap-[8px]">
-                <div className="px-[20px] py-[10px] text-[16px] rounded-[10px] cursor-pointer hover:bg-gray-50 transition-colors duration-200">
+                <Link
+                  to="/health-experts"
+                  onClick={onClose}
+                  className="px-[20px] py-[10px] text-[16px] rounded-[10px] cursor-pointer hover:bg-gray-50 transition-colors duration-200"
+                >
                   Health
-                </div>
-                <div className="px-[20px] py-[10px] text-[16px] rounded-[10px] cursor-pointer hover:bg-gray-50 transition-colors duration-200">
+                </Link>
+                <Link
+                  to="/education-experts"
+                  onClick={onClose}
+                  className="px-[20px] py-[10px] text-[16px] rounded-[10px] cursor-pointer hover:bg-gray-50 transition-colors duration-200"
+                >
                   Education
-                </div>
-                <div className="px-[20px] py-[10px] text-[16px] rounded-[10px] cursor-pointer hover:bg-gray-50 transition-colors duration-200">
+                </Link>
+                <Link
+                  to="/finance-experts"
+                  onClick={onClose}
+                  className="px-[20px] py-[10px] text-[16px] rounded-[10px] cursor-pointer hover:bg-gray-50 transition-colors duration-200"
+                >
                   Finance
-                </div>
+                </Link>
               </div>
             </div>
           </div>

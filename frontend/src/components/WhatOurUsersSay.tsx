@@ -31,7 +31,7 @@ function ReviewCard({
 
 export default function WhatOurUsersSay() {
   return (
-    <div className="px-[20px] py-[50px] max-w-[1350px] mx-auto mt-[50px]">
+    <div className="py-[50px] max-w-[1350px] mx-auto mt-[50px]">
       <div>
         <h1 className="text-3xl font-bold text-center">What Our Users Say</h1>
         <p className="text-center mt-[10px] text-[#4F5B64]">

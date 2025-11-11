@@ -1,14 +1,22 @@
 import { useState, useEffect, useRef } from "react";
+import { useLocation, Link } from "react-router-dom";
 import ExpertsHeroSection from "../components/ExpertsHeroSection";
-import ExpertsNavbar from "../components/ExpertsNavbar";
-import { Filter, X } from "lucide-react";
+import { Filter, X, ChevronRight } from "lucide-react";
+import { EXPERTS, EXPERT_CATEGORIES } from "../lib/constants";
+import ResponsiveNavbar from "../components/ResponsiveNavbar";
 import ExpertCard from "../components/ExpertCard";
 
-function ExpertsTitle() {
+function ExpertsTitle({ sector }: { sector: string }) {
+  const sectorTitles: Record<string, string> = {
+    health: "Health Sector",
+    education: "Education Sector",
+    finance: "Finance Sector",
+  };
+
   return (
     <div className="max-w-[1350px] mx-auto">
-      <h1 className="text-white text-[20px] font-medium bg-[#304048] text-center py-[10px] rounded-[30px] my-[10px]">
-        Health Sector
+      <h1 className="text-white text-[16px] md:text-[20px] font-medium bg-[#304048] text-center py-[10px] rounded-[30px] my-[10px]">
+        {sectorTitles[sector] || "Expert Sector"}
       </h1>
     </div>
   );
@@ -17,27 +25,38 @@ function ExpertsTitle() {
 function Options({
   options,
   selectedOption,
-  setSelectedOption,
+  sector,
 }: {
   options: string[];
   selectedOption: string;
-  setSelectedOption: (option: string) => void;
+  sector: string;
 }) {
+  const getCategoryRoute = (category: string, expertType: string) => {
+    const baseRoute = `/${expertType}-experts`;
+    const categorySlug = category.toLowerCase().replace(/\s+/g, "-");
+    return `${baseRoute}/${categorySlug}`;
+  };
+
   return (
     <div className="max-w-[1350px] mx-auto flex items-center justify-between gap-[10px]">
-      {options.map((option) => (
-        <div
-          key={option}
-          className={`flex flex-1 w-full items-center cursor-pointer justify-center rounded-[30px] py-[10px] ${
-            selectedOption === option
-              ? "bg-[#304048] text-white"
-              : "bg-light-100 text-[#304048] hover:bg-[#304048]/20"
-          }`}
-          onClick={() => setSelectedOption(option)}
-        >
-          {option}
-        </div>
-      ))}
+      {options.map((option) => {
+        const route = getCategoryRoute(option, sector);
+        const isSelected = selectedOption === option;
+
+        return (
+          <Link
+            key={option}
+            to={route}
+            className={`flex flex-1 w-full items-center cursor-pointer justify-center rounded-[30px] py-[10px] text-sm md:text-base ${
+              isSelected
+                ? "bg-[#304048] text-white"
+                : "bg-light-100 text-[#304048] hover:bg-[#304048]/20"
+            }`}
+          >
+            {option}
+          </Link>
+        );
+      })}
     </div>
   );
 }
@@ -158,47 +177,103 @@ function FiltersAndSearch({
   removeFilter: (filter: string) => void;
   onFilterClick: () => void;
 }) {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [showRightArrow, setShowRightArrow] = useState(false);
+
+  const checkScrollPosition = () => {
+    if (scrollContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } =
+        scrollContainerRef.current;
+      // Show arrow if not scrolled to the end (with small threshold for rounding)
+      setShowRightArrow(scrollLeft + clientWidth < scrollWidth - 5);
+    }
+  };
+
+  const scrollToRight = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo({
+        left: scrollContainerRef.current.scrollWidth,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      // Check initial state
+      checkScrollPosition();
+
+      // Check on scroll
+      container.addEventListener("scroll", checkScrollPosition);
+
+      // Check on resize
+      window.addEventListener("resize", checkScrollPosition);
+
+      return () => {
+        container.removeEventListener("scroll", checkScrollPosition);
+        window.removeEventListener("resize", checkScrollPosition);
+      };
+    }
+  }, [appliedFilters]);
+
   return (
-    <div className="flex items-center justify-between mt-[25px] max-w-[1350px] mx-auto">
+    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-[15px] md:gap-0 mt-[25px] max-w-[1350px] mx-auto">
       {/* Filters */}
-      <div className="flex items-center gap-[10px] flex-1">
+      <div className="flex items-center gap-[10px] flex-1 min-w-0 md:min-w-auto relative">
         <div
-          className="flex items-center justify-center cursor-pointer p-[10px] bg-[#304048]/17 rounded-full hover:bg-[#304048]/25 transition-colors"
+          className="flex items-center justify-center cursor-pointer p-[10px] bg-[#304048]/17 rounded-full hover:bg-[#304048]/25 transition-colors flex-shrink-0"
           onClick={onFilterClick}
         >
           <Filter className="text-[#304048]" size={20} />
         </div>
 
-        {/* Applied Filters */}
-        {appliedFilters.map((filter) => (
-          <div
-            key={filter}
-            className="flex items-center gap-[5px] bg-[#E0ECEE] border border-[#133945] text-[#133945] pl-[15px] pr-[7px] py-[6px] rounded-full text-[14px]"
-          >
-            <span>{filter}</span>
-            <button
-              onClick={() => removeFilter(filter)}
-              className="hover:bg-[#bfd8df] rounded-full cursor-pointer p-[5px] transition-colors flex items-center"
-            >
-              <X size={14} />
-            </button>
+        {/* Applied Filters - Scrollable */}
+        <div
+          ref={scrollContainerRef}
+          className="flex items-center gap-[10px] overflow-x-auto flex-1 min-w-0 scrollbar-hide"
+        >
+          <div className="flex items-center gap-[10px]">
+            {appliedFilters.map((filter) => (
+              <div
+                key={filter}
+                className="flex items-center gap-[5px] bg-[#E0ECEE] border border-[#133945] text-[#133945] pl-[15px] pr-[7px] py-[6px] rounded-full text-xs md:text-[14px] whitespace-nowrap flex-shrink-0"
+              >
+                <span>{filter}</span>
+                <button
+                  onClick={() => removeFilter(filter)}
+                  className="hover:bg-[#bfd8df] rounded-full cursor-pointer p-[5px] transition-colors flex items-center"
+                >
+                  <X size={14} />
+                </button>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
+
+        {/* Right Arrow Indicator */}
+        {showRightArrow && (
+          <div
+            onClick={scrollToRight}
+            className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center justify-center h-full aspect-square rounded-full bg-[hsl(0,0%,100%)] border border-[hsl(0,0%,70%)] cursor-pointer z-10 min-h-[32px]"
+          >
+            <ChevronRight size={16} className="text-gray-800" />
+          </div>
+        )}
       </div>
 
       {/* Search Bar */}
-      <div className="border border-border-light rounded-full">
+      <div className="border border-border-light rounded-full w-full md:w-auto flex-shrink-0">
         <input
           type="text"
           placeholder="Search"
-          className="w-full px-[15px] py-[10px] rounded-full focus:outline-border-light text-border-light placeholder:text-border-light"
+          className="w-full px-[15px] py-[10px] rounded-full focus:outline-border-light text-border-light placeholder:text-border-light text-sm md:text-base"
         />
       </div>
     </div>
   );
 }
-
-import { EXPERTS } from "../lib/constants";
 
 function ExpertsCardsSection() {
   return (
@@ -224,7 +299,38 @@ function ExpertsCardsSection() {
 }
 
 export default function Experts() {
-  const [selectedOption, setSelectedOption] = useState<string>("Mental");
+  const location = useLocation();
+
+  // Extract sector from path (e.g., "/health-experts/therapists" -> "health")
+  const getSectorFromPath = (path: string): string => {
+    if (path.startsWith("/health-experts")) return "health";
+    if (path.startsWith("/education-experts")) return "education";
+    if (path.startsWith("/finance-experts")) return "finance";
+    return "health"; // default
+  };
+
+  // Extract current category from path (e.g., "/health-experts/therapists" -> "Therapists")
+  const getCurrentCategoryFromPath = (path: string, sector: string): string => {
+    const categories =
+      EXPERT_CATEGORIES[sector as keyof typeof EXPERT_CATEGORIES] || [];
+    const pathParts = path.split("/");
+    const lastPart = pathParts[pathParts.length - 1];
+
+    // Find matching category by converting slug back to title case
+    const matchingCategory = categories.find((cat) => {
+      const slug = cat.toLowerCase().replace(/\s+/g, "-");
+      return slug === lastPart;
+    });
+
+    return matchingCategory || categories[0] || "";
+  };
+
+  const sector = getSectorFromPath(location.pathname);
+  const categories =
+    EXPERT_CATEGORIES[sector as keyof typeof EXPERT_CATEGORIES] || [];
+  const currentCategory = getCurrentCategoryFromPath(location.pathname, sector);
+
+  const [selectedOption, setSelectedOption] = useState<string>(currentCategory);
   const [appliedFilters, setAppliedFilters] = useState<string[]>([
     "Price",
     "Age",
@@ -232,6 +338,11 @@ export default function Experts() {
   ]);
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
   const [tempSelectedFilters, setTempSelectedFilters] = useState<string[]>([]);
+
+  // Update selected option when route changes
+  useEffect(() => {
+    setSelectedOption(currentCategory);
+  }, [currentCategory]);
 
   // Available filters - you can modify this list as needed
   const availableFilters = [
@@ -270,16 +381,16 @@ export default function Experts() {
 
   return (
     <div className="px-[20px]">
-      <ExpertsNavbar />
+      <ResponsiveNavbar />
 
       <ExpertsHeroSection />
 
-      <ExpertsTitle />
+      <ExpertsTitle sector={sector} />
 
       <Options
-        options={["Mental", "Physical", "Nutrition", "Wellness"]}
+        options={categories}
         selectedOption={selectedOption}
-        setSelectedOption={setSelectedOption}
+        sector={sector}
       />
 
       <FiltersAndSearch

@@ -40,7 +40,7 @@ function WhyChooseUsCard({
 
 export default function WhyChooseUsSection() {
   return (
-    <div className="px-[20px] py-[50px] max-w-[1350px] mx-auto">
+    <div className="py-[50px] max-w-[1350px] mx-auto">
       <h1 className="text-3xl font-bold text-center">
         Why Choose MindCurePath?
       </h1>

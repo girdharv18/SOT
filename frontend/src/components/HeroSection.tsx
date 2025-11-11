@@ -67,14 +67,10 @@ function HeroSectionContent() {
       >
         <Link
           to="/login"
-          className="border-none bg-[hsl(189,62%,25%)] cursor-pointer text-white text-center rounded-[15px] px-[25px] py-[10px] hover:bg-[hsl(189,62%,30%)] transition shadow-drop-shadow hover:translate-y-[-2px]"
+          className="border-none bg-[hsl(186,46%,22%)] cursor-pointer text-white text-center rounded-[15px] px-[25px] py-[10px] hover:bg-[hsl(189,62%,30%)] transition shadow-drop-shadow hover:translate-y-[-2px]"
         >
-          Start your journey
+          Book your appointment
         </Link>
-
-        <div className="border border-[hsl(189,62%,25%)] cursor-pointer text-center rounded-[15px] px-[25px] py-[10px] hover:translate-y-[-2px] text-[hsl(189,62%,25%)] transition hover:shadow-drop-shadow">
-          Take Assessment
-        </div>
       </div>
     </div>
   );
@@ -162,7 +158,7 @@ export default function HeroSection() {
 
   if (screenWidth <= 1170) {
     return (
-      <div className="max-w-[1350px] mx-auto px-[25px] mt-[4rem]">
+      <div className="max-w-[1350px] mx-auto mt-[4rem]">
         {/* Content */}
         <HeroSectionContent />
 
@@ -174,7 +170,7 @@ export default function HeroSection() {
 
   // Desktop layout
   return (
-    <div className="flex max-w-[1350px] mx-auto px-[25px] justify-between mt-[11rem] min-h-[480px]">
+    <div className="flex max-w-[1350px] mx-auto justify-between mt-[11rem] min-h-[480px]">
       {/* Left Div */}
       <HeroSectionContent />
 

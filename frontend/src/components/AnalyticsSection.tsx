@@ -14,14 +14,14 @@ function AnalyticsSectionCard({
 }) {
   return (
     <div
-      className={`border border-hero-heading bg-white rounded-[15px] ${
+      className={`border border-[#B5B5B5] bg-white rounded-[15px] ${
         isHorizontal ? "p-[15px]" : "p-[20px]"
       } ${isHorizontal ? "flex-1" : "min-w-[300px]"}`}
     >
       <h1
         className={`font-semibold ${
           isHorizontal ? "text-[28px]" : "text-[35px]"
-        } text-hero-heading text-center`}
+        } text-[#323949] text-center`}
       >
         {animatedValue !== undefined
           ? animatedValue.toLocaleString() + "+"
@@ -40,67 +40,67 @@ function AnalyticsSectionCard({
 
 export default function AnalyticsSection() {
   const { screenWidth } = useScreen();
-  const [professionalsCount, setProfessionalsCount] = useState(0);
-  const [livesCount, setLivesCount] = useState(0);
-  const [toolsCount, setToolsCount] = useState(0);
+  // const [professionalsCount, setProfessionalsCount] = useState("X");
+  // const [livesCount, setLivesCount] = useState("Y");
+  // const [toolsCount, setToolsCount] = useState("Z");
 
-  useEffect(() => {
-    const duration = 2000; // 4 seconds
-    const steps = 60; // 60 steps for smooth animation
-    const stepDuration = duration / steps;
+  // useEffect(() => {
+  //   const duration = 2000; // 4 seconds
+  //   const steps = 60; // 60 steps for smooth animation
+  //   const stepDuration = duration / steps;
 
-    // This should be fetched from the backend later
-    const professionalsTarget = 120;
-    const livesTarget = 50000;
-    const toolsTarget = 15;
+  //   // This should be fetched from the backend later
+  //   const professionalsTarget = 120;
+  //   const livesTarget = 50000;
+  //   const toolsTarget = 15;
 
-    let step = 0;
-    const timer = setInterval(() => {
-      step++;
-      const progress = step / steps;
+  //   let step = 0;
+  //   const timer = setInterval(() => {
+  //     step++;
+  //     const progress = step / steps;
 
-      setProfessionalsCount(Math.floor(professionalsTarget * progress));
-      setLivesCount(Math.floor(livesTarget * progress));
-      setToolsCount(Math.floor(toolsTarget * progress));
+  //     setProfessionalsCount(Math.floor(professionalsTarget * progress));
+  //     setLivesCount(Math.floor(livesTarget * progress));
+  //     setToolsCount(Math.floor(toolsTarget * progress));
 
-      if (step >= steps) {
-        clearInterval(timer);
-        setProfessionalsCount(professionalsTarget);
-        setLivesCount(livesTarget);
-        setToolsCount(toolsTarget);
-      }
-    }, stepDuration);
+  //     if (step >= steps) {
+  //       clearInterval(timer);
+  //       setProfessionalsCount(professionalsTarget);
+  //       setLivesCount(livesTarget);
+  //       setToolsCount(toolsTarget);
+  //     }
+  //   }, stepDuration);
 
-    return () => clearInterval(timer);
-  }, []);
+  //   return () => clearInterval(timer);
+  // }, []);
 
   if (screenWidth <= 1170) {
     return (
-      <div className="px-[20px] pt-[20px] pb-[70px] bg-light-100">
+      <div className="pt-[20px] pb-[70px] bg-light-100">
         <div
           className={`flex items-stretch gap-[15px] ${
             screenWidth <= 600 ? "flex-col" : ""
           }`}
         >
           <AnalyticsSectionCard
-            value="120+"
-            description="Mental Health Professionals"
+            value="X"
+            description="Certified Pioneer professionals"
             isHorizontal={true}
-            animatedValue={professionalsCount}
+            // animatedValue={professionalsCount}
           />
 
           <AnalyticsSectionCard
-            value="50,000+"
+            value="Y"
             description="Lives Transformed"
             isHorizontal={true}
-            animatedValue={livesCount}
+            // animatedValue={livesCount}
           />
 
           <AnalyticsSectionCard
-            value="15+"
+            value="Z"
             description="Specialized Tools"
             isHorizontal={true}
-            animatedValue={toolsCount}
+            // animatedValue={toolsCount}
           />
         </div>
       </div>
@@ -111,21 +111,21 @@ export default function AnalyticsSection() {
   return (
     <div className="px-[20px] pt-[20px] pb-[70px] bg-light-100 flex justify-center items-center gap-[30px]">
       <AnalyticsSectionCard
-        value="120+"
+        value="X"
         description="Mental Health Professionals"
-        animatedValue={professionalsCount}
+        // animatedValue={professionalsCount}
       />
 
       <AnalyticsSectionCard
-        value="50,000+"
+        value="Y"
         description="Lives Transformed"
-        animatedValue={livesCount}
+        // animatedValue={livesCount}
       />
 
       <AnalyticsSectionCard
-        value="15+"
+        value="Z"
         description="Specialized Tools"
-        animatedValue={toolsCount}
+        // animatedValue={toolsCount}
       />
     </div>
   );
