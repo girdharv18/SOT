@@ -31,7 +31,7 @@ export default function WeHelpWith({
       className={`absolute top-[50px] ${
         navbarType === "landing" && "left-[50%] -translate-x-1/2 min-w-[570px]"
       } ${
-        navbarType === "experts" && "left-0 w-full"
+        navbarType === "experts" && "left-[50px] w-full"
       } flex items-stretch justify-between gap-[20px] bg-navbar-dropdown-bg z-20 rounded-[10px] p-[10px]`}
     >
       <div className="flex flex-col text-white gap-[10px] flex-2">

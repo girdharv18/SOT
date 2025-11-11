@@ -35,6 +35,11 @@
   --color-hover-bg: hsl(194, 57%, 17%, 0.08);
 }
 
+.expert-hero-gradient {
+  background: #cfdfe6;
+  background: radial-gradient(circle, rgba(207, 223, 230, 1) 0%, rgba(180, 199, 212, 1) 61%);
+}
+
 /* Floating Animations */
 @keyframes float1 {
   0%,

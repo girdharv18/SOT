@@ -227,3 +227,12 @@ export const REVIEWS = [
     rating: 5,
   },
 ];
+
+export const EXPERTS = [
+  {
+    id: 1,
+    name: "Dr. John Doe",
+    image: "",
+    rating: 4.8,
+  },
+];

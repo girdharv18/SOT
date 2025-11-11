@@ -20,11 +20,15 @@ function NavbarItemIcon({
   text,
   icon,
   onClick,
+  onMouseEnter,
+  onMouseLeave,
   isActive = false,
 }: {
   text: string;
   icon: React.ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
   isActive?: boolean;
 }) {
   return (
@@ -33,6 +37,8 @@ function NavbarItemIcon({
         isActive ? "bg-hover-bg" : ""
       }`}
       onClick={onClick}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       <p className="text-light-text">{text}</p>
       {icon}
@@ -44,27 +50,41 @@ export default function Navbar() {
   const [weHelpWithModalOpen, setWeHelpWithModalOpen] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
   const navbarItemRef = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<number | null>(null);
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setWeHelpWithModalOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    // Add a small delay before closing to allow moving to modal
+    timeoutRef.current = setTimeout(() => {
+      setWeHelpWithModalOpen(false);
+    }, 100);
+  };
+
+  const handleModalMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+  };
+
+  const handleModalMouseLeave = () => {
+    setWeHelpWithModalOpen(false);
+  };
 
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (
-        modalRef.current &&
-        !modalRef.current.contains(event.target as Node) &&
-        navbarItemRef.current &&
-        !navbarItemRef.current.contains(event.target as Node)
-      ) {
-        setWeHelpWithModalOpen(false);
-      }
-    }
-
-    if (weHelpWithModalOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
     };
-  }, [weHelpWithModalOpen]);
+  }, []);
 
   return (
     <div className="navbar max-w-[1350px] px-[25px] mx-auto flex justify-between items-center py-[20px]">
@@ -74,7 +94,12 @@ export default function Navbar() {
 
       <div className="flex items-center gap-[2px] text-[13px] relative">
         {weHelpWithModalOpen && (
-          <WeHelpWith modalRef={modalRef} navbarType="landing" />
+          <div
+            onMouseEnter={handleModalMouseEnter}
+            onMouseLeave={handleModalMouseLeave}
+          >
+            <WeHelpWith modalRef={modalRef} navbarType="landing" />
+          </div>
         )}
 
         <div ref={navbarItemRef}>
@@ -88,7 +113,8 @@ export default function Navbar() {
                 }`}
               />
             }
-            onClick={() => setWeHelpWithModalOpen(!weHelpWithModalOpen)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
             isActive={weHelpWithModalOpen}
           />
         </div>

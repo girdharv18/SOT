@@ -3,8 +3,6 @@ import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import WeHelpWith from "./modals/WeHelpWith";
 
-const textColor = "hsl(194,57%,17%)";
-
 function NavbarItem({ text, link }: { text: string; link: string }) {
   return (
     <Link
@@ -20,11 +18,15 @@ function NavbarItemIcon({
   text,
   icon,
   onClick,
+  onMouseEnter,
+  onMouseLeave,
   isActive = false,
 }: {
   text: string;
   icon: React.ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
   isActive?: boolean;
 }) {
   return (
@@ -33,6 +35,8 @@ function NavbarItemIcon({
         isActive ? "bg-hover-bg" : ""
       }`}
       onClick={onClick}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       <p className="text-light-text">{text}</p>
       {icon}
@@ -44,60 +48,82 @@ export default function ExpertsNavbar() {
   const [weHelpWithModalOpen, setWeHelpWithModalOpen] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
   const navbarItemRef = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<number | null>(null);
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setWeHelpWithModalOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    // Add a small delay before closing to allow moving to modal
+    timeoutRef.current = setTimeout(() => {
+      setWeHelpWithModalOpen(false);
+    }, 100);
+  };
+
+  const handleModalMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+  };
+
+  const handleModalMouseLeave = () => {
+    setWeHelpWithModalOpen(false);
+  };
 
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (
-        modalRef.current &&
-        !modalRef.current.contains(event.target as Node) &&
-        navbarItemRef.current &&
-        !navbarItemRef.current.contains(event.target as Node)
-      ) {
-        setWeHelpWithModalOpen(false);
-      }
-    }
-
-    if (weHelpWithModalOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
     };
-  }, [weHelpWithModalOpen]);
+  }, []);
 
   return (
-    <div className="navbar max-w-[1350px] px-[25px] mx-auto flex justify-between items-center py-[20px]">
-      <Link
-        to="/"
-        className="text-[22px] font-semibold text-logo-heading cursor-pointer"
-      >
-        MindCurePath
-      </Link>
+    <div className="navbar max-w-[1350px] mx-auto py-[20px]">
+      <div className="flex justify-between items-center">
+        <Link
+          to="/"
+          className="text-[22px] font-semibold text-logo-heading cursor-pointer"
+        >
+          MindCurePath
+        </Link>
 
-      <div className="flex items-center gap-[40px] text-[13px] relative">
-        {weHelpWithModalOpen && (
-          <WeHelpWith modalRef={modalRef} navbarType="landing" />
-        )}
+        <div className="flex items-center gap-[40px] text-[13px] relative">
+          {weHelpWithModalOpen && (
+            <div
+              onMouseEnter={handleModalMouseEnter}
+              onMouseLeave={handleModalMouseLeave}
+            >
+              <WeHelpWith modalRef={modalRef} navbarType="landing" />
+            </div>
+          )}
 
-        <div ref={navbarItemRef}>
-          <NavbarItemIcon
-            text="We help with"
-            icon={
-              <ChevronDown
-                size={15}
-                className={`text-light-text transition-transform duration-200 ${
-                  weHelpWithModalOpen ? "rotate-180" : ""
-                }`}
-              />
-            }
-            onClick={() => setWeHelpWithModalOpen(!weHelpWithModalOpen)}
-            isActive={weHelpWithModalOpen}
-          />
+          <div ref={navbarItemRef}>
+            <NavbarItemIcon
+              text="We help with"
+              icon={
+                <ChevronDown
+                  size={15}
+                  className={`text-light-text transition-transform duration-200 ${
+                    weHelpWithModalOpen ? "rotate-180" : ""
+                  }`}
+                />
+              }
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              isActive={weHelpWithModalOpen}
+            />
+          </div>
+          <NavbarItem text="Self Assessment" link="/self-assessment" />
+          <NavbarItem text="Find counsellors" link="/find-counsellors" />
+          <NavbarItem text="Articles" link="/articles" />
         </div>
-        <NavbarItem text="Self Assessment" link="/self-assessment" />
-        <NavbarItem text="Find counsellors" link="/find-counsellors" />
-        <NavbarItem text="Articles" link="/articles" />
       </div>
     </div>
   );
