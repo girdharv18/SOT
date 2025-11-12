@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { REVIEWS } from "../lib/constants";
 
 function ReviewCard({
@@ -30,24 +31,39 @@ function ReviewCard({
 }
 
 export default function WhatOurUsersSay() {
+  const { t } = useTranslation("sectors");
+  
+  // Map review IDs to translation keys
+  const getReviewData = (id: number) => {
+    const reviewMap: Record<number, { name: string; review: string }> = {
+      1: { name: t("whatOurUsersSay.reviews.sarah.name"), review: t("whatOurUsersSay.reviews.sarah.review") },
+      2: { name: t("whatOurUsersSay.reviews.john.name"), review: t("whatOurUsersSay.reviews.john.review") },
+      3: { name: t("whatOurUsersSay.reviews.james.name"), review: t("whatOurUsersSay.reviews.james.review") },
+    };
+    return reviewMap[id] || { name: "", review: "" };
+  };
+
   return (
     <div className="py-[50px] max-w-[1350px] mx-auto mt-[50px]">
       <div>
-        <h1 className="text-3xl font-bold text-center">What Our Users Say</h1>
+        <h1 className="text-3xl font-bold text-center">{t("whatOurUsersSay.title")}</h1>
         <p className="text-center mt-[10px] text-[#4F5B64]">
-          Real stories from people who transformed their lives with MindCurePath
+          {t("whatOurUsersSay.subtitle")}
         </p>
       </div>
 
       <div className="flex gap-[20px] mt-[10px] overflow-x-auto pb-[10px] py-[4px] px-[4px] scrollbar-hide">
-        {REVIEWS.map((review) => (
-          <ReviewCard
-            key={review.id}
-            name={review.name}
-            review={review.review}
-            rating={review.rating}
-          />
-        ))}
+        {REVIEWS.map((review) => {
+          const reviewData = getReviewData(review.id);
+          return (
+            <ReviewCard
+              key={review.id}
+              name={reviewData.name || review.name}
+              review={reviewData.review || review.review}
+              rating={review.rating}
+            />
+          );
+        })}
       </div>
     </div>
   );

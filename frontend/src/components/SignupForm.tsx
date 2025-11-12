@@ -1,8 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import type { Role } from "../lib/interfaces";
 
 export default function SignupForm() {
+  const { t } = useTranslation("common");
   const [role, setRole] = useState<Role>("user");
   const formContainerRef = useRef<HTMLDivElement>(null);
   const imageContainerRef = useRef<HTMLDivElement>(null);
@@ -69,16 +71,16 @@ export default function SignupForm() {
       >
         <div className="rounded-lg max-w-[500px] pt-[30px] px-0 pb-0 [@media(min-width:960px)]:p-[clamp(1.5rem,4vw,3rem)]">
           <h2 className="text-[clamp(24px,5vw,30px)] font-bold text-logo-heading">
-            Create an account
+            {t("createAccount")}
           </h2>
           <p className="text-[clamp(13px,2vw,15px)] font-light text-light-text">
-            Start your healing journey — your story begins here.
+            {t("startHealingJourney")}
           </p>
 
           <div className="mt-[30px]">
             {/* Choosing your role while signing up */}
             <h2 className="font-semibold text-primary mb-[5px] text-[clamp(14px,2vw,16px)]">
-              Your role
+              {t("yourRole")}
             </h2>
             <div className="roles flex items-center justify-between mb-[10px] gap-[10px]">
               <div
@@ -87,7 +89,7 @@ export default function SignupForm() {
                 } flex-1 py-[10px] text-center rounded-[30px] cursor-pointer text-[clamp(14px,2vw,16px)]`}
                 onClick={handleRoleChange}
               >
-                User
+                {t("user")}
               </div>
               <div
                 className={`expert ${
@@ -95,45 +97,45 @@ export default function SignupForm() {
                 } flex-1 py-[10px] text-center rounded-[30px] cursor-pointer text-[clamp(14px,2vw,16px)]`}
                 onClick={handleRoleChange}
               >
-                Expert
+                {t("expert")}
               </div>
             </div>
 
             <div className="inputs flex flex-col gap-[10px]">
               <input
                 type="text"
-                placeholder="Full name"
+                placeholder={t("fullName")}
                 className={`border border-border-light rounded-full px-[clamp(15px,3vw,20px)] py-[clamp(8px,2vw,10px)] text-[clamp(14px,2vw,16px)] bg-input-bg placeholder:text-input-placeholder w-full`}
               />
               <input
                 type="text"
-                placeholder="Email"
+                placeholder={t("email")}
                 className={`border border-border-light rounded-full px-[clamp(15px,3vw,20px)] py-[clamp(8px,2vw,10px)] text-[clamp(14px,2vw,16px)] bg-input-bg placeholder:text-input-placeholder w-full`}
               />
               <input
                 type="password"
-                placeholder="Password"
+                placeholder={t("password")}
                 className={`border border-border-light rounded-full px-[clamp(15px,3vw,20px)] py-[clamp(8px,2vw,10px)] text-[clamp(14px,2vw,16px)] bg-input-bg placeholder:text-input-placeholder w-full`}
               />
               <input
                 type="text"
-                placeholder="Phone No."
+                placeholder={t("phoneNo")}
                 className={`border border-border-light rounded-full px-[clamp(15px,3vw,20px)] py-[clamp(8px,2vw,10px)] text-[clamp(14px,2vw,16px)] bg-input-bg placeholder:text-input-placeholder w-full`}
               />
             </div>
 
             <p className="text-[clamp(13px,2vw,15px)] font-semibold text-light-text text-right mt-[10px]">
-              Forgot password?
+              {t("forgotPassword")}
             </p>
 
             <button className="w-full bg-create-account-btn-bg font-medium text-light-100 rounded-full px-[20px] py-[10px] mt-[30px] cursor-pointer text-[clamp(14px,2vw,16px)]">
-              Create account
+              {t("createAccount")}
             </button>
 
             <p className="text-[clamp(13px,2vw,15px)] text-light-text text-center mt-[10px]">
-              Already have an account?{" "}
+              {t("alreadyHaveAccount")}{" "}
               <Link to="/login" className="font-bold cursor-pointer underline">
-                Login
+                {t("login")}
               </Link>
             </p>
           </div>

@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Menu } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import Navbar from "./Navbar";
 import MobileNavModal from "./modals/MobileNavModal";
 import { useScreen } from "../context/ScreenContext";
 import { Link } from "react-router-dom";
 
 export default function ResponsiveNavbar() {
+  const { t } = useTranslation("common");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { screenWidth } = useScreen();
 
@@ -19,7 +21,7 @@ export default function ResponsiveNavbar() {
               to="/"
               className="text-[22px] font-semibold text-logo-heading cursor-pointer"
             >
-              MindCurePath
+              {t("appName")}
             </Link>
           </div>
 

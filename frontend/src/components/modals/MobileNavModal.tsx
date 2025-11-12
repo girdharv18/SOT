@@ -1,6 +1,8 @@
-import { ChevronDown, Languages, Moon, X } from "lucide-react";
+import { ChevronDown, Moon, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "../LanguageSwitcher";
 
 interface MobileNavModalProps {
   isOpen: boolean;
@@ -8,21 +10,24 @@ interface MobileNavModalProps {
 }
 
 function MobileNavItem({
-  text,
+  textKey,
   onClick,
   to,
+  ns = "navigation",
 }: {
-  text: string;
+  textKey: string;
   onClick?: () => void;
   to?: string;
+  ns?: string;
 }) {
+  const { t } = useTranslation(ns);
   return (
     <Link to={to || ""} onClick={onClick}>
       <div
         className="cursor-pointer text-light-text px-[25px] py-[12px] hover:bg-hover-bg rounded-full transition-colors duration-200 text-[16px]"
         onClick={onClick}
       >
-        {text}
+        {t(textKey)}
       </div>
     </Link>
   );
@@ -32,6 +37,7 @@ export default function MobileNavModal({
   isOpen,
   onClose,
 }: MobileNavModalProps) {
+  const { t } = useTranslation(["common", "navigation"]);
   const [weHelpWithExpanded, setWeHelpWithExpanded] = useState(false);
 
   useEffect(() => {
@@ -61,7 +67,7 @@ export default function MobileNavModal({
         {/* Header with close button */}
         <div className="flex justify-between items-center px-[25px] py-[20px] border-b border-gray-200 flex-shrink-0">
           <h1 className="text-[22px] font-semibold text-logo-heading">
-            MindCurePath
+            {t("appName", { ns: "common" })}
           </h1>
           <button
             onClick={onClose}
@@ -79,7 +85,9 @@ export default function MobileNavModal({
               className="flex items-center justify-between cursor-pointer px-[25px] py-[12px] hover:bg-hover-bg rounded-full transition-colors duration-200"
               onClick={() => setWeHelpWithExpanded(!weHelpWithExpanded)}
             >
-              <span className="text-light-text text-[16px]">We help with</span>
+              <span className="text-light-text text-[16px]">
+                {t("weHelpWith", { ns: "navigation" })}
+              </span>
               <ChevronDown
                 size={15}
                 className={`text-light-text transition-transform duration-200 ${
@@ -102,38 +110,36 @@ export default function MobileNavModal({
                   onClick={onClose}
                   className="px-[20px] py-[10px] text-[16px] rounded-[10px] cursor-pointer hover:bg-gray-50 transition-colors duration-200"
                 >
-                  Health
+                  {t("healthExperts", { ns: "navigation" })}
                 </Link>
                 <Link
                   to="/education-experts"
                   onClick={onClose}
                   className="px-[20px] py-[10px] text-[16px] rounded-[10px] cursor-pointer hover:bg-gray-50 transition-colors duration-200"
                 >
-                  Education
+                  {t("educationExperts", { ns: "navigation" })}
                 </Link>
                 <Link
                   to="/finance-experts"
                   onClick={onClose}
                   className="px-[20px] py-[10px] text-[16px] rounded-[10px] cursor-pointer hover:bg-gray-50 transition-colors duration-200"
                 >
-                  Finance
+                  {t("financeExperts", { ns: "navigation" })}
                 </Link>
               </div>
             </div>
           </div>
 
-          <MobileNavItem text="Self Assessment" to="/self-assessment" />
-          <MobileNavItem text="Find counsellors" to="/find-counsellors" />
-          <MobileNavItem text="Articles" to="/articles" />
+          <MobileNavItem textKey="selfAssessment" to="/self-assessment" />
+          <MobileNavItem textKey="findCounsellors" to="/find-counsellors" />
+          <MobileNavItem textKey="articles" to="/articles" />
         </div>
 
         {/* Bottom section with login and icons */}
         <div className="p-[20px] border-t border-gray-200 flex-shrink-0">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="p-[8px] bg-light-100 rounded-full cursor-pointer">
-                <Languages size={20} className="text-primary" />
-              </div>
+              <LanguageSwitcher />
               <div className="p-[8px] bg-light-100 rounded-full cursor-pointer">
                 <Moon size={20} className="text-primary" />
               </div>
@@ -144,7 +150,7 @@ export default function MobileNavModal({
               className="border border-border-light text-primary transition-all duration-200 cursor-pointer rounded-full px-[20px] py-[8px] text-[15px] hover:bg-border-light hover:text-white"
               onClick={onClose}
             >
-              Login
+              {t("login", { ns: "common" })}
             </Link>
           </div>
         </div>

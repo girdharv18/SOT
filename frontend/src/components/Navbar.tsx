@@ -1,36 +1,40 @@
-import { ChevronDown, Languages, Moon } from "lucide-react";
+import { ChevronDown, Moon } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import WeHelpWith from "./modals/WeHelpWith";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const textColor = "hsl(194,57%,17%)";
 
-function NavbarItem({ text, link }: { text: string; link: string }) {
+function NavbarItem({ textKey, link }: { textKey: string; link: string }) {
+  const { t } = useTranslation("navigation");
   return (
     <Link
       to={link}
       className="cursor-pointer text-light-text px-[15px] py-[5px] hover:bg-hover-bg rounded-full transition-colors duration-200"
     >
-      {text}
+      {t(textKey)}
     </Link>
   );
 }
 
 function NavbarItemIcon({
-  text,
+  textKey,
   icon,
   onClick,
   onMouseEnter,
   onMouseLeave,
   isActive = false,
 }: {
-  text: string;
+  textKey: string;
   icon: React.ReactNode;
   onClick?: () => void;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
   isActive?: boolean;
 }) {
+  const { t } = useTranslation("navigation");
   return (
     <div
       className={`px-[12px] py-[5px] flex items-center gap-[5px] rounded-full cursor-pointer hover:bg-hover-bg transition-colors duration-200 ${
@@ -40,13 +44,14 @@ function NavbarItemIcon({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <p className="text-light-text">{text}</p>
+      <p className="text-light-text">{t(textKey)}</p>
       {icon}
     </div>
   );
 }
 
 export default function Navbar() {
+  const { t } = useTranslation("common");
   const [weHelpWithModalOpen, setWeHelpWithModalOpen] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
   const navbarItemRef = useRef<HTMLDivElement>(null);
@@ -91,14 +96,20 @@ export default function Navbar() {
       <div className="flex items-center gap-[10px]">
         <img
           src="/images/navbar/logo.png"
-          alt="MindCurePath Logo"
+          alt={t("appName") + " Logo"}
           className="w-[60px]"
         />
         <Link
           to="/"
           className="text-[22px] font-semibold text-logo-heading cursor-pointer"
         >
-          Mind<span className="text-[#45c2c7]">Cure</span>Path
+          {t("appName") === "MindCurePath" ? (
+            <>
+              Mind<span className="text-[#45c2c7]">Cure</span>Path
+            </>
+          ) : (
+            t("appName")
+          )}
         </Link>
       </div>
 
@@ -114,7 +125,7 @@ export default function Navbar() {
 
         <div ref={navbarItemRef}>
           <NavbarItemIcon
-            text="We help with"
+            textKey="weHelpWith"
             icon={
               <ChevronDown
                 size={15}
@@ -128,16 +139,14 @@ export default function Navbar() {
             isActive={weHelpWithModalOpen}
           />
         </div>
-        <NavbarItem text="Self Assessment" link="/self-assessment" />
-        <NavbarItem text="Find counsellors" link="/find-counsellors" />
-        <NavbarItem text="Articles" link="/articles" />
+        <NavbarItem textKey="selfAssessment" link="/self-assessment" />
+        <NavbarItem textKey="findCounsellors" link="/find-counsellors" />
+        <NavbarItem textKey="articles" link="/articles" />
       </div>
 
       {/* Logos */}
       <div className="flex items-center gap-2">
-        <div className="p-[8px] bg-light-100 rounded-full cursor-pointer">
-          <Languages size={20} color={textColor} />
-        </div>
+        <LanguageSwitcher />
 
         <div className="p-[8px] bg-light-100 rounded-full cursor-pointer">
           <Moon size={20} color={textColor} />
@@ -147,7 +156,7 @@ export default function Navbar() {
           to="/login"
           className={`border border-border-light text-[${textColor}] transition-all duration-200 cursor-pointer rounded-full px-[20px] py-[6px] text-[15px] hover:bg-border-light hover:text-white`}
         >
-          Login
+          {t("login")}
         </Link>
       </div>
     </div>

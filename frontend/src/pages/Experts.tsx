@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation, Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import ExpertsHeroSection from "../components/ExpertsHeroSection";
 import { Filter, X, ChevronRight } from "lucide-react";
 import { EXPERTS, EXPERT_CATEGORIES } from "../lib/constants";
@@ -7,16 +8,17 @@ import ResponsiveNavbar from "../components/ResponsiveNavbar";
 import ExpertCard from "../components/ExpertCard";
 
 function ExpertsTitle({ sector }: { sector: string }) {
+  const { t } = useTranslation("common");
   const sectorTitles: Record<string, string> = {
-    health: "Health Sector",
-    education: "Education Sector",
-    finance: "Finance Sector",
+    health: t("healthSector"),
+    education: t("educationSector"),
+    finance: t("financeSector"),
   };
 
   return (
     <div className="max-w-[1350px] mx-auto">
       <h1 className="text-white text-[16px] md:text-[20px] font-medium bg-[#304048] text-center py-[10px] rounded-[30px] my-[10px]">
-        {sectorTitles[sector] || "Expert Sector"}
+        {sectorTitles[sector] || t("expertSector")}
       </h1>
     </div>
   );
@@ -31,10 +33,25 @@ function Options({
   selectedOption: string;
   sector: string;
 }) {
+  const { t } = useTranslation("experts");
   const getCategoryRoute = (category: string, expertType: string) => {
     const baseRoute = `/${expertType}-experts`;
     const categorySlug = category.toLowerCase().replace(/\s+/g, "-");
     return `${baseRoute}/${categorySlug}`;
+  };
+
+  // Map category keys to translation keys
+  const getTranslationKey = (category: string): string => {
+    const categoryMap: Record<string, string> = {
+      "Therapists": "therapists",
+      "Yoga Experts": "yogaExperts",
+      "Dieticians": "dieticians",
+      "Academic Counsellors": "academicCounsellors",
+      "Achievers": "achievers",
+      "Investment Counsellors": "investmentCounsellors",
+      "Financial Experts": "financialExperts",
+    };
+    return categoryMap[category] || category;
   };
 
   return (
@@ -42,6 +59,8 @@ function Options({
       {options.map((option) => {
         const route = getCategoryRoute(option, sector);
         const isSelected = selectedOption === option;
+        const translationKey = getTranslationKey(option);
+        const translatedOption = t(translationKey) || option;
 
         return (
           <Link
@@ -53,7 +72,7 @@ function Options({
                 : "bg-light-100 text-[#304048] hover:bg-[#304048]/20"
             }`}
           >
-            {option}
+            {translatedOption}
           </Link>
         );
       })}
@@ -76,6 +95,7 @@ function FilterModal({
   setSelectedFilters: (filters: string[]) => void;
   onApply: () => void;
 }) {
+  const { t } = useTranslation("common");
   const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -123,7 +143,7 @@ function FilterModal({
         {/* Header - Fixed */}
         <div className="flex justify-between items-center p-[25px] pb-[20px] border-b border-gray-200 flex-shrink-0">
           <h2 className="text-[20px] font-semibold text-[#304048]">
-            Select Filters
+            {t("selectFilters", { ns: "common" })}
           </h2>
           <button
             onClick={onClose}
@@ -160,7 +180,7 @@ function FilterModal({
             onClick={onApply}
             className="w-full bg-[#304048] text-white py-[12px] rounded-[10px] font-medium hover:bg-[#304048]/90 transition-colors"
           >
-            Apply
+            {t("apply", { ns: "common" })}
           </button>
         </div>
       </div>
@@ -177,6 +197,7 @@ function FiltersAndSearch({
   removeFilter: (filter: string) => void;
   onFilterClick: () => void;
 }) {
+  const { t } = useTranslation("common");
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [showRightArrow, setShowRightArrow] = useState(false);
 
@@ -267,7 +288,7 @@ function FiltersAndSearch({
       <div className="border border-border-light rounded-full w-full md:w-auto flex-shrink-0">
         <input
           type="text"
-          placeholder="Search"
+          placeholder={t("search", { ns: "common" })}
           className="w-full px-[15px] py-[10px] rounded-full focus:outline-border-light text-border-light placeholder:text-border-light text-sm md:text-base"
         />
       </div>
@@ -300,6 +321,7 @@ function ExpertsCardsSection() {
 
 export default function Experts() {
   const location = useLocation();
+  const { t } = useTranslation(["common", "experts"]);
 
   // Extract sector from path (e.g., "/health-experts/therapists" -> "health")
   const getSectorFromPath = (path: string): string => {
@@ -332,9 +354,9 @@ export default function Experts() {
 
   const [selectedOption, setSelectedOption] = useState<string>(currentCategory);
   const [appliedFilters, setAppliedFilters] = useState<string[]>([
-    "Price",
-    "Age",
-    "Hindi",
+    t("price", { ns: "common" }),
+    t("age", { ns: "common" }),
+    t("hindi", { ns: "experts" }),
   ]);
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
   const [tempSelectedFilters, setTempSelectedFilters] = useState<string[]>([]);
@@ -346,12 +368,12 @@ export default function Experts() {
 
   // Available filters - you can modify this list as needed
   const availableFilters = [
-    "Price",
-    "Age",
-    "Hindi",
-    "English",
-    "Experience",
-    "Rating",
+    t("price", { ns: "common" }),
+    t("age", { ns: "common" }),
+    t("hindi", { ns: "experts" }),
+    t("english", { ns: "experts" }),
+    t("experience", { ns: "common" }),
+    t("rating", { ns: "common" }),
   ];
 
   // Initialize temp filters with applied filters when modal opens
@@ -380,7 +402,7 @@ export default function Experts() {
   };
 
   return (
-    <div className="px-[20px]">
+    <div className="px-[20px] mb-[80px]">
       <ResponsiveNavbar />
 
       <ExpertsHeroSection />

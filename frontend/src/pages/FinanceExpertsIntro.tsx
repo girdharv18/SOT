@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import ResponsiveNavbar from "../components/ResponsiveNavbar";
 
 interface ExpertCategoryCardProps {
@@ -11,7 +12,8 @@ function ExpertCategoryCard({
   title,
   description,
   link,
-}: ExpertCategoryCardProps) {
+  exploreText,
+}: ExpertCategoryCardProps & { exploreText: string }) {
   return (
     <div className="flex flex-col justify-between shadow-none hover:scale-[1.018] hover:shadow-[4px_4px_10px_rgba(0,0,0,0.28)] transition-all duration-150 cursor-pointer gap-[10px] border py-[15px] px-[20px] rounded-[10px] border-[#304048] w-full md:w-auto md:flex-1 h-full">
       <div>
@@ -25,24 +27,24 @@ function ExpertCategoryCard({
         to={link}
         className="flex items-center justify-center mt-[20px] bg-[#304048] hover:bg-[#304048]/90 transition-colors duration-150 cursor-pointer text-white rounded-[30px] py-[7px] px-[20px] text-sm md:text-base"
       >
-        Explore
+        {exploreText}
       </Link>
     </div>
   );
 }
 
 export default function FinanceExpertsIntro() {
+  const { t } = useTranslation(["experts", "common"]);
+
   const categories = [
     {
-      title: "Investment Counsellors",
-      description:
-        "Build a solid investment strategy tailored to your goals. From mutual funds to long-term wealth creation, get expert advice that keeps your portfolio balanced and resilient.",
+      title: t("investmentCounsellors", { ns: "experts" }),
+      description: t("investmentCounsellorsDescription", { ns: "experts" }),
       link: "/finance-experts/investment-counsellors",
     },
     {
-      title: "Financial Experts",
-      description:
-        "Navigate budgeting, savings, and insurance decisions effortlessly. Our advisors help you optimise cash flow and plan for milestones like education, housing, and retirement.",
+      title: t("financialExperts", { ns: "experts" }),
+      description: t("financialExpertsDescription", { ns: "experts" }),
       link: "/finance-experts/financial-experts",
     },
   ];
@@ -66,6 +68,7 @@ export default function FinanceExpertsIntro() {
             title={category.title}
             description={category.description}
             link={category.link}
+            exploreText={t("explore", { ns: "common" })}
           />
         ))}
       </div>

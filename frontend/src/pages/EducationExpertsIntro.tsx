@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import ResponsiveNavbar from "../components/ResponsiveNavbar";
 
 interface ExpertCategoryCardProps {
@@ -11,7 +12,8 @@ function ExpertCategoryCard({
   title,
   description,
   link,
-}: ExpertCategoryCardProps) {
+  exploreText,
+}: ExpertCategoryCardProps & { exploreText: string }) {
   return (
     <div className="flex flex-col justify-between shadow-none hover:scale-[1.018] hover:shadow-[4px_4px_10px_rgba(0,0,0,0.28)] transition-all duration-150 cursor-pointer gap-[10px] border py-[15px] px-[20px] rounded-[10px] border-[#9ba5ab] w-full md:w-auto md:flex-1 h-full">
       <div>
@@ -27,30 +29,24 @@ function ExpertCategoryCard({
         to={link}
         className="flex items-center justify-center mt-[20px] bg-[#304048] hover:bg-[#304048]/90 transition-colors duration-150 cursor-pointer text-white rounded-[30px] py-[7px] px-[20px] text-sm md:text-base"
       >
-        Explore
+        {exploreText}
       </Link>
     </div>
   );
 }
 
 export default function EducationExpertsIntro() {
+  const { t } = useTranslation(["experts", "common"]);
+
   const categories = [
     {
-      title: "Academic Counsellors",
-      description:
-        "Get personalised guidance on study plans, exam strategies, and academic growth. Our counsellors help students build confidence and stay on track with achievable milestones.",
+      title: t("academicCounsellors", { ns: "experts" }),
+      description: t("academicCounsellorsDescription", { ns: "experts" }),
       link: "/education-experts/academic-counsellors",
     },
     {
-      title: "Career Mentors",
-      description:
-        "Unlock real-world insights from experienced mentors. Discover future pathways, learn industry-ready skills, and make informed decisions about higher education.",
-      link: "/education-experts/career-mentors",
-    },
-    {
-      title: "Achievers",
-      description:
-        "Learn directly from achievers who have cracked competitive exams and excelled in their fields. Gain practical tips, motivation, and a roadmap to replicate their success.",
+      title: t("achievers", { ns: "experts" }),
+      description: t("achieversDescription", { ns: "experts" }),
       link: "/education-experts/achievers",
     },
   ];
@@ -74,6 +70,7 @@ export default function EducationExpertsIntro() {
             title={category.title}
             description={category.description}
             link={category.link}
+            exploreText={t("explore", { ns: "common" })}
           />
         ))}
       </div>

@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+
 function Step({ title, description }: { title: string; description: string }) {
   return (
     <div className="flex flex-col gap-[5px] bg-[hsl(0,0%,89%)] border border-[hsl(0,0%,80%)] p-[20px] rounded-2xl">
@@ -8,12 +10,14 @@ function Step({ title, description }: { title: string; description: string }) {
 }
 
 export default function HowDoesItWork() {
+  const { t } = useTranslation("sectors");
+
   return (
     <div className="mt-[30px] rounded-2xl">
       <div className="text-center">
-        <h1 className="text-3xl font-bold">How Does It Work?</h1>
+        <h1 className="text-3xl font-bold">{t("howDoesItWork.title")}</h1>
         <p className="text-[#4F5B64] mb-[40px]">
-          Simple steps to get started with MindCurePath
+          {t("howDoesItWork.subtitle")}
         </p>
       </div>
 
@@ -28,20 +32,20 @@ export default function HowDoesItWork() {
 
         <div className="flex flex-1 [@media(max-width:839px)]:w-full flex-col gap-[10px]">
           <Step
-            title="1. Get to the form / WhatsApp"
-            description="Fill out the form or contact us on WhatsApp to proceed. Get quick assistance instantly!"
+            title={t("howDoesItWork.step1.title")}
+            description={t("howDoesItWork.step1.description")}
           />
           <Step
-            title="2. Book your appointment"
-            description="Schedule your appointment now to get timely assistance from our team!"
+            title={t("howDoesItWork.step2.title")}
+            description={t("howDoesItWork.step2.description")}
           />
           <Step
-            title="3. You'll be contacted at your booked time."
-            description="Our team will reach out to you at your scheduled time for further assistance. Stay tuned!"
+            title={t("howDoesItWork.step3.title")}
+            description={t("howDoesItWork.step3.description")}
           />
           <Step
-            title="4. Free Follow-ups as needed"
-            description="Get free follow-ups whenever you need for continued support!"
+            title={t("howDoesItWork.step4.title")}
+            description={t("howDoesItWork.step4.description")}
           />
         </div>
       </div>

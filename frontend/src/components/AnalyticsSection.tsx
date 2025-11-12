@@ -1,5 +1,6 @@
 import { useScreen } from "../context/ScreenContext";
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 function AnalyticsSectionCard({
   value,
@@ -39,6 +40,7 @@ function AnalyticsSectionCard({
 }
 
 export default function AnalyticsSection() {
+  const { t } = useTranslation("common");
   const { screenWidth } = useScreen();
   // const [professionalsCount, setProfessionalsCount] = useState("X");
   // const [livesCount, setLivesCount] = useState("Y");
@@ -84,21 +86,21 @@ export default function AnalyticsSection() {
         >
           <AnalyticsSectionCard
             value="X"
-            description="Certified Pioneer professionals"
+            description={t("certifiedPioneerProfessionals")}
             isHorizontal={true}
             // animatedValue={professionalsCount}
           />
 
           <AnalyticsSectionCard
             value="Y"
-            description="Lives Transformed"
+            description={t("livesTransformed")}
             isHorizontal={true}
             // animatedValue={livesCount}
           />
 
           <AnalyticsSectionCard
             value="Z"
-            description="Specialized Tools"
+            description={t("specializedTools")}
             isHorizontal={true}
             // animatedValue={toolsCount}
           />
@@ -112,19 +114,19 @@ export default function AnalyticsSection() {
     <div className="px-[20px] pt-[20px] pb-[70px] bg-light-100 flex justify-center items-center gap-[30px]">
       <AnalyticsSectionCard
         value="X"
-        description="Mental Health Professionals"
+        description={t("mentalHealthProfessionals")}
         // animatedValue={professionalsCount}
       />
 
       <AnalyticsSectionCard
         value="Y"
-        description="Lives Transformed"
+        description={t("livesTransformed")}
         // animatedValue={livesCount}
       />
 
       <AnalyticsSectionCard
         value="Z"
-        description="Specialized Tools"
+        description={t("specializedTools")}
         // animatedValue={toolsCount}
       />
     </div>

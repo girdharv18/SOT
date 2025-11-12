@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import SelfAssessmentNavbar from "../components/SelfAssessmentNavbar";
 import { SELF_ASSESSMENT_QUIZ } from "../lib/constants";
 import type { QuizOption } from "../lib/interfaces";
@@ -9,19 +10,28 @@ function OptionItem({
   option,
   onClick,
   selectedOption,
+  originalOption,
 }: {
-  option: QuizOption;
+  option: QuizOption & { originalText?: string; originalIndex?: number };
   onClick: (option: QuizOption) => void;
-  selectedOption: QuizOption | null;
+  selectedOption: (QuizOption & { originalText?: string; originalIndex?: number }) | null;
+  originalOption: QuizOption;
 }) {
+  // Compare based on original text or by checking if this is the selected option
+  const isSelected = selectedOption && (
+    (option.originalText && selectedOption.originalText && option.originalText === selectedOption.originalText) ||
+    (option.originalIndex !== undefined && selectedOption.originalIndex !== undefined && option.originalIndex === selectedOption.originalIndex) ||
+    option.text === selectedOption.text
+  );
+
   return (
     <div
       className={`option-item text-[16px] cursor-pointer py-[15px] px-[25px] rounded-[25px] ${
-        option.text === selectedOption?.text
+        isSelected
           ? "bg-[#44666C] text-white"
           : "bg-[#D8E1E2] hover:bg-[#c4d2d3] text-[#44666C]"
       } transition-colors duration-200`}
-      onClick={() => onClick(option)}
+      onClick={() => onClick(originalOption)}
     >
       {option.text}
     </div>
@@ -29,6 +39,7 @@ function OptionItem({
 }
 
 export default function SelfAssessmentQuestions() {
+  const { t } = useTranslation(["common", "quiz"]);
   const navigate = useNavigate();
   const [answers, setAnswers] = useState<Record<number, QuizOption>>({});
   const [currentQuestion, setCurrentQuestion] = useState<number>(1);
@@ -36,6 +47,22 @@ export default function SelfAssessmentQuestions() {
   const { screenWidth } = useScreen();
 
   const currentSelectedOption = answers[currentQuestion] || null;
+
+  // Get translated question and options
+  const getQuestionText = (questionId: number): string => {
+    const questionKey = `questions.q${questionId}`;
+    return t(`${questionKey}.question`, { ns: "quiz" }) || SELF_ASSESSMENT_QUIZ[questionId - 1].question;
+  };
+
+  const getOptionText = (questionId: number, optionIndex: number): string => {
+    const questionKey = `questions.q${questionId}.options.option${optionIndex + 1}`;
+    const translated = t(questionKey, { ns: "quiz" });
+    if (translated && translated !== questionKey) {
+      return translated;
+    }
+    // Fallback to original text
+    return SELF_ASSESSMENT_QUIZ[questionId - 1].options[optionIndex].text;
+  };
 
   const calculateTotalScore = (): number => {
     return Object.values(answers).reduce(
@@ -76,11 +103,34 @@ export default function SelfAssessmentQuestions() {
   const hasAnsweredAllQuestions =
     Object.keys(answers).length === totalQuestions;
 
+  // Create translated options for current question - display translated text but keep original for comparison
+  const currentQuizQuestion = SELF_ASSESSMENT_QUIZ[currentQuestion - 1];
+  const translatedOptions = currentQuizQuestion.options.map((option, index) => ({
+    ...option,
+    text: getOptionText(currentQuestion, index),
+    originalText: option.text, // Keep original for comparison
+    originalIndex: index,
+  }));
+
+  // Find which translated option corresponds to the selected option
+  const getSelectedTranslatedOption = () => {
+    if (!currentSelectedOption) return null;
+    const selectedIndex = currentQuizQuestion.options.findIndex(
+      (opt) => opt.text === currentSelectedOption.text
+    );
+    if (selectedIndex >= 0) {
+      return translatedOptions[selectedIndex];
+    }
+    return null;
+  };
+
+  const selectedTranslatedOption = getSelectedTranslatedOption();
+
   return (
     <div className="self-assessment-questions-page max-w-[1350px] mx-auto px-[25px]">
       <SelfAssessmentNavbar />
       <h1 className="text-[20px] font-semibold text-[#44666C] mt-[30px]">
-        Question {currentQuestion} of {totalQuestions}
+        {t("question", { ns: "common" })} {currentQuestion} {t("of", { ns: "common" })} {totalQuestions}
       </h1>
       {/* Create a progress bar here */}
       <div className="w-full h-[12px] bg-[#D9D9D9] rounded-[10px] mt-[14px]">
@@ -96,7 +146,7 @@ export default function SelfAssessmentQuestions() {
 
       {/* Question Text Here*/}
       <h2 className="question-text text-[24px] font-medium text-[#44666C] mt-[50px]">
-        {SELF_ASSESSMENT_QUIZ[currentQuestion - 1].question}
+        {getQuestionText(currentQuestion)}
       </h2>
 
       {/* Options Here */}
@@ -105,16 +155,15 @@ export default function SelfAssessmentQuestions() {
           screenWidth <= 800 ? "grid grid-cols-1" : "grid grid-cols-2"
         } gap-[20px] mt-[20px]`}
       >
-        {SELF_ASSESSMENT_QUIZ[currentQuestion - 1].options.map(
-          (option, index) => (
-            <OptionItem
-              key={index}
-              option={option}
-              onClick={() => handleOptionClick(option)}
-              selectedOption={currentSelectedOption}
-            />
-          )
-        )}
+        {translatedOptions.map((translatedOption, index) => (
+          <OptionItem
+            key={index}
+            option={translatedOption}
+            onClick={handleOptionClick}
+            selectedOption={selectedTranslatedOption}
+            originalOption={currentQuizQuestion.options[index]}
+          />
+        ))}
       </div>
 
       {/* Navigation Buttons */}
@@ -128,7 +177,7 @@ export default function SelfAssessmentQuestions() {
               : "bg-gray-300 text-gray-500 cursor-not-allowed"
           }`}
         >
-          Previous
+          {t("previous", { ns: "common" })}
         </button>
 
         {isLastQuestion ? (
@@ -141,7 +190,7 @@ export default function SelfAssessmentQuestions() {
                 : "bg-gray-300 text-gray-500 cursor-not-allowed"
             }`}
           >
-            Finish
+            {t("finish", { ns: "common" })}
           </button>
         ) : (
           <button
@@ -153,7 +202,7 @@ export default function SelfAssessmentQuestions() {
                 : "bg-gray-300 text-gray-500 cursor-not-allowed"
             }`}
           >
-            Next
+            {t("next", { ns: "common" })}
           </button>
         )}
       </div>

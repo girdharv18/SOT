@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 type ExpertCardProps = {
   name: string;
@@ -23,6 +24,7 @@ export default function ExpertCard({
   nextSlot,
   price,
 }: ExpertCardProps) {
+  const { t } = useTranslation("common");
   return (
     <div className="Expert-Card border flex flex-col justify-between border-[#B5B5B5] transform hover:scale-[1.011] duration-100 hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,0.15)] transition-all p-[15px] min-[800px]:p-[15px] relative rounded-[15px] w-full">
       <div className="flex items-start justify-between gap-[16px] min-[800px]:gap-[20px]">
@@ -30,7 +32,7 @@ export default function ExpertCard({
           <img src={image} alt={`${name} Image`} className="self-start" />
 
           <div className="w-full border border-[#44666C] hover:bg-[#44666C] hover:text-white transition-colors duration-200 text-[#44666C] text-center cursor-pointer text-xs sm:text-sm font-medium rounded-[20px] py-[4px] mt-[8px]">
-            View Profile
+            {t("viewProfile")}
           </div>
         </div>
 
@@ -63,7 +65,7 @@ export default function ExpertCard({
 
           <div className="Next-Available-Slot mt-[8px] text-xs min-[800px]:text-sm">
             <span className="font-light text-[#8F9EA0]">
-              Next available slot:
+              {t("nextAvailableSlot")}
             </span>{" "}
             <span className="font-medium text-[#516A6E]">{nextSlot}</span>
           </div>
@@ -73,14 +75,14 @@ export default function ExpertCard({
               ₹ {price}
             </p>
             <p className="text-[11px] min-[800px]:text-sm text-gray-500">
-              for 60 min consultation
+              {t("for60MinConsultation")}
             </p>
           </div>
         </div>
       </div>
 
       <div className="mt-[16px] bg-[#44666C] text-white text-center cursor-pointer text-sm min-[800px]:text-base font-medium rounded-[20px] py-[8px]">
-        Book a session
+        {t("bookASession")}
       </div>
     </div>
   );

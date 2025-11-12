@@ -1,52 +1,51 @@
+import { useTranslation } from "react-i18next";
+
+// Note: These will be translated in the component using translation keys
 const CVTMockData = [
   {
     id: "1",
-    title: "How has trauma impacted me?",
-    description:
-      "Understand the effects of past experiences on your current well-being",
+    titleKey: "cvt.trauma.title",
+    descriptionKey: "cvt.trauma.description",
     cardColor: "#D53253",
     borderColor: "#EC4C6C",
     icon: "brain.png",
   },
   {
     id: "2",
-    title: "Do I have ADHD?",
-    description:
-      "Find out if you may have attention deficit hyperactivity disorder (ADHD)",
+    titleKey: "cvt.adhd.title",
+    descriptionKey: "cvt.adhd.description",
     cardColor: "#FD6D9D",
     borderColor: "#FD6D9D",
     icon: "adhd.png",
   },
   {
     id: "3",
-    title: "What is my anxiety level?",
-    description:
-      "Find out your current level of anxiety and get a report to guide your next steps.",
+    titleKey: "cvt.anxiety.title",
+    descriptionKey: "cvt.anxiety.description",
     cardColor: "#4671C6",
     borderColor: "#4671C6",
     icon: "anxiety.png",
   },
   {
     id: "4",
-    title: "Is it just bad mood or more?",
-    description: "Discover if your mood issues are more than just a bad day",
+    titleKey: "cvt.mood.title",
+    descriptionKey: "cvt.mood.description",
     cardColor: "#FFBC2C",
     borderColor: "#FFBC2C",
     icon: "smiley.png",
   },
   {
     id: "5",
-    title: "How resilient am I?",
-    description: "Discover how resilient you are to stress and adversity",
+    titleKey: "cvt.resilience.title",
+    descriptionKey: "cvt.resilience.description",
     cardColor: "#83BEC7",
     borderColor: "#69A8B2",
     icon: "shield.png",
   },
   {
     id: "6",
-    title: "Relationship Health Check",
-    description:
-      "Check your relationship health and get a report to guide your next steps.",
+    titleKey: "cvt.relationship.title",
+    descriptionKey: "cvt.relationship.description",
     cardColor: "#D27FA1",
     borderColor: "#D686A8",
     icon: "heart.png",
@@ -59,12 +58,14 @@ function ClinicallyValidatedTestsSectionCard({
   cardColor,
   borderColor,
   icon,
+  takeAssessmentText,
 }: {
   title: string;
   description: string;
   cardColor: string;
   borderColor: string;
   icon?: React.ReactNode;
+  takeAssessmentText: string;
 }) {
   return (
     <div
@@ -89,23 +90,23 @@ function ClinicallyValidatedTestsSectionCard({
         className="text-white px-7 cursor-pointer w-full mt-[25px] py-2 rounded-full whitespace-nowrap"
         style={{ backgroundColor: cardColor }}
       >
-        Take Assessment
+        {takeAssessmentText}
       </button>
     </div>
   );
 }
 
 export default function ClinicallyValidatedTestsSection() {
+  const { t } = useTranslation(["common", "sectors"]);
+
   return (
     <div className="py-[50px] max-w-[1350px] mx-auto mt-[70px]">
       <h1 className="text-3xl font-bold text-center">
-        Clinically Validated Tests
+        {t("clinicallyValidatedTests", { ns: "common" })}
       </h1>
 
       <p className="text-[15px] mt-[10px] max-w-[800px] mx-auto text-center text-[#4F5B64]">
-        Get answers to common concerns under 3 minutes. Understand your mental
-        health with our pre-screener tests and get a report to guide your next
-        steps.
+        {t("getAnswersUnder3Minutes", { ns: "common" })}
       </p>
 
       <div className="flex flex-wrap gap-[20px] mt-[60px]">
@@ -115,14 +116,15 @@ export default function ClinicallyValidatedTestsSection() {
             icon={
               <img
                 src={`images/clinically-validated-tests/${test.icon}`}
-                alt={test.title}
+                alt={t(test.titleKey, { ns: "sectors" })}
                 className={`w-[70px]`}
               />
             }
-            title={test.title}
-            description={test.description}
+            title={t(test.titleKey, { ns: "sectors" })}
+            description={t(test.descriptionKey, { ns: "sectors" })}
             cardColor={test.cardColor}
             borderColor={test.borderColor}
+            takeAssessmentText={t("takeAssessment", { ns: "common" })}
           />
         ))}
       </div>

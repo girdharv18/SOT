@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import SelfAssessmentNavbar from "../components/SelfAssessmentNavbar";
 import { SELF_ASSESSMENT_QUIZ } from "../lib/constants";
 
@@ -8,6 +9,7 @@ interface SelfAssessmentResultProps {
 }
 
 export default function SelfAssessmentResult() {
+  const { t } = useTranslation("common");
   // Get score from URL params or state (for now, using mock data)
   const params = new URLSearchParams(window.location.search);
   const totalScore = parseInt(params.get("score") || "0");
@@ -16,31 +18,26 @@ export default function SelfAssessmentResult() {
   const getInterpretation = (score: number) => {
     if (score >= 45) {
       return {
-        title: "Excellent emotional balance and interpersonal behaviour",
-        description:
-          "You demonstrate strong emotional intelligence and healthy interpersonal skills. Continue nurturing these qualities!",
+        title: t("excellentEmotionalBalance"),
+        description: t("continueNurturing"),
         color: "#10B981", // Green
       };
     } else if (score >= 30) {
       return {
-        title: "Generally healthy, minor areas for improvement",
-        description:
-          "You have a good foundation with some areas that could benefit from attention. Focus on specific aspects where you'd like to grow.",
+        title: t("generallyHealthy"),
+        description: t("goodFoundation"),
         color: "#3B82F6", // Blue
       };
     } else if (score >= 15) {
       return {
-        title: "Average; needs conscious improvement in coping or empathy",
-        description:
-          "There's room for growth in emotional regulation and interpersonal skills. Consider targeted strategies for improvement.",
+        title: t("averageNeedsImprovement"),
+        description: t("roomForGrowth"),
         color: "#F59E0B", // Amber
       };
     } else {
       return {
-        title:
-          "Low behavioural adaptability; focus on self-awareness and interaction",
-        description:
-          "This area needs attention. Focus on developing self-awareness, emotional regulation, and interpersonal skills with guidance.",
+        title: t("lowBehaviouralAdaptability"),
+        description: t("needsAttention"),
         color: "#EF4444", // Red
       };
     }
@@ -61,10 +58,10 @@ export default function SelfAssessmentResult() {
             {/* Congratulations Header */}
             <div className="text-center">
               <h1 className="text-[32px] md:text-[40px] font-bold text-[#44666C]">
-                Assessment Complete!
+                {t("assessmentComplete")}
               </h1>
               <p className="text-[18px] text-[#6B7280] mt-[10px]">
-                Here's your personalized emotional intelligence assessment
+                {t("personalizedAssessment")}
               </p>
             </div>
 
@@ -76,7 +73,7 @@ export default function SelfAssessmentResult() {
                   {totalScore}
                 </div>
                 <div className="text-[18px] text-[#6B7280] mt-[5px]">
-                  out of {maxScore}
+                  {t("outOf")} {maxScore}
                 </div>
               </div>
 
@@ -120,7 +117,7 @@ export default function SelfAssessmentResult() {
                 to="/login"
                 className="px-[40px] py-[12px] bg-[#44666C] text-white rounded-[30px] text-[18px] font-medium hover:bg-[#365a62] transition-colors duration-200 inline-block"
               >
-                Save Your Assessment Result
+                {t("saveAssessmentResult")}
               </Link>
             </div>
           </div>
@@ -143,17 +140,17 @@ export default function SelfAssessmentResult() {
             {/* Score Range Reference */}
             <div className="mt-[40px] bg-[#F9FAFB] rounded-[15px] p-[30px] border border-[#E5E7EB]">
               <h3 className="text-[20px] font-semibold text-[#44666C] mb-[20px]">
-                Score Interpretation Guide
+                {t("scoreInterpretationGuide")}
               </h3>
               <div className="space-y-[15px]">
                 <div className="flex items-start gap-[15px]">
                   <div className="w-[12px] h-[12px] rounded-full bg-[#10B981] mt-[6px] flex-shrink-0"></div>
                   <div>
                     <span className="font-semibold text-[#1F2937]">
-                      45-60 points:
+                      45-60 {t("points")}:
                     </span>
                     <p className="text-[#6B7280]">
-                      Excellent emotional balance and interpersonal behaviour
+                      {t("excellentEmotionalBalance")}
                     </p>
                   </div>
                 </div>
@@ -162,10 +159,10 @@ export default function SelfAssessmentResult() {
                   <div className="w-[12px] h-[12px] rounded-full bg-[#3B82F6] mt-[6px] flex-shrink-0"></div>
                   <div>
                     <span className="font-semibold text-[#1F2937]">
-                      30-44 points:
+                      30-44 {t("points")}:
                     </span>
                     <p className="text-[#6B7280]">
-                      Generally healthy, minor areas for improvement
+                      {t("generallyHealthy")}
                     </p>
                   </div>
                 </div>
@@ -174,10 +171,10 @@ export default function SelfAssessmentResult() {
                   <div className="w-[12px] h-[12px] rounded-full bg-[#F59E0B] mt-[6px] flex-shrink-0"></div>
                   <div>
                     <span className="font-semibold text-[#1F2937]">
-                      15-29 points:
+                      15-29 {t("points")}:
                     </span>
                     <p className="text-[#6B7280]">
-                      Average; needs conscious improvement in coping or empathy
+                      {t("averageNeedsImprovement")}
                     </p>
                   </div>
                 </div>
@@ -186,11 +183,10 @@ export default function SelfAssessmentResult() {
                   <div className="w-[12px] h-[12px] rounded-full bg-[#EF4444] mt-[6px] flex-shrink-0"></div>
                   <div>
                     <span className="font-semibold text-[#1F2937]">
-                      Below 15 points:
+                      {t("below", { defaultValue: "Below" })} 15 {t("points")}:
                     </span>
                     <p className="text-[#6B7280]">
-                      Low behavioural adaptability; focus on self-awareness and
-                      interaction
+                      {t("lowBehaviouralAdaptability")}
                     </p>
                   </div>
                 </div>
@@ -203,13 +199,13 @@ export default function SelfAssessmentResult() {
                 onClick={() => window.history.back()}
                 className="flex-1 px-[40px] py-[15px] rounded-[30px] cursor-pointer text-[18px] font-medium bg-[#E5E7EB] text-[#4B5563] hover:bg-[#D1D5DB] transition-colors duration-200"
               >
-                Retake Assessment
+                {t("retakeAssessment")}
               </button>
               <Link
                 to="/"
                 className="flex-1 text-center px-[40px] py-[15px] rounded-[30px] text-[18px] font-medium bg-[#44666C] text-white hover:bg-[#365a62] transition-colors duration-200"
               >
-                Go to Homepage
+                {t("goToHomepage")}
               </Link>
             </div>
           </div>
