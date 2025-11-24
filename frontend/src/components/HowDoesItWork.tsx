@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 
 function Step({ title, description }: { title: string; description: string }) {
   return (
-    <div className="flex flex-col gap-[5px] bg-[hsl(0,0%,89%)] border border-[hsl(0,0%,80%)] p-[20px] rounded-2xl">
+    <div className="flex flex-col gap-[5px] bg-[hsl(0,0%,98%)] border border-[hsl(0,0%,80%)] p-[20px] rounded-2xl">
       <h2 className="font-medium text-[#3C4753] text-[20px]">{title}</h2>
       <p className="text-[#727A8B]">{description}</p>
     </div>
@@ -13,10 +13,10 @@ export default function HowDoesItWork() {
   const { t } = useTranslation("sectors");
 
   return (
-    <div className="mt-[30px] rounded-2xl">
+    <div className="mt-[70px] rounded-2xl">
       <div className="text-center">
         <h1 className="text-3xl font-bold">{t("howDoesItWork.title")}</h1>
-        <p className="text-[#4F5B64] mb-[40px]">
+        <p className="text-[#4F5B64] mb-[40px] mt-[10px]">
           {t("howDoesItWork.subtitle")}
         </p>
       </div>

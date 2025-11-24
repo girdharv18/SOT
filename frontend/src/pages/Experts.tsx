@@ -10,7 +10,7 @@ import ExpertCard from "../components/ExpertCard";
 function ExpertsTitle({ sector }: { sector: string }) {
   const { t } = useTranslation("common");
   const sectorTitles: Record<string, string> = {
-    health: t("healthSector"),
+    wellness: t("wellnessSector"),
     education: t("educationSector"),
     finance: t("financeSector"),
   };
@@ -43,13 +43,15 @@ function Options({
   // Map category keys to translation keys
   const getTranslationKey = (category: string): string => {
     const categoryMap: Record<string, string> = {
-      "Therapists": "therapists",
+      Therapists: "therapists",
       "Yoga Experts": "yogaExperts",
-      "Dieticians": "dieticians",
-      "Academic Counsellors": "academicCounsellors",
-      "Achievers": "achievers",
-      "Investment Counsellors": "investmentCounsellors",
-      "Financial Experts": "financialExperts",
+      Dieticians: "dieticians",
+      "Academic Counsellor": "academicCounsellor",
+      "Career Planning Specialist": "careerPlanningSpecialist",
+      "Path Finder Consultant": "pathFinderConsultant",
+      "Investment counsellor": "investmentCounsellor",
+      "Financial Expert": "financialExpert",
+      "GST & Taxation Expert": "gstTaxationExpert",
     };
     return categoryMap[category] || category;
   };
@@ -323,15 +325,15 @@ export default function Experts() {
   const location = useLocation();
   const { t } = useTranslation(["common", "experts"]);
 
-  // Extract sector from path (e.g., "/health-experts/therapists" -> "health")
+  // Extract sector from path (e.g., "/wellness-experts/therapists" -> "wellness")
   const getSectorFromPath = (path: string): string => {
-    if (path.startsWith("/health-experts")) return "health";
+    if (path.startsWith("/wellness-experts")) return "wellness";
     if (path.startsWith("/education-experts")) return "education";
     if (path.startsWith("/finance-experts")) return "finance";
-    return "health"; // default
+    return "wellness"; // default
   };
 
-  // Extract current category from path (e.g., "/health-experts/therapists" -> "Therapists")
+  // Extract current category from path (e.g., "/wellness-experts/therapists" -> "Therapists")
   const getCurrentCategoryFromPath = (path: string, sector: string): string => {
     const categories =
       EXPERT_CATEGORIES[sector as keyof typeof EXPERT_CATEGORIES] || [];

@@ -35,24 +35,24 @@ function ExpertCategoryCard({
   );
 }
 
-export default function HealthExpertsIntro() {
+export default function WellnessExpertsIntro() {
   const { t } = useTranslation(["experts", "common"]);
 
   const categories = [
     {
       title: t("therapists", { ns: "experts" }),
       description: t("therapistsDescription", { ns: "experts" }),
-      link: "/health-experts/therapists",
+      link: "/wellness-experts/therapists",
     },
     {
       title: t("yogaExperts", { ns: "experts" }),
       description: t("yogaExpertsDescription", { ns: "experts" }),
-      link: "/health-experts/yoga-experts",
+      link: "/wellness-experts/yoga-experts",
     },
     {
       title: t("dieticians", { ns: "experts" }),
       description: t("dieticiansDescription", { ns: "experts" }),
-      link: "/health-experts/dieticians",
+      link: "/wellness-experts/dieticians",
     },
   ];
 
@@ -62,7 +62,7 @@ export default function HealthExpertsIntro() {
 
       <div className="h-[240px]">
         <img
-          src="/images/health/health.jpg"
+          src="/images/wellness/wellness.jpg"
           alt=""
           className="w-full h-full object-cover rounded-[30px]"
         />

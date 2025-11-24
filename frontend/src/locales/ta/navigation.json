@@ -1,10 +1,9 @@
 {
-  "weHelpWith": "We help with",
+  "weHelpWith": "நாங்கள் உதவுகிறோம்",
   "selfAssessment": "Self Assessment",
-  "findCounsellors": "Find counsellors",
-  "articles": "Articles",
-  "healthExperts": "Health Experts",
+  "findCounsellors": "Counsellors கண்டறியவும்",
+  "articles": "கட்டுரைகள்",
+  "wellnessExperts": "Wellness Experts",
   "educationExperts": "Education Experts",
   "financeExperts": "Finance Experts"
 }
-

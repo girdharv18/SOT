@@ -166,7 +166,7 @@ export const WHY_CHOOSE_US_SECTION = [
     id: 2,
     title: "24/7 Accessibility",
     description:
-      "Access therapy and mental health tools anytime, anywhere through our mobile or desktop.",
+      "Access therapy and mental Wellness tools anytime, anywhere through our mobile or desktop.",
     callToAction: "Start your journey",
     image: "accessibility.png",
   },
@@ -182,7 +182,7 @@ export const WHY_CHOOSE_US_SECTION = [
     id: 4,
     title: "Progress Tracking",
     description:
-      "Monitor your mental health journey with detailed insights and personalized progress reports.",
+      "Monitor your mental Wellness journey with detailed insights and personalized progress reports.",
     callToAction: "View Demo",
     image: "progress.png",
   },
@@ -190,7 +190,7 @@ export const WHY_CHOOSE_US_SECTION = [
     id: 5,
     title: "Affordable Care",
     description:
-      "Quality mental health care shouldn't break the bank. Flexible pricing plans to suit your budget.",
+      "Quality mental Wellness care shouldn't break the bank. Flexible pricing plans to suit your budget.",
     callToAction: "View Pricing",
     image: "care.png",
   },
@@ -198,7 +198,7 @@ export const WHY_CHOOSE_US_SECTION = [
     id: 6,
     title: "Community Support",
     description:
-      "Join supportive community groups and connect with others on similar mental health journeys.",
+      "Join supportive community groups and connect with others on similar mental Wellness journeys.",
     callToAction: "Join Community",
     image: "support.png",
   },
@@ -229,9 +229,17 @@ export const REVIEWS = [
 ];
 
 export const EXPERT_CATEGORIES = {
-  health: ["Therapists", "Yoga Experts", "Dieticians"],
-  education: ["Academic Counsellors", "Achievers"],
-  finance: ["Investment Counsellors", "Financial Experts"],
+  wellness: ["Therapists", "Yoga Experts", "Dieticians"],
+  education: [
+    "Academic Counsellor",
+    "Career Planning Specialist",
+    "Path Finder Consultant",
+  ],
+  finance: [
+    "Investment counsellor",
+    "Financial Expert",
+    "GST & Taxation Expert",
+  ],
 };
 
 export type Expert = {

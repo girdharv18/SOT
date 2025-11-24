@@ -1,140 +1,139 @@
 {
   "questions": {
     "q1": {
-      "question": "When I meet new people, I usually feel",
+      "question": "కొత్త వ్యక్తులను కలిసినప్పుడు నేను ఎలా feel చేస్తాను?",
       "options": {
-        "option1": "Quiet but polite",
-        "option2": "Very confident and outgoing",
-        "option3": "Friendly and open",
-        "option4": "Nervous and avoid talking"
+        "option1": "Calm కానీ కొంచెం shy",
+        "option2": "చాలా confident మరియు మాట్లాడే",
+        "option3": "Friendly మరియు open",
+        "option4": "Nervous మరియు మాట్లాడడాన్ని నివారిస్తాను"
       }
     },
     "q2": {
-      "question": "When someone needs help, I",
+      "question": "ఎవరికైనా help అవసరమైనప్పుడు, నేను",
       "options": {
-        "option1": "Ignore it unless told",
-        "option2": "Help only if it's convenient",
-        "option3": "Always offer help immediately",
-        "option4": "Try to help when I can"
+        "option1": "వారు చెప్పే వరకు ignore చేస్తాను",
+        "option2": "నాకు time ఉన్నప్పుడు మాత్రమే help చేస్తాను",
+        "option3": "వెంటనే help చేస్తాను",
+        "option4": "సాధ్యమైనప్పుడు help చేయడానికి ప్రయత్నిస్తాను"
       }
     },
     "q3": {
-      "question": "I prefer spending my free time —",
+      "question": "నేను నా free time ఎలా గడపాలని ఇష్టపడతాను?",
       "options": {
-        "option1": "Mostly with friends or family",
-        "option2": "Mostly alone",
-        "option3": "Alone only",
-        "option4": "With both friends and alone time equally"
+        "option1": "చాలా friends లేదా family తో",
+        "option2": "చాలా ఒంటరిగా",
+        "option3": "ఎప్పుడూ ఒంటరిగా",
+        "option4": "Friends తో మరియు ఒంటరిగా రెండూ"
       }
     },
     "q4": {
-      "question": "If someone disagrees with me, I",
+      "question": "ఎవరైనా నా అభిప్రాయానికి agree చేయకపోతే, నేను",
       "options": {
-        "option1": "Get angry",
-        "option2": "Stop talking to them",
-        "option3": "Listen but feel uncomfortable",
-        "option4": "Stay calm and discuss peacefully"
+        "option1": "Angry అవుతాను",
+        "option2": "మాట్లాడడం ఆపివేస్తాను",
+        "option3": "వింటాను కానీ చెడుగా అనిపిస్తుంది",
+        "option4": "Calm ఉంటూ మాట్లాడతాను"
       }
     },
     "q5": {
-      "question": "I can identify my feelings —",
+      "question": "నేను నా feelings ను అర్థం చేసుకోగలనా?",
       "options": {
-        "option1": "Hardly ever",
-        "option2": "Sometimes",
-        "option3": "Most of the time",
-        "option4": "Almost always"
+        "option1": "చాలా తక్కువ",
+        "option2": "కొన్నిసార్లు",
+        "option3": "చాలా సమయం",
+        "option4": "ఎప్పుడూ"
       }
     },
     "q6": {
-      "question": "When I am upset, I",
+      "question": "నేను upset అయినప్పుడు, నేను",
       "options": {
-        "option1": "Lose control",
-        "option2": "Stay quiet but angry",
-        "option3": "Try to calm myself",
-        "option4": "Handle emotions calmly"
+        "option1": "Control కోల్పోతాను",
+        "option2": "Calm ఉంటాను కానీ angry అవుతాను",
+        "option3": "నన్ను calm చేయడానికి ప్రయత్నిస్తాను",
+        "option4": "Peacefully ఆలోచిస్తూ బుద్ధిమంతంగా పని చేస్తాను"
       }
     },
     "q7": {
-      "question": "When someone hurts me, I",
+      "question": "ఎవరైనా నన్ను hurt చేసినప్పుడు, నేను",
       "options": {
-        "option1": "Never forgive",
-        "option2": "Forgive slowly",
-        "option3": "Forgive after some time",
-        "option4": "Forgive quickly"
+        "option1": "ఎప్పుడూ క్షమించను",
+        "option2": "చాలా ఆలస్యంగా క్షమిస్తాను",
+        "option3": "కొంత సమయం తర్వాత క్షమిస్తాను",
+        "option4": "వేగంగా క్షమిస్తాను"
       }
     },
     "q8": {
-      "question": "I express gratitude —",
+      "question": "నేను thank you అంటానా?",
       "options": {
-        "option1": "Rarely",
-        "option2": "Occasionally",
-        "option3": "Often",
-        "option4": "Always"
+        "option1": "చాలా తక్కువ",
+        "option2": "కొన్నిసార్లు",
+        "option3": "చాలా సార్లు",
+        "option4": "ఎప్పుడూ"
       }
     },
     "q9": {
-      "question": "Before making decisions, I",
+      "question": "Decision తీసుకునే ముందు, నేను",
       "options": {
-        "option1": "Think a little",
-        "option2": "Act without thinking",
-        "option3": "Think carefully and evaluate all sides",
-        "option4": "Analyze options"
+        "option1": "కొంచెం ఆలోచిస్తాను",
+        "option2": "ఆలోచించకుండా పని చేస్తాను",
+        "option3": "బాగా ఆలోచిస్తూ అన్ని విషయాలను చూస్తాను",
+        "option4": "అన్ని options చూస్తాను"
       }
     },
     "q10": {
-      "question": "When plans fail, I",
+      "question": "నా plan పని చేయనప్పుడు, నేను",
       "options": {
-        "option1": "Try to adjust",
-        "option2": "Stay calm and find a new plan",
-        "option3": "Feel bad but give up",
-        "option4": "Get upset easily"
+        "option1": "Changes చేయడానికి ప్రయత్నిస్తాను",
+        "option2": "Calm ఉంటూ కొత్త plan చేస్తాను",
+        "option3": "చెడుగా అనిపిస్తుంది మరియు వదిలేస్తాను",
+        "option4": "చాలా upset అవుతాను"
       }
     },
     "q11": {
-      "question": "When I get feedback, I",
+      "question": "ఎవరైనా నాకు suggestion ఇచ్చినప్పుడు, నేను",
       "options": {
-        "option1": "Ignore it",
-        "option2": "Think about it",
-        "option3": "Learn and improve from it",
-        "option4": "Feel angry or hurt"
+        "option1": "Ignore చేస్తాను",
+        "option2": "ఆలోచిస్తాను",
+        "option3": "నేర్చుకుంటూ మరింత మంచిగా ఉండడానికి ప్రయత్నిస్తాను",
+        "option4": "Angry లేదా దుఃఖితుడిగా అవుతాను"
       }
     },
     "q12": {
-      "question": "When I am under pressure, I",
+      "question": "నేను stress లో ఉన్నప్పుడు, నేను",
       "options": {
-        "option1": "Handle pressure well",
-        "option2": "Feel helpless",
-        "option3": "Panic",
-        "option4": "Stay calm sometimes"
+        "option1": "బాగా handle చేస్తాను",
+        "option2": "Helpless feel చేస్తాను",
+        "option3": "Panic అవుతాను",
+        "option4": "కొన్నిసార్లు calm ఉండగలను"
       }
     },
     "q13": {
-      "question": "After failure, I",
+      "question": "Failure తర్వాత, నేను",
       "options": {
-        "option1": "Feel low for long",
-        "option2": "Quit",
-        "option3": "Try again confidently",
-        "option4": "Try again after a break"
+        "option1": "చాలా ఆలస్యంగా వరకు చెడుగా feel చేస్తాను",
+        "option2": "వదిలేస్తాను",
+        "option3": "మళ్లీ try చేస్తాను",
+        "option4": "కొంచెం విశ్రాంతి తీసుకుని మళ్లీ try చేస్తాను"
       }
     },
     "q14": {
-      "question": "I view problems as",
+      "question": "నేను problems ను ఎలా చూస్తాను?",
       "options": {
-        "option1": "Difficult situations",
-        "option2": "Challenges to face",
-        "option3": "Chances to learn",
-        "option4": "Bad luck"
+        "option1": "చాలా కష్టమైన విషయాలు",
+        "option2": "Challenge దానిని ఎదుర్కోవాలి",
+        "option3": "ఏదో నేర్చుకునే అవకాశం",
+        "option4": "చెడు అదృష్టం"
       }
     },
     "q15": {
-      "question": "I show kindness in daily life",
+      "question": "నేను ప్రజలతో kindness చూపుతానా?",
       "options": {
-        "option1": "Often",
-        "option2": "Very rarely",
-        "option3": "Occasionally",
-        "option4": "Always"
+        "option1": "చాలా సార్లు",
+        "option2": "చాలా తక్కువ",
+        "option3": "కొన్నిసార్లు",
+        "option4": "ఎప్పుడూ"
       }
     }
   }
 }
-

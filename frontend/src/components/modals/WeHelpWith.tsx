@@ -14,8 +14,8 @@ export default function WeHelpWith({
 }: WeHelpWithProps) {
   const { t } = useTranslation(["navigation", "experts", "common"]);
   const [hoveredExpert, setHoveredExpert] = useState<
-    "health" | "education" | "finance"
-  >("health");
+    "wellness" | "education" | "finance"
+  >("wellness");
 
   const getCategories = () => {
     if (!hoveredExpert) return [];
@@ -31,13 +31,15 @@ export default function WeHelpWith({
   // Map category keys to translation keys
   const getTranslationKey = (category: string): string => {
     const categoryMap: Record<string, string> = {
-      "Therapists": "therapists",
+      Therapists: "therapists",
       "Yoga Experts": "yogaExperts",
-      "Dieticians": "dieticians",
-      "Academic Counsellors": "academicCounsellors",
-      "Achievers": "achievers",
-      "Investment Counsellors": "investmentCounsellors",
-      "Financial Experts": "financialExperts",
+      Dieticians: "dieticians",
+      "Academic Counsellor": "academicCounsellor",
+      "Career Planning Specialist": "careerPlanningSpecialist",
+      "Path Finder Consultant": "pathFinderConsultant",
+      "Investment counsellor": "investmentCounsellor",
+      "Financial Expert": "financialExpert",
+      "GST & Taxation Expert": "gstTaxationExpert",
     };
     return categoryMap[category] || category;
   };
@@ -53,15 +55,15 @@ export default function WeHelpWith({
     >
       <div className="flex flex-col text-white gap-[10px] flex-2">
         <Link
-          to="/health-experts"
+          to="/wellness-experts"
           className={`transition-all px-[15px] py-[7px] text-[14px] rounded-[10px] cursor-pointer hover:scale-[1.05] ${
-            hoveredExpert === "health"
+            hoveredExpert === "wellness"
               ? "bg-white text-navbar-dropdown-bg"
               : "hover:bg-white hover:text-navbar-dropdown-bg"
           }`}
-          onMouseEnter={() => setHoveredExpert("health")}
+          onMouseEnter={() => setHoveredExpert("wellness")}
         >
-          {t("healthExperts", { ns: "navigation" })}
+          {t("wellnessExperts", { ns: "navigation" })}
         </Link>
         <Link
           to="/education-experts"
@@ -91,11 +93,13 @@ export default function WeHelpWith({
         {hoveredExpert ? (
           <div className="grid grid-cols-2 gap-[5px] w-full h-full">
             {getCategories().map((category, index) => {
-              const isMultiLine = category.length > 18;
               const categoryRoute = getCategoryRoute(category, hoveredExpert);
 
               const translationKey = getTranslationKey(category);
-              const translatedCategory = t(translationKey, { ns: "experts" }) || category;
+              const translatedCategory =
+                t(translationKey, { ns: "experts" }) || category;
+
+              const isMultiLine = translatedCategory.length > 15;
 
               return (
                 <Link

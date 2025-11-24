@@ -1,140 +1,139 @@
 {
   "questions": {
     "q1": {
-      "question": "When I meet new people, I usually feel",
+      "question": "নতুন মানুষের সাথে দেখা হলে আমি কেমন feel করি?",
       "options": {
-        "option1": "Quiet but polite",
-        "option2": "Very confident and outgoing",
-        "option3": "Friendly and open",
-        "option4": "Nervous and avoid talking"
+        "option1": "Calm কিন্তু একটু shy",
+        "option2": "খুব confident এবং কথা বলা",
+        "option3": "Friendly এবং open",
+        "option4": "Nervous এবং কথা বলতে ভয় পাই"
       }
     },
     "q2": {
-      "question": "When someone needs help, I",
+      "question": "যখন কারো help দরকার, আমি",
       "options": {
-        "option1": "Ignore it unless told",
-        "option2": "Help only if it's convenient",
-        "option3": "Always offer help immediately",
-        "option4": "Try to help when I can"
+        "option1": "তখন পর্যন্ত ignore করি যতক্ষণ না তারা বলে",
+        "option2": "শুধুমাত্র তখন help করি যখন আমার time থাকে",
+        "option3": "তৎক্ষণাৎ help করি",
+        "option4": "যখনই সম্ভব, help করার চেষ্টা করি"
       }
     },
     "q3": {
-      "question": "I prefer spending my free time —",
+      "question": "আমি আমার free time কীভাবে কাটাতে পছন্দ করি?",
       "options": {
-        "option1": "Mostly with friends or family",
-        "option2": "Mostly alone",
-        "option3": "Alone only",
-        "option4": "With both friends and alone time equally"
+        "option1": "বেশিরভাগ সময় friends বা family এর সাথে",
+        "option2": "বেশিরভাগ সময় একা",
+        "option3": "সবসময় একা",
+        "option4": "Friends এর সাথে এবং একা দুটোই"
       }
     },
     "q4": {
-      "question": "If someone disagrees with me, I",
+      "question": "যদি কেউ আমার মতের সাথে agree না করে, আমি",
       "options": {
-        "option1": "Get angry",
-        "option2": "Stop talking to them",
-        "option3": "Listen but feel uncomfortable",
-        "option4": "Stay calm and discuss peacefully"
+        "option1": "Angry হয়ে যাই",
+        "option2": "কথা বলা বন্ধ করে দিই",
+        "option3": "শুনি কিন্তু খারাপ লাগে",
+        "option4": "Calm থাকি এবং কথা বলি"
       }
     },
     "q5": {
-      "question": "I can identify my feelings —",
+      "question": "আমি আমার feelings বুঝতে পারি?",
       "options": {
-        "option1": "Hardly ever",
-        "option2": "Sometimes",
-        "option3": "Most of the time",
-        "option4": "Almost always"
+        "option1": "খুব কম",
+        "option2": "কখনো কখনো",
+        "option3": "বেশিরভাগ সময়",
+        "option4": "সবসময়"
       }
     },
     "q6": {
-      "question": "When I am upset, I",
+      "question": "যখন আমি upset হই, আমি",
       "options": {
-        "option1": "Lose control",
-        "option2": "Stay quiet but angry",
-        "option3": "Try to calm myself",
-        "option4": "Handle emotions calmly"
+        "option1": "Control হারিয়ে ফেলি",
+        "option2": "Calm থাকি কিন্তু angry হই",
+        "option3": "নিজেকে calm করার চেষ্টা করি",
+        "option4": "Peacefully ভাবি এবং বুদ্ধিমত্তার সাথে কাজ করি"
       }
     },
     "q7": {
-      "question": "When someone hurts me, I",
+      "question": "যখন কেউ আমাকে hurt করে, আমি",
       "options": {
-        "option1": "Never forgive",
-        "option2": "Forgive slowly",
-        "option3": "Forgive after some time",
-        "option4": "Forgive quickly"
+        "option1": "কখনোই ক্ষমা করি না",
+        "option2": "খুব দেরিতে ক্ষমা করি",
+        "option3": "কিছু সময় পর ক্ষমা করে দিই",
+        "option4": "দ্রুত ক্ষমা করে দিই"
       }
     },
     "q8": {
-      "question": "I express gratitude —",
+      "question": "আমি thank you বলি?",
       "options": {
-        "option1": "Rarely",
-        "option2": "Occasionally",
-        "option3": "Often",
-        "option4": "Always"
+        "option1": "খুব কম",
+        "option2": "কখনো কখনো",
+        "option3": "প্রায়ই",
+        "option4": "সবসময়"
       }
     },
     "q9": {
-      "question": "Before making decisions, I",
+      "question": "Decision নেওয়ার আগে, আমি",
       "options": {
-        "option1": "Think a little",
-        "option2": "Act without thinking",
-        "option3": "Think carefully and evaluate all sides",
-        "option4": "Analyze options"
+        "option1": "একটু ভাবি",
+        "option2": "ভাবনা না করে কাজ করি",
+        "option3": "ভালো করে ভাবি এবং সব দিক দেখি",
+        "option4": "সব options দেখি"
       }
     },
     "q10": {
-      "question": "When plans fail, I",
+      "question": "যখন আমার plan কাজ করে না, আমি",
       "options": {
-        "option1": "Try to adjust",
-        "option2": "Stay calm and find a new plan",
-        "option3": "Feel bad but give up",
-        "option4": "Get upset easily"
+        "option1": "Changes করার চেষ্টা করি",
+        "option2": "Calm থাকি এবং নতুন plan তৈরি করি",
+        "option3": "খারাপ লাগে এবং হাল ছেড়ে দিই",
+        "option4": "খুব upset হয়ে যাই"
       }
     },
     "q11": {
-      "question": "When I get feedback, I",
+      "question": "যখন কেউ আমাকে suggestion দেয়, আমি",
       "options": {
-        "option1": "Ignore it",
-        "option2": "Think about it",
-        "option3": "Learn and improve from it",
-        "option4": "Feel angry or hurt"
+        "option1": "Ignore করি",
+        "option2": "ভাবি",
+        "option3": "শিখি এবং আরও ভালো হওয়ার চেষ্টা করি",
+        "option4": "Angry বা দুঃখিত হয়ে যাই"
       }
     },
     "q12": {
-      "question": "When I am under pressure, I",
+      "question": "যখন আমি stress এ থাকি, আমি",
       "options": {
-        "option1": "Handle pressure well",
-        "option2": "Feel helpless",
-        "option3": "Panic",
-        "option4": "Stay calm sometimes"
+        "option1": "ভালো handle করতে পারি",
+        "option2": "Helpless feel করি",
+        "option3": "Panic হয়ে যাই",
+        "option4": "কখনো কখনো calm থাকতে পারি"
       }
     },
     "q13": {
-      "question": "After failure, I",
+      "question": "Failure এর পর, আমি",
       "options": {
-        "option1": "Feel low for long",
-        "option2": "Quit",
-        "option3": "Try again confidently",
-        "option4": "Try again after a break"
+        "option1": "খুব দেরি পর্যন্ত খারাপ feel করি",
+        "option2": "হাল ছেড়ে দিই",
+        "option3": "আবার try করি",
+        "option4": "একটু বিশ্রাম নিয়ে আবার try করি"
       }
     },
     "q14": {
-      "question": "I view problems as",
+      "question": "আমি problems কে কীভাবে দেখি?",
       "options": {
-        "option1": "Difficult situations",
-        "option2": "Challenges to face",
-        "option3": "Chances to learn",
-        "option4": "Bad luck"
+        "option1": "খুব কঠিন জিনিস",
+        "option2": "Challenge যা মোকাবিলা করতে হবে",
+        "option3": "কিছু শেখার সুযোগ",
+        "option4": "খারাপ ভাগ্য"
       }
     },
     "q15": {
-      "question": "I show kindness in daily life",
+      "question": "আমি মানুষের সাথে kindness দেখাই?",
       "options": {
-        "option1": "Often",
-        "option2": "Very rarely",
-        "option3": "Occasionally",
-        "option4": "Always"
+        "option1": "প্রায়ই",
+        "option2": "খুব কম",
+        "option3": "কখনো কখনো",
+        "option4": "সবসময়"
       }
     }
   }
 }
-

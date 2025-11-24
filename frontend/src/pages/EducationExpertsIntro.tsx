@@ -40,14 +40,19 @@ export default function EducationExpertsIntro() {
 
   const categories = [
     {
-      title: t("academicCounsellors", { ns: "experts" }),
-      description: t("academicCounsellorsDescription", { ns: "experts" }),
-      link: "/education-experts/academic-counsellors",
+      title: t("academicCounsellor", { ns: "experts" }),
+      description: t("academicCounsellorDescription", { ns: "experts" }),
+      link: "/education-experts/academic-counsellor",
     },
     {
-      title: t("achievers", { ns: "experts" }),
-      description: t("achieversDescription", { ns: "experts" }),
-      link: "/education-experts/achievers",
+      title: t("careerPlanningSpecialist", { ns: "experts" }),
+      description: t("careerPlanningSpecialistDescription", { ns: "experts" }),
+      link: "/education-experts/career-planning-specialist",
+    },
+    {
+      title: t("pathFinderConsultant", { ns: "experts" }),
+      description: t("pathFinderConsultantDescription", { ns: "experts" }),
+      link: "/education-experts/path-finder-consultant",
     },
   ];
 

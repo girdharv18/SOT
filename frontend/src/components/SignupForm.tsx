@@ -61,7 +61,7 @@ export default function SignupForm() {
           src="./images/login_image.png"
           alt="Login Image"
           className="border rounded-lg w-full h-full object-cover"
-          style={{ objectPosition: "0% 13%" }}
+          style={{ objectPosition: "50% 13%" }}
         />
       </div>
 
@@ -82,18 +82,24 @@ export default function SignupForm() {
             <h2 className="font-semibold text-primary mb-[5px] text-[clamp(14px,2vw,16px)]">
               {t("yourRole")}
             </h2>
+
             <div className="roles flex items-center justify-between mb-[10px] gap-[10px]">
               <div
                 className={`user ${
-                  role == "user" ? "bg-role-bg text-white" : "bg-input-bg"
+                  role == "user"
+                    ? "bg-primary text-white"
+                    : "bg-[hsl(0,0%,88%)] border border-primary"
                 } flex-1 py-[10px] text-center rounded-[30px] cursor-pointer text-[clamp(14px,2vw,16px)]`}
                 onClick={handleRoleChange}
               >
                 {t("user")}
               </div>
+
               <div
                 className={`expert ${
-                  role == "expert" ? "bg-role-bg text-white" : "bg-input-bg"
+                  role == "expert"
+                    ? "bg-primary text-white"
+                    : "bg-[hsl(0,0%,88%)] border border-primary"
                 } flex-1 py-[10px] text-center rounded-[30px] cursor-pointer text-[clamp(14px,2vw,16px)]`}
                 onClick={handleRoleChange}
               >
@@ -128,7 +134,7 @@ export default function SignupForm() {
               {t("forgotPassword")}
             </p>
 
-            <button className="w-full bg-create-account-btn-bg font-medium text-light-100 rounded-full px-[20px] py-[10px] mt-[30px] cursor-pointer text-[clamp(14px,2vw,16px)]">
+            <button className="w-full bg-primary font-medium text-light-100 rounded-full px-[20px] py-[10px] mt-[30px] cursor-pointer text-[clamp(14px,2vw,16px)]">
               {t("createAccount")}
             </button>
 

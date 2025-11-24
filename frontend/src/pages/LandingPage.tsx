@@ -1,5 +1,4 @@
 import AnalyticsSection from "../components/AnalyticsSection";
-import ClinicallyValidatedTestsSection from "../components/ClinicallyValidatedTestsSection";
 import HeroSection from "../components/HeroSection";
 import ResponsiveNavbar from "../components/ResponsiveNavbar";
 import WhyChooseUsSection from "../components/WhyChooseUsSection";
@@ -15,7 +14,6 @@ export default function UserDashboard() {
       <HeroSection />
       <AnalyticsSection />
       <ExpertVerifiedAssessmentsSection />
-      <ClinicallyValidatedTestsSection />
       <WhyChooseUsSection />
       <HowDoesItWork />
       <WhatOurUsersSay />

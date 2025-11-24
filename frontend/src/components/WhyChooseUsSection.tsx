@@ -41,22 +41,49 @@ function WhyChooseUsCard({
 
 export default function WhyChooseUsSection() {
   const { t } = useTranslation("sectors");
-  
+
   // Map IDs to translation keys
   const getTranslationKeys = (id: number) => {
-    const keyMap: Record<number, { title: string; description: string; cta: string }> = {
-      1: { title: "whyChooseUs.expertTherapists.title", description: "whyChooseUs.expertTherapists.description", cta: "whyChooseUs.expertTherapists.cta" },
-      2: { title: "whyChooseUs.accessibility.title", description: "whyChooseUs.accessibility.description", cta: "whyChooseUs.accessibility.cta" },
-      3: { title: "whyChooseUs.privacy.title", description: "whyChooseUs.privacy.description", cta: "whyChooseUs.privacy.cta" },
-      4: { title: "whyChooseUs.progressTracking.title", description: "whyChooseUs.progressTracking.description", cta: "whyChooseUs.progressTracking.cta" },
-      5: { title: "whyChooseUs.affordableCare.title", description: "whyChooseUs.affordableCare.description", cta: "whyChooseUs.affordableCare.cta" },
-      6: { title: "whyChooseUs.communitySupport.title", description: "whyChooseUs.communitySupport.description", cta: "whyChooseUs.communitySupport.cta" },
+    const keyMap: Record<
+      number,
+      { title: string; description: string; cta: string }
+    > = {
+      1: {
+        title: "whyChooseUs.expertTherapists.title",
+        description: "whyChooseUs.expertTherapists.description",
+        cta: "whyChooseUs.expertTherapists.cta",
+      },
+      2: {
+        title: "whyChooseUs.accessibility.title",
+        description: "whyChooseUs.accessibility.description",
+        cta: "whyChooseUs.accessibility.cta",
+      },
+      3: {
+        title: "whyChooseUs.privacy.title",
+        description: "whyChooseUs.privacy.description",
+        cta: "whyChooseUs.privacy.cta",
+      },
+      4: {
+        title: "whyChooseUs.progressTracking.title",
+        description: "whyChooseUs.progressTracking.description",
+        cta: "whyChooseUs.progressTracking.cta",
+      },
+      5: {
+        title: "whyChooseUs.affordableCare.title",
+        description: "whyChooseUs.affordableCare.description",
+        cta: "whyChooseUs.affordableCare.cta",
+      },
+      6: {
+        title: "whyChooseUs.communitySupport.title",
+        description: "whyChooseUs.communitySupport.description",
+        cta: "whyChooseUs.communitySupport.cta",
+      },
     };
     return keyMap[id] || { title: "", description: "", cta: "" };
   };
 
   return (
-    <div className="py-[50px] max-w-[1350px] mx-auto">
+    <div className="py-[50px] max-w-[1350px] mx-auto mt-[70px]">
       <h1 className="text-3xl font-bold text-center">
         {t("whyChooseUs.title")}
       </h1>

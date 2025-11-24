@@ -1,140 +1,139 @@
 {
   "questions": {
     "q1": {
-      "question": "When I meet new people, I usually feel",
+      "question": "নতুন মানুহৰ সৈতে দেখা হলে মই কেনেকৈ feel কৰো?",
       "options": {
-        "option1": "Quiet but polite",
-        "option2": "Very confident and outgoing",
-        "option3": "Friendly and open",
-        "option4": "Nervous and avoid talking"
+        "option1": "Calm কিন্তু অলপ shy",
+        "option2": "বহুত confident আৰু কথা-বতৰা",
+        "option3": "Friendly আৰু open",
+        "option4": "Nervous আৰু কথা কোৱাত ভয় পাওঁ"
       }
     },
     "q2": {
-      "question": "When someone needs help, I",
+      "question": "যেতিয়া কাৰোবাৰ help লাগে, মই",
       "options": {
-        "option1": "Ignore it unless told",
-        "option2": "Help only if it's convenient",
-        "option3": "Always offer help immediately",
-        "option4": "Try to help when I can"
+        "option1": "তেতিয়ালৈকে ignore কৰো যেতিয়ালৈকে তেওঁলোকে নকয়",
+        "option2": "কেৱল তেতিয়া help কৰো যেতিয়া মোৰ time থাকে",
+        "option3": "তৎক্ষণাত help কৰো",
+        "option4": "যেতিয়া সম্ভৱ, help কৰাৰ চেষ্টা কৰো"
       }
     },
     "q3": {
-      "question": "I prefer spending my free time —",
+      "question": "মই মোৰ free time কেনেকৈ কটাওঁ?",
       "options": {
-        "option1": "Mostly with friends or family",
-        "option2": "Mostly alone",
-        "option3": "Alone only",
-        "option4": "With both friends and alone time equally"
+        "option1": "বেছিভাগ সময় friends বা family ৰ সৈতে",
+        "option2": "বেছিভাগ সময় অকলে",
+        "option3": "সদায় অকলে",
+        "option4": "Friends ৰ সৈতে আৰু অকলে দুয়োটা"
       }
     },
     "q4": {
-      "question": "If someone disagrees with me, I",
+      "question": "যদি কোনোবাই মোৰ মতৰ সৈতে agree নকৰে, মই",
       "options": {
-        "option1": "Get angry",
-        "option2": "Stop talking to them",
-        "option3": "Listen but feel uncomfortable",
-        "option4": "Stay calm and discuss peacefully"
+        "option1": "Angry হৈ যাওঁ",
+        "option2": "কথা কোৱা বন্ধ কৰি দিওঁ",
+        "option3": "শুনো কিন্তু বেয়া লাগে",
+        "option4": "Calm থাকো আৰু কথা কোৱা"
       }
     },
     "q5": {
-      "question": "I can identify my feelings —",
+      "question": "মই মোৰ feelings বুজি পাৰো?",
       "options": {
-        "option1": "Hardly ever",
-        "option2": "Sometimes",
-        "option3": "Most of the time",
-        "option4": "Almost always"
+        "option1": "বহুত কম",
+        "option2": "কেতিয়াবা",
+        "option3": "বেছিভাগ সময়",
+        "option4": "সদায়"
       }
     },
     "q6": {
-      "question": "When I am upset, I",
+      "question": "যেতিয়া মই upset হওঁ, মই",
       "options": {
-        "option1": "Lose control",
-        "option2": "Stay quiet but angry",
-        "option3": "Try to calm myself",
-        "option4": "Handle emotions calmly"
+        "option1": "Control হেৰুৱাওঁ",
+        "option2": "Calm থাকো কিন্তু angry হওঁ",
+        "option3": "নিজকে calm কৰাৰ চেষ্টা কৰো",
+        "option4": "Peacefully ভাবো আৰু বুজি-বুজি কাম কৰো"
       }
     },
     "q7": {
-      "question": "When someone hurts me, I",
+      "question": "যেতিয়া কোনোবাই মোক hurt কৰে, মই",
       "options": {
-        "option1": "Never forgive",
-        "option2": "Forgive slowly",
-        "option3": "Forgive after some time",
-        "option4": "Forgive quickly"
+        "option1": "কেতিয়াও ক্ষমা নকৰো",
+        "option2": "বহুত পলমে ক্ষমা কৰো",
+        "option3": "কিছু সময়ৰ পিছত ক্ষমা কৰি দিওঁ",
+        "option4": "খৰকৈ ক্ষমা কৰি দিওঁ"
       }
     },
     "q8": {
-      "question": "I express gratitude —",
+      "question": "মই thank you কওঁ?",
       "options": {
-        "option1": "Rarely",
-        "option2": "Occasionally",
-        "option3": "Often",
-        "option4": "Always"
+        "option1": "বহুত কম",
+        "option2": "কেতিয়াবা",
+        "option3": "বহুতে",
+        "option4": "সদায়"
       }
     },
     "q9": {
-      "question": "Before making decisions, I",
+      "question": "Decision লোৱাৰ আগতে, মই",
       "options": {
-        "option1": "Think a little",
-        "option2": "Act without thinking",
-        "option3": "Think carefully and evaluate all sides",
-        "option4": "Analyze options"
+        "option1": "অলপ ভাবো",
+        "option2": "ভাবি-চিন্তি নকৰাকৈ কাম কৰো",
+        "option3": "ভালকৈ ভাবো আৰু সকলো কথা চাওঁ",
+        "option4": "সকলো options চাওঁ"
       }
     },
     "q10": {
-      "question": "When plans fail, I",
+      "question": "যেতিয়া মোৰ plan কাম নকৰে, মই",
       "options": {
-        "option1": "Try to adjust",
-        "option2": "Stay calm and find a new plan",
-        "option3": "Feel bad but give up",
-        "option4": "Get upset easily"
+        "option1": "Changes কৰাৰ চেষ্টা কৰো",
+        "option2": "Calm থাকো আৰু নতুন plan তৈয়াৰ কৰো",
+        "option3": "বেয়া লাগে আৰু হাৰ মানি লওঁ",
+        "option4": "বহুত upset হৈ যাওঁ"
       }
     },
     "q11": {
-      "question": "When I get feedback, I",
+      "question": "যেতিয়া কোনোবাই মোক suggestion দিয়ে, মই",
       "options": {
-        "option1": "Ignore it",
-        "option2": "Think about it",
-        "option3": "Learn and improve from it",
-        "option4": "Feel angry or hurt"
+        "option1": "Ignore কৰো",
+        "option2": "ভাবো",
+        "option3": "শিকো আৰু আৰু ভাল হোৱাৰ চেষ্টা কৰো",
+        "option4": "Angry বা দুখিত হৈ যাওঁ"
       }
     },
     "q12": {
-      "question": "When I am under pressure, I",
+      "question": "যেতিয়া মই stress ত থাকো, মই",
       "options": {
-        "option1": "Handle pressure well",
-        "option2": "Feel helpless",
-        "option3": "Panic",
-        "option4": "Stay calm sometimes"
+        "option1": "ভালকৈ handle কৰি লওঁ",
+        "option2": "Helpless feel কৰো",
+        "option3": "Panic হৈ যাওঁ",
+        "option4": "কেতিয়াবা calm থাকিব পাৰো"
       }
     },
     "q13": {
-      "question": "After failure, I",
+      "question": "Failure ৰ পিছত, মই",
       "options": {
-        "option1": "Feel low for long",
-        "option2": "Quit",
-        "option3": "Try again confidently",
-        "option4": "Try again after a break"
+        "option1": "বহুত পলমলৈকে বেয়া feel কৰো",
+        "option2": "হাৰ মানি লওঁ",
+        "option3": "পুনৰ try কৰো",
+        "option4": "অলপ জিৰণি লৈ পুনৰ try কৰো"
       }
     },
     "q14": {
-      "question": "I view problems as",
+      "question": "মই problems ক কেনেকৈ চাওঁ?",
       "options": {
-        "option1": "Difficult situations",
-        "option2": "Challenges to face",
-        "option3": "Chances to learn",
-        "option4": "Bad luck"
+        "option1": "বহুত কঠিন বস্তু",
+        "option2": "Challenge যাক মোকাবিলা কৰিব লাগিব",
+        "option3": "কিছু শিকাৰ সুযোগ",
+        "option4": "বেয়া ভাগ্য"
       }
     },
     "q15": {
-      "question": "I show kindness in daily life",
+      "question": "মই মানুহৰ সৈতে kindness দেখুৱাওঁ?",
       "options": {
-        "option1": "Often",
-        "option2": "Very rarely",
-        "option3": "Occasionally",
-        "option4": "Always"
+        "option1": "বহুতে",
+        "option2": "বহুত কম",
+        "option3": "কেতিয়াবা",
+        "option4": "সদায়"
       }
     }
   }
 }
-

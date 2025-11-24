@@ -1,140 +1,139 @@
 {
   "questions": {
     "q1": {
-      "question": "When I meet new people, I usually feel",
+      "question": "नवीन लोकांना भेटताना मी कसे feel करतो?",
       "options": {
-        "option1": "Quiet but polite",
-        "option2": "Very confident and outgoing",
-        "option3": "Friendly and open",
-        "option4": "Nervous and avoid talking"
+        "option1": "Calm पण थोडे shy",
+        "option2": "खूप confident आणि बोलका",
+        "option3": "Friendly आणि open",
+        "option4": "Nervous आणि बोलण्यापासून घाबरतो"
       }
     },
     "q2": {
-      "question": "When someone needs help, I",
+      "question": "जेव्हा कुणाला help हवी असते, मी",
       "options": {
-        "option1": "Ignore it unless told",
-        "option2": "Help only if it's convenient",
-        "option3": "Always offer help immediately",
-        "option4": "Try to help when I can"
+        "option1": "तेव्हापर्यंत ignore करतो जेव्हापर्यंत ते म्हणत नाहीत",
+        "option2": "फक्त तेव्हा help करतो जेव्हा मला time असतो",
+        "option3": "ताबडतोब help करतो",
+        "option4": "जेव्हा शक्य असेल, help करण्याचा प्रयत्न करतो"
       }
     },
     "q3": {
-      "question": "I prefer spending my free time —",
+      "question": "मी माझा free time कसा घालवायला आवडतो?",
       "options": {
-        "option1": "Mostly with friends or family",
-        "option2": "Mostly alone",
-        "option3": "Alone only",
-        "option4": "With both friends and alone time equally"
+        "option1": "बहुतेकदा friends किंवा family सोबत",
+        "option2": "बहुतेकदा एकटा",
+        "option3": "नेहमी एकटा",
+        "option4": "Friends सोबत आणि एकटा दोन्ही प्रकारे"
       }
     },
     "q4": {
-      "question": "If someone disagrees with me, I",
+      "question": "जर कोणी माझ्या मताशी agree नसेल, मी",
       "options": {
-        "option1": "Get angry",
-        "option2": "Stop talking to them",
-        "option3": "Listen but feel uncomfortable",
-        "option4": "Stay calm and discuss peacefully"
+        "option1": "Angry होतो",
+        "option2": "बोलणे बंद करतो",
+        "option3": "ऐकतो पण वाईट वाटते",
+        "option4": "Calm राहतो आणि बोलतो"
       }
     },
     "q5": {
-      "question": "I can identify my feelings —",
+      "question": "मी माझ्या feelings समजू शकतो?",
       "options": {
-        "option1": "Hardly ever",
-        "option2": "Sometimes",
-        "option3": "Most of the time",
-        "option4": "Almost always"
+        "option1": "खूप कमी",
+        "option2": "कधीकधी",
+        "option3": "बहुतेकदा",
+        "option4": "नेहमी"
       }
     },
     "q6": {
-      "question": "When I am upset, I",
+      "question": "जेव्हा मी upset होतो, मी",
       "options": {
-        "option1": "Lose control",
-        "option2": "Stay quiet but angry",
-        "option3": "Try to calm myself",
-        "option4": "Handle emotions calmly"
+        "option1": "Control गमावतो",
+        "option2": "Calm राहतो पण angry होतो",
+        "option3": "स्वतःला calm करण्याचा प्रयत्न करतो",
+        "option4": "Peacefully विचार करतो आणि समजूतदारपणे काम करतो"
       }
     },
     "q7": {
-      "question": "When someone hurts me, I",
+      "question": "जेव्हा कोणी मला hurt करते, मी",
       "options": {
-        "option1": "Never forgive",
-        "option2": "Forgive slowly",
-        "option3": "Forgive after some time",
-        "option4": "Forgive quickly"
+        "option1": "कधीही माफ करत नाही",
+        "option2": "खूप उशीरा माफ करतो",
+        "option3": "काही वेळाने माफ करतो",
+        "option4": "लवकर माफ करतो"
       }
     },
     "q8": {
-      "question": "I express gratitude —",
+      "question": "मी thank you म्हणतो?",
       "options": {
-        "option1": "Rarely",
-        "option2": "Occasionally",
-        "option3": "Often",
-        "option4": "Always"
+        "option1": "खूप कमी",
+        "option2": "कधीकधी",
+        "option3": "अनेकदा",
+        "option4": "नेहमी"
       }
     },
     "q9": {
-      "question": "Before making decisions, I",
+      "question": "Decision घेण्यापूर्वी, मी",
       "options": {
-        "option1": "Think a little",
-        "option2": "Act without thinking",
-        "option3": "Think carefully and evaluate all sides",
-        "option4": "Analyze options"
+        "option1": "थोडे विचार करतो",
+        "option2": "विचार न करता काम करतो",
+        "option3": "चांगले विचार करतो आणि सर्व बाबी पाहतो",
+        "option4": "सर्व options पाहतो"
       }
     },
     "q10": {
-      "question": "When plans fail, I",
+      "question": "जेव्हा माझी plan काम करत नाही, मी",
       "options": {
-        "option1": "Try to adjust",
-        "option2": "Stay calm and find a new plan",
-        "option3": "Feel bad but give up",
-        "option4": "Get upset easily"
+        "option1": "Changes करण्याचा प्रयत्न करतो",
+        "option2": "Calm राहतो आणि नवीन plan बनवतो",
+        "option3": "वाईट वाटते आणि हार मानतो",
+        "option4": "खूप निराश होतो"
       }
     },
     "q11": {
-      "question": "When I get feedback, I",
+      "question": "जेव्हा कोणी मला suggestion देते, मी",
       "options": {
-        "option1": "Ignore it",
-        "option2": "Think about it",
-        "option3": "Learn and improve from it",
-        "option4": "Feel angry or hurt"
+        "option1": "Ignore करतो",
+        "option2": "विचार करतो",
+        "option3": "शिकतो आणि अधिक चांगले होण्याचा प्रयत्न करतो",
+        "option4": "Angry किंवा दुःखी होतो"
       }
     },
     "q12": {
-      "question": "When I am under pressure, I",
+      "question": "जेव्हा मी stress मध्ये असतो, मी",
       "options": {
-        "option1": "Handle pressure well",
-        "option2": "Feel helpless",
-        "option3": "Panic",
-        "option4": "Stay calm sometimes"
+        "option1": "चांगले handle करतो",
+        "option2": "Helpless feel करतो",
+        "option3": "Panic होतो",
+        "option4": "कधीकधी calm राहू शकतो"
       }
     },
     "q13": {
-      "question": "After failure, I",
+      "question": "Failure नंतर, मी",
       "options": {
-        "option1": "Feel low for long",
-        "option2": "Quit",
-        "option3": "Try again confidently",
-        "option4": "Try again after a break"
+        "option1": "खूप उशीरा पर्यंत वाईट feel करतो",
+        "option2": "हार मानतो",
+        "option3": "पुन्हा प्रयत्न करतो",
+        "option4": "थोडे विश्रांती घेऊन पुन्हा try करतो"
       }
     },
     "q14": {
-      "question": "I view problems as",
+      "question": "मी problems कसे पाहतो?",
       "options": {
-        "option1": "Difficult situations",
-        "option2": "Challenges to face",
-        "option3": "Chances to learn",
-        "option4": "Bad luck"
+        "option1": "खूप कठीण गोष्टी",
+        "option2": "Challenge ज्याला सामोरे जावे लागते",
+        "option3": "काहीतरी शिकण्याची संधी",
+        "option4": "वाईट नशीब"
       }
     },
     "q15": {
-      "question": "I show kindness in daily life",
+      "question": "मी लोकांसोबत kindness दाखवतो?",
       "options": {
-        "option1": "Often",
-        "option2": "Very rarely",
-        "option3": "Occasionally",
-        "option4": "Always"
+        "option1": "अनेकदा",
+        "option2": "खूप कमी",
+        "option3": "कधीकधी",
+        "option4": "नेहमी"
       }
     }
   }
 }
-

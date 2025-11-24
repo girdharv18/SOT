@@ -1,9 +1,9 @@
 {
   "hero": {
     "title": "Transform Your Decisions Through Proven Expert Guidance",
-    "description": "Unlock expert guidance in health, finance, and education—so every decision strengthens your future, not risks it. Skip the confusion, trust proven insight, and move forward with confidence, clarity, and real results.",
+    "description": "Unlock expert guidance in Wellness, finance, and education—so every decision strengthens your future, not risks it. Skip the confusion, trust proven insight, and move forward with confidence, clarity, and real results.",
     "wellnessEcosystem": "Wellness Ecosystem",
-    "wellnessDescription": "Your mental health, your way",
+    "wellnessDescription": "Your mental Wellness, your way",
     "financeSector": "Finance Sector",
     "financeDescription": "Expert financial guidance",
     "educationSector": "Education Sector",
@@ -24,7 +24,7 @@
     },
     "accessibility": {
       "title": "24/7 Accessibility",
-      "description": "Access therapy and mental health tools anytime, anywhere through our mobile or desktop.",
+      "description": "Access therapy and mental Wellness tools anytime, anywhere through our mobile or desktop.",
       "cta": "Start your journey"
     },
     "privacy": {
@@ -34,17 +34,17 @@
     },
     "progressTracking": {
       "title": "Progress Tracking",
-      "description": "Monitor your mental health journey with detailed insights and personalized progress reports.",
+      "description": "Monitor your mental Wellness journey with detailed insights and personalized progress reports.",
       "cta": "View Demo"
     },
     "affordableCare": {
       "title": "Affordable Care",
-      "description": "Quality mental health care shouldn't break the bank. Flexible pricing plans to suit your budget.",
+      "description": "Quality mental Wellness care shouldn't break the bank. Flexible pricing plans to suit your budget.",
       "cta": "View Pricing"
     },
     "communitySupport": {
       "title": "Community Support",
-      "description": "Join supportive community groups and connect with others on similar mental health journeys.",
+      "description": "Join supportive community groups and connect with others on similar mental Wellness journeys.",
       "cta": "Join Community"
     }
   },
@@ -112,8 +112,8 @@
       "description": "Discover how resilient you are to stress and adversity"
     },
     "relationship": {
-      "title": "Relationship Health Check",
-      "description": "Check your relationship health and get a report to guide your next steps."
+      "title": "Relationship Wellness Check",
+      "description": "Check your relationship Wellness and get a report to guide your next steps."
     }
   }
 }

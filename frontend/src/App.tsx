@@ -6,7 +6,7 @@ import { ScreenProvider } from "./context/ScreenContext";
 import SelfAssessment from "./pages/SelfAssessment";
 import SelfAssessmentQuestions from "./pages/SelfAssessmentQuestions";
 import SelfAssessmentResult from "./pages/SelfAssessmentResult";
-import HealthExpertsIntro from "./pages/HealthExpertsIntro";
+import WellnessExpertsIntro from "./pages/WellnessExpertsIntro";
 import EducationExpertsIntro from "./pages/EducationExpertsIntro";
 import FinanceExpertsIntro from "./pages/FinanceExpertsIntro";
 import Experts from "./pages/Experts";
@@ -30,28 +30,39 @@ export default function App() {
           element={<SelfAssessmentResult />}
         />
 
-        {/* Health Experts */}
-        <Route path="/health-experts" element={<HealthExpertsIntro />} />
-        <Route path="/health-experts/therapists" element={<Experts />} />
-        <Route path="/health-experts/yoga-experts" element={<Experts />} />
-        <Route path="/health-experts/dieticians" element={<Experts />} />
+        {/* Wellness Experts */}
+        <Route path="/wellness-experts" element={<WellnessExpertsIntro />} />
+        <Route path="/wellness-experts/therapists" element={<Experts />} />
+        <Route path="/wellness-experts/yoga-experts" element={<Experts />} />
+        <Route path="/wellness-experts/dieticians" element={<Experts />} />
 
         {/* Education Experts */}
         <Route path="/education-experts" element={<EducationExpertsIntro />} />
         <Route
-          path="/education-experts/academic-counsellors"
+          path="/education-experts/academic-counsellor"
           element={<Experts />}
         />
-        <Route path="/education-experts/achievers" element={<Experts />} />
+        <Route
+          path="/education-experts/career-planning-specialist"
+          element={<Experts />}
+        />
+        <Route
+          path="/education-experts/path-finder-consultant"
+          element={<Experts />}
+        />
 
         {/* Finance Experts */}
         <Route path="/finance-experts" element={<FinanceExpertsIntro />} />
         <Route
-          path="/finance-experts/investment-counsellors"
+          path="/finance-experts/investment-counsellor"
           element={<Experts />}
         />
         <Route
-          path="/finance-experts/financial-experts"
+          path="/finance-experts/financial-expert"
+          element={<Experts />}
+        />
+        <Route
+          path="/finance-experts/gst-taxation-expert"
           element={<Experts />}
         />
       </Routes>

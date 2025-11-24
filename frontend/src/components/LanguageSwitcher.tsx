@@ -5,6 +5,7 @@ import { Languages as LanguagesIcon, ChevronDown, Check } from "lucide-react";
 const availableLanguages = [
   { code: "en", name: "English", nativeName: "English" },
   { code: "hi", name: "Hindi", nativeName: "हिंदी" },
+  { code: "he", name: "Hinglish", nativeName: "Hinglish" },
   { code: "gu", name: "Gujarati", nativeName: "ગુજરાતી" },
   { code: "mr", name: "Marathi", nativeName: "मराठी" },
   { code: "bn", name: "Bengali", nativeName: "বাংলা" },
@@ -52,10 +53,13 @@ export default function LanguageSwitcher() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="p-[8px] bg-light-100 rounded-full cursor-pointer hover:bg-light-200 transition-colors flex items-center gap-[5px]"
+        className="px-[12px] py-[8px] bg-light-100 rounded-full cursor-pointer hover:bg-light-200 transition-colors flex items-center gap-[8px]"
         aria-label="Change language"
       >
         <LanguagesIcon size={20} className="text-[#304048]" />
+        <span className="text-sm font-medium text-[#304048]">
+          {currentLanguage.nativeName}
+        </span>
         <ChevronDown
           size={14}
           className={`text-[#304048] transition-transform ${

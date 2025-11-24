@@ -1,140 +1,139 @@
 {
   "questions": {
     "q1": {
-      "question": "When I meet new people, I usually feel",
+      "question": "പുതിയ ആളുകളെ കാണുമ്പോൾ ഞാൻ എങ്ങനെ feel ചെയ്യും?",
       "options": {
-        "option1": "Quiet but polite",
-        "option2": "Very confident and outgoing",
-        "option3": "Friendly and open",
-        "option4": "Nervous and avoid talking"
+        "option1": "Calm എന്നാൽ അൽപ്പം shy",
+        "option2": "വളരെ confident ഉം സംസാരിക്കുന്നതും",
+        "option3": "Friendly ഉം open ഉം",
+        "option4": "Nervous ഉം സംസാരിക്കുന്നതിൽ ഭയപ്പെടുന്നതും"
       }
     },
     "q2": {
-      "question": "When someone needs help, I",
+      "question": "ആരെങ്കിലും help വേണ്ടിവരുമ്പോൾ, ഞാൻ",
       "options": {
-        "option1": "Ignore it unless told",
-        "option2": "Help only if it's convenient",
-        "option3": "Always offer help immediately",
-        "option4": "Try to help when I can"
+        "option1": "അവർ പറയുന്നതുവരെ ignore ചെയ്യും",
+        "option2": "എനിക്ക് time ഉള്ളപ്പോൾ മാത്രം help ചെയ്യും",
+        "option3": "ഉടനെ help ചെയ്യും",
+        "option4": "സാധ്യമാകുമ്പോൾ help ചെയ്യാൻ ശ്രമിക്കും"
       }
     },
     "q3": {
-      "question": "I prefer spending my free time —",
+      "question": "ഞാൻ എന്റെ free time എങ്ങനെ ചെലവഴിക്കാൻ ഇഷ്ടപ്പെടുന്നു?",
       "options": {
-        "option1": "Mostly with friends or family",
-        "option2": "Mostly alone",
-        "option3": "Alone only",
-        "option4": "With both friends and alone time equally"
+        "option1": "കൂടുതലും friends അല്ലെങ്കിൽ family യോടൊപ്പം",
+        "option2": "കൂടുതലും ഒറ്റയ്ക്ക്",
+        "option3": "എല്ലായ്പ്പോഴും ഒറ്റയ്ക്ക്",
+        "option4": "Friends യോടൊപ്പം ഒപ്പം ഒറ്റയ്ക്ക് രണ്ടും"
       }
     },
     "q4": {
-      "question": "If someone disagrees with me, I",
+      "question": "ആരെങ്കിലും എന്റെ അഭിപ്രായത്തോട് agree ചെയ്യുന്നില്ലെങ്കിൽ, ഞാൻ",
       "options": {
-        "option1": "Get angry",
-        "option2": "Stop talking to them",
-        "option3": "Listen but feel uncomfortable",
-        "option4": "Stay calm and discuss peacefully"
+        "option1": "Angry ആകും",
+        "option2": "സംസാരിക്കുന്നത് നിർത്തും",
+        "option3": "കേൾക്കും എന്നാൽ മോശമായി തോന്നും",
+        "option4": "Calm ആയി തുടരും ഒപ്പം സംസാരിക്കും"
       }
     },
     "q5": {
-      "question": "I can identify my feelings —",
+      "question": "ഞാൻ എന്റെ feelings മനസ്സിലാക്കാൻ കഴിയുമോ?",
       "options": {
-        "option1": "Hardly ever",
-        "option2": "Sometimes",
-        "option3": "Most of the time",
-        "option4": "Almost always"
+        "option1": "വളരെ കുറച്ച്",
+        "option2": "ചിലപ്പോൾ",
+        "option3": "കൂടുതലും",
+        "option4": "എല്ലായ്പ്പോഴും"
       }
     },
     "q6": {
-      "question": "When I am upset, I",
+      "question": "ഞാൻ upset ആകുമ്പോൾ, ഞാൻ",
       "options": {
-        "option1": "Lose control",
-        "option2": "Stay quiet but angry",
-        "option3": "Try to calm myself",
-        "option4": "Handle emotions calmly"
+        "option1": "Control നഷ്ടപ്പെടുത്തും",
+        "option2": "Calm ആയി തുടരും എന്നാൽ angry ആകും",
+        "option3": "എന്നെത്തന്നെ calm ആക്കാൻ ശ്രമിക്കും",
+        "option4": "Peacefully ചിന്തിക്കും ഒപ്പം ബുദ്ധിയോടെ പ്രവർത്തിക്കും"
       }
     },
     "q7": {
-      "question": "When someone hurts me, I",
+      "question": "ആരെങ്കിലും എന്നെ hurt ചെയ്യുമ്പോൾ, ഞാൻ",
       "options": {
-        "option1": "Never forgive",
-        "option2": "Forgive slowly",
-        "option3": "Forgive after some time",
-        "option4": "Forgive quickly"
+        "option1": "ഒരിക്കലും ക്ഷമിക്കില്ല",
+        "option2": "വളരെ വൈകി ക്ഷമിക്കും",
+        "option3": "കുറച്ച് സമയത്തിന് ശേഷം ക്ഷമിക്കും",
+        "option4": "വേഗത്തിൽ ക്ഷമിക്കും"
       }
     },
     "q8": {
-      "question": "I express gratitude —",
+      "question": "ഞാൻ thank you പറയുമോ?",
       "options": {
-        "option1": "Rarely",
-        "option2": "Occasionally",
-        "option3": "Often",
-        "option4": "Always"
+        "option1": "വളരെ കുറച്ച്",
+        "option2": "ചിലപ്പോൾ",
+        "option3": "പലപ്പോഴും",
+        "option4": "എല്ലായ്പ്പോഴും"
       }
     },
     "q9": {
-      "question": "Before making decisions, I",
+      "question": "Decision എടുക്കുന്നതിന് മുമ്പ്, ഞാൻ",
       "options": {
-        "option1": "Think a little",
-        "option2": "Act without thinking",
-        "option3": "Think carefully and evaluate all sides",
-        "option4": "Analyze options"
+        "option1": "അൽപ്പം ചിന്തിക്കും",
+        "option2": "ചിന്തിക്കാതെ പ്രവർത്തിക്കും",
+        "option3": "നന്നായി ചിന്തിക്കും ഒപ്പം എല്ലാ കാര്യങ്ങളും നോക്കും",
+        "option4": "എല്ലാ options നോക്കും"
       }
     },
     "q10": {
-      "question": "When plans fail, I",
+      "question": "എന്റെ plan പ്രവർത്തിക്കാത്തപ്പോൾ, ഞാൻ",
       "options": {
-        "option1": "Try to adjust",
-        "option2": "Stay calm and find a new plan",
-        "option3": "Feel bad but give up",
-        "option4": "Get upset easily"
+        "option1": "Changes ചെയ്യാൻ ശ്രമിക്കും",
+        "option2": "Calm ആയി തുടരും ഒപ്പം പുതിയ plan ഉണ്ടാക്കും",
+        "option3": "മോശമായി തോന്നും ഒപ്പം ഉപേക്ഷിക്കും",
+        "option4": "വളരെ upset ആകും"
       }
     },
     "q11": {
-      "question": "When I get feedback, I",
+      "question": "ആരെങ്കിലും എനിക്ക് suggestion നൽകുമ്പോൾ, ഞാൻ",
       "options": {
-        "option1": "Ignore it",
-        "option2": "Think about it",
-        "option3": "Learn and improve from it",
-        "option4": "Feel angry or hurt"
+        "option1": "Ignore ചെയ്യും",
+        "option2": "ചിന്തിക്കും",
+        "option3": "പഠിക്കും ഒപ്പം കൂടുതൽ നന്നാകാൻ ശ്രമിക്കും",
+        "option4": "Angry അല്ലെങ്കിൽ ദുഃഖിതനാകും"
       }
     },
     "q12": {
-      "question": "When I am under pressure, I",
+      "question": "ഞാൻ stress ൽ ആകുമ്പോൾ, ഞാൻ",
       "options": {
-        "option1": "Handle pressure well",
-        "option2": "Feel helpless",
-        "option3": "Panic",
-        "option4": "Stay calm sometimes"
+        "option1": "നന്നായി handle ചെയ്യും",
+        "option2": "Helpless feel ചെയ്യും",
+        "option3": "Panic ആകും",
+        "option4": "ചിലപ്പോൾ calm ആയി തുടരാൻ കഴിയും"
       }
     },
     "q13": {
-      "question": "After failure, I",
+      "question": "Failure ന് ശേഷം, ഞാൻ",
       "options": {
-        "option1": "Feel low for long",
-        "option2": "Quit",
-        "option3": "Try again confidently",
-        "option4": "Try again after a break"
+        "option1": "വളരെ വൈകി വരെ മോശമായി feel ചെയ്യും",
+        "option2": "ഉപേക്ഷിക്കും",
+        "option3": "വീണ്ടും try ചെയ്യും",
+        "option4": "അൽപ്പം വിശ്രമിച്ച് വീണ്ടും try ചെയ്യും"
       }
     },
     "q14": {
-      "question": "I view problems as",
+      "question": "ഞാൻ problems എങ്ങനെ കാണുന്നു?",
       "options": {
-        "option1": "Difficult situations",
-        "option2": "Challenges to face",
-        "option3": "Chances to learn",
-        "option4": "Bad luck"
+        "option1": "വളരെ ബുദ്ധിമുട്ടുള്ള കാര്യങ്ങൾ",
+        "option2": "Challenge അതിനെ നേരിടേണ്ടതുണ്ട്",
+        "option3": "എന്തെങ്കിലും പഠിക്കാനുള്ള അവസരം",
+        "option4": "മോശമായ ഭാഗ്യം"
       }
     },
     "q15": {
-      "question": "I show kindness in daily life",
+      "question": "ഞാൻ ആളുകളോട് kindness കാണിക്കുമോ?",
       "options": {
-        "option1": "Often",
-        "option2": "Very rarely",
-        "option3": "Occasionally",
-        "option4": "Always"
+        "option1": "പലപ്പോഴും",
+        "option2": "വളരെ കുറച്ച്",
+        "option3": "ചിലപ്പോൾ",
+        "option4": "എല്ലായ്പ്പോഴും"
       }
     }
   }
 }
-

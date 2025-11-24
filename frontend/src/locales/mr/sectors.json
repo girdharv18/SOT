@@ -1,94 +1,119 @@
 {
   "hero": {
-    "title": "Transform Your Decisions Through Proven Expert Guidance",
-    "description": "Unlock expert guidance in health, finance, and education—so every decision strengthens your future, not risks it. Skip the confusion, trust proven insight, and move forward with confidence, clarity, and real results.",
-    "wellnessEcosystem": "Wellness Ecosystem",
-    "wellnessDescription": "Your mental health, your way",
-    "financeSector": "Finance Sector",
-    "financeDescription": "Expert financial guidance",
-    "educationSector": "Education Sector",
-    "educationDescription": "Your learning, your way",
-    "personalizedCare": "Personalized Care",
-    "personalizedDescription": "Tailored to your unique needs",
-    "expertSupport": "Expert Support",
-    "expertSupportDescription": "Connect with licensed professionals",
-    "emotionalHealing": "Emotional Healing",
-    "emotionalHealingDescription": "Find peace and emotional balance"
+    "title": "अनुभवी experts कडून योग्य advice मिळवा",
+    "description": "Health, पैसे आणि पढाईत experts कडून मदत मिळवा. प्रत्येक decision तुमच्या future साठी योग्य असावे, चुकीचे नाही. Confusion मध्ये न रहा, योग्य advice घ्या आणि confidence सोबत पुढे जा.",
+    "wellnessEcosystem": "Health Services",
+    "wellnessDescription": "तुमचे mental health, तुमच्या मार्गाने",
+    "financeSector": "पैशांची Advice",
+    "financeDescription": "Experts कडून पैशांची advice",
+    "educationSector": "पढाईची Advice",
+    "educationDescription": "तुमची पढाई, तुमच्या मार्गाने",
+    "personalizedCare": "तुमच्यासाठी विशेष care",
+    "personalizedDescription": "तुमच्या गरजांनुसार",
+    "expertSupport": "Expert Help",
+    "expertSupportDescription": "अनुभवी doctors सोबत जोडा",
+    "emotionalHealing": "हृदयाची Care",
+    "emotionalHealingDescription": "Peace आणि आनंद मिळवा"
   },
   "whyChooseUs": {
-    "title": "Why Choose MindCurePath?",
+    "title": "MindCurePath का choose करा?",
     "expertTherapists": {
-      "title": "Expert Therapists",
-      "description": "Understand what drives your behavior and thoughts with intelligent mood tracking.",
-      "cta": "Find your match"
+      "title": "अनुभवी Doctors",
+      "description": "समजून घ्या की तुम्ही कसे विचार करता आणि का असे feel करता.",
+      "cta": "तुमचा doctor शोधा"
     },
     "accessibility": {
-      "title": "24/7 Accessibility",
-      "description": "Access therapy and mental health tools anytime, anywhere through our mobile or desktop.",
-      "cta": "Start your journey"
+      "title": "नेहमी available",
+      "description": "Mobile किंवा computer पासून कधीही, कुठेही मदत मिळवा.",
+      "cta": "सुरू करा"
     },
     "privacy": {
-      "title": "Complete Privacy",
-      "description": "Your conversations and data are completely secure with end-to-end encryption and HIPAA compliance.",
-      "cta": "Learn more"
+      "title": "पूर्ण privacy",
+      "description": "तुमच्या बोलण्या पूर्णपणे safe राहतात.",
+      "cta": "अधिक जाणून घ्या"
     },
     "progressTracking": {
-      "title": "Progress Tracking",
-      "description": "Monitor your mental health journey with detailed insights and personalized progress reports.",
-      "cta": "View Demo"
+      "title": "Progress पहा",
+      "description": "तुमच्या improvement ची report पहा आणि अधिक चांगले होत जा.",
+      "cta": "पहा"
     },
     "affordableCare": {
-      "title": "Affordable Care",
-      "description": "Quality mental health care shouldn't break the bank. Flexible pricing plans to suit your budget.",
-      "cta": "View Pricing"
+      "title": "स्वस्त service",
+      "description": "चांगली care महाग नसावी. तुमच्या budget नुसार price.",
+      "cta": "किंमत पहा"
     },
     "communitySupport": {
-      "title": "Community Support",
-      "description": "Join supportive community groups and connect with others on similar mental health journeys.",
-      "cta": "Join Community"
+      "title": "Community ची मदत",
+      "description": "इतर लोकांसोबत जोडा जे तुमच्यासारख्या problem मधून जात आहेत.",
+      "cta": "जोडा"
     }
   },
   "howDoesItWork": {
-    "title": "How Does It Work?",
-    "subtitle": "Simple steps to get started with MindCurePath",
+    "title": "हे कसे काम करते?",
+    "subtitle": "MindCurePath सोबत सुरू करण्यासाठी सोपे steps",
     "step1": {
-      "title": "1. Get to the form / WhatsApp",
-      "description": "Fill out the form or contact us on WhatsApp to proceed. Get quick assistance instantly!"
+      "title": "1. Form भरा किंवा WhatsApp करा",
+      "description": "Form भरा किंवा WhatsApp वर बोला. ताबडतोब मदत मिळवा!"
     },
     "step2": {
-      "title": "2. Book your appointment",
-      "description": "Schedule your appointment now to get timely assistance from our team!"
+      "title": "2. Appointment घ्या",
+      "description": "आमच्या team सोबत बोलण्यासाठी appointment book करा!"
     },
     "step3": {
-      "title": "3. You'll be contacted at your booked time.",
-      "description": "Our team will reach out to you at your scheduled time for further assistance. Stay tuned!"
+      "title": "3. तुमचा contact केला जाईल",
+      "description": "आमची team तुमच्या time वर तुमचा contact करेल. वाट पहा!"
     },
     "step4": {
-      "title": "4. Free Follow-ups as needed",
-      "description": "Get free follow-ups whenever you need for continued support!"
+      "title": "4. गरज पडल्यास पुन्हा बोला",
+      "description": "जेव्हा गरज असेल, free मध्ये पुन्हा बोलू शकता!"
     }
   },
   "whatOurUsersSay": {
-    "title": "What Our Users Say",
-    "subtitle": "Real stories from people who transformed their lives with MindCurePath",
+    "title": "आमचे users काय म्हणतात",
+    "subtitle": "त्या लोकांच्या कहाण्या ज्यांनी MindCurePath सोबत त्यांचे जीवन बदलले",
     "reviews": {
       "sarah": {
         "name": "Sarah M.",
-        "review": "After my first session, I felt like a weight was lifted off my shoulders. I'm so grateful to have found this app!"
+        "review": "पहिल्यांदा बोलल्यानंतर मला खूप light वाटले. मला आनंद आहे की मी हे app वापरले!"
       },
       "john": {
         "name": "John D.",
-        "review": "Saw you guys on Shark Tank and immediately downloaded the app. Have been taking therapy since then - going great. Feels so light after every session!"
+        "review": "Shark Tank वर पाहिले आणि ताबडतोब app download केले. तेव्हापासून मदत घेत आहे - खूप चांगले आहे. प्रत्येक वेळी बोलल्यानंतर चांगले वाटते!"
       },
       "james": {
         "name": "James L.",
-        "review": "I used to constantly feel like I'm not enough but my therapist is awesome - she made me believe in myself. It's been life changing!"
+        "review": "मला वाटत होते की मी पुरेसा नाही, पण माझ्या doctor ने मला स्वतःवर trust करणे शिकवले. हे माझे जीवन बदलले!"
       }
     }
   },
   "selfAssessment": {
-    "title": "Discover Who You Really Are",
-    "description": "Psychologically curated questions designed to uncover your true personality — embark on a journey of self-awareness and insight."
+    "title": "जाणून घ्या की तुम्ही खरोखर कोण आहात",
+    "description": "सोपे प्रश्न जे तुमची खरी personality दाखवतात - स्वतःला समजून घेण्याची journey सुरू करा."
+  },
+  "cvt": {
+    "trauma": {
+      "title": "जुन्या वाईट आठवणी मला कसे affect करत आहेत?",
+      "description": "जुन्या गोष्टी आज तुम्हाला कशा त्रास देत आहेत, हे समजून घ्या"
+    },
+    "adhd": {
+      "title": "मला ADHD आहे का?",
+      "description": "जाणून घ्या की तुम्हाला लक्ष न देण्याची problem असू शकते"
+    },
+    "anxiety": {
+      "title": "माझी anxiety किती आहे?",
+      "description": "जाणून घ्या की तुम्ही किती anxious आहात आणि पुढे काय करावे"
+    },
+    "mood": {
+      "title": "हे फक्त वाईट दिवस आहे का काहीतरी अधिक?",
+      "description": "जाणून घ्या की तुमची sadness फक्त एका दिवसाची गोष्ट आहे का काहीतरी serious"
+    },
+    "resilience": {
+      "title": "मी अडचणींना कसे सामोरे जातो?",
+      "description": "जाणून घ्या की तुम्ही कठीण वेळेत किती strong रहाता"
+    },
+    "relationship": {
+      "title": "Relationships ची check",
+      "description": "तुमच्या relationships समजून घ्या आणि पुढे काय करावे, हे जाणून घ्या"
+    }
   }
 }
-

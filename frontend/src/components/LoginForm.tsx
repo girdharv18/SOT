@@ -11,7 +11,7 @@ export default function LoginForm() {
           src="./images/login_image.png"
           alt={t("login") + " Image"}
           className="border rounded-lg w-full h-full object-cover"
-          style={{ objectPosition: "0% 13%" }}
+          style={{ objectPosition: "50% 13%" }}
         />
       </div>
 

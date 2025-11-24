@@ -38,14 +38,19 @@ export default function FinanceExpertsIntro() {
 
   const categories = [
     {
-      title: t("investmentCounsellors", { ns: "experts" }),
-      description: t("investmentCounsellorsDescription", { ns: "experts" }),
-      link: "/finance-experts/investment-counsellors",
+      title: t("investmentCounsellor", { ns: "experts" }),
+      description: t("investmentCounsellorDescription", { ns: "experts" }),
+      link: "/finance-experts/investment-counsellor",
     },
     {
-      title: t("financialExperts", { ns: "experts" }),
-      description: t("financialExpertsDescription", { ns: "experts" }),
-      link: "/finance-experts/financial-experts",
+      title: t("financialExpert", { ns: "experts" }),
+      description: t("financialExpertDescription", { ns: "experts" }),
+      link: "/finance-experts/financial-expert",
+    },
+    {
+      title: t("gstTaxationExpert", { ns: "experts" }),
+      description: t("gstTaxationExpertDescription", { ns: "experts" }),
+      link: "/finance-experts/gst-taxation-expert",
     },
   ];
 

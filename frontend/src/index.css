@@ -8,11 +8,10 @@
 
 @theme {
   /* Base Colors */
-  --color-primary: hsl(194, 57%, 17%);
+  --color-primary: hsl(187, 73%, 16%);
   --color-light-100: hsl(0, 0%, 96%);
   --color-input-bg: hsl(187, 57%, 96%);
   --color-role-bg: hsl(170, 27%, 32%);
-  --color-create-account-btn-bg: hsl(170, 27%, 22%);
   --color-navbar-dropdown-bg: hsl(200, 11%, 17%, 0.96);
   --color-navbar-dropdown-right-outer-bg: hsl(200, 11%, 23%);
   --color-navbar-dropdown-right-inner-bg: hsl(198, 10%, 31%);
