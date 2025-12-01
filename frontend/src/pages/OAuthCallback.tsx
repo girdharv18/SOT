@@ -87,8 +87,10 @@ export default function OAuthCallback() {
           phoneNumber: user.phoneNumber || undefined,
           role: user.role || undefined,
           dateOfBirth: user.dateOfBirth || undefined,
+          gender: user.gender || undefined,
           languages: user.languages || undefined,
           createdAt: user.createdAt || undefined,
+          hasPassword: user.hasPassword ?? false, // OAuth users typically don't have passwords initially
         });
 
         // Step 8: Mark as successful and redirect to home page

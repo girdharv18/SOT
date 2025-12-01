@@ -65,8 +65,10 @@ export default function LoginForm() {
         phoneNumber: user.phoneNumber,
         role: user.role,
         dateOfBirth: user.dateOfBirth,
+        gender: user.gender,
         languages: user.languages,
         createdAt: user.createdAt,
+        hasPassword: true, // Regular login users have passwords
       });
 
       navigate("/");

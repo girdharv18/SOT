@@ -101,65 +101,65 @@ export default function Navbar() {
       <div className="navbar max-w-[1350px] mx-auto flex justify-between items-center py-[12px] sm:py-[20px] px-0">
         {/* Logo and App Name */}
         <div className="flex items-center gap-[8px] sm:gap-[10px] min-w-0 flex-1 sm:flex-initial">
-          <img
-            src="/images/navbar/logo.png"
-            alt={t("appName") + " Logo"}
+        <img
+          src="/images/navbar/logo.png"
+          alt={t("appName") + " Logo"}
             className="w-[45px] sm:w-[60px] flex-shrink-0"
-          />
-          <Link
-            to="/"
+        />
+        <Link
+          to="/"
             className="text-[18px] sm:text-[22px] font-semibold text-logo-heading cursor-pointer truncate"
-          >
-            {t("appName") === "MindCurePath" ? (
-              <>
-                Mind<span className="text-[#45c2c7]">Cure</span>Path
-              </>
-            ) : (
-              t("appName")
-            )}
-          </Link>
-        </div>
+        >
+          {t("appName") === "MindCurePath" ? (
+            <>
+              Mind<span className="text-[#45c2c7]">Cure</span>Path
+            </>
+          ) : (
+            t("appName")
+          )}
+        </Link>
+      </div>
 
         {/* Desktop Navigation - Hidden on mobile */}
         <div className="hidden lg:flex items-center gap-[2px] text-[13px] relative">
-          {weHelpWithModalOpen && (
-            <div
-              onMouseEnter={handleModalMouseEnter}
-              onMouseLeave={handleModalMouseLeave}
-            >
-              <WeHelpWith modalRef={modalRef} navbarType="landing" />
-            </div>
-          )}
-
-          <div ref={navbarItemRef}>
-            <NavbarItemIcon
-              textKey="weHelpWith"
-              icon={
-                <ChevronDown
-                  size={15}
-                  className={`text-light-text transition-transform duration-200 ${
-                    weHelpWithModalOpen ? "rotate-180" : ""
-                  }`}
-                />
-              }
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              isActive={weHelpWithModalOpen}
-            />
+        {weHelpWithModalOpen && (
+          <div
+            onMouseEnter={handleModalMouseEnter}
+            onMouseLeave={handleModalMouseLeave}
+          >
+            <WeHelpWith modalRef={modalRef} navbarType="landing" />
           </div>
-          <NavbarItem textKey="selfAssessment" link="/self-assessment" />
-          <NavbarItem textKey="findCounsellors" link="/find-counsellors" />
-          <NavbarItem textKey="articles" link="/articles" />
+        )}
+
+        <div ref={navbarItemRef}>
+          <NavbarItemIcon
+            textKey="weHelpWith"
+            icon={
+              <ChevronDown
+                size={15}
+                className={`text-light-text transition-transform duration-200 ${
+                  weHelpWithModalOpen ? "rotate-180" : ""
+                }`}
+              />
+            }
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            isActive={weHelpWithModalOpen}
+          />
         </div>
+        <NavbarItem textKey="selfAssessment" link="/self-assessment" />
+        <NavbarItem textKey="findCounsellors" link="/find-counsellors" />
+        <NavbarItem textKey="articles" link="/articles" />
+      </div>
 
         {/* Right side controls */}
         <div className="flex items-center gap-[6px] sm:gap-2 flex-shrink-0">
           {/* Desktop Language Switcher and Moon - Hidden on mobile */}
           <div className="hidden sm:flex items-center gap-2">
-            <LanguageSwitcher />
-            <div className="p-[8px] bg-light-100 rounded-full cursor-pointer">
-              <Moon size={20} color={textColor} />
-            </div>
+        <LanguageSwitcher />
+        <div className="p-[8px] bg-light-100 rounded-full cursor-pointer">
+          <Moon size={20} color={textColor} />
+        </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -192,12 +192,12 @@ export default function Navbar() {
               />
             </Link>
           ) : (
-            <Link
-              to="/login"
+        <Link
+          to="/login"
               className={`border border-border-light text-[${textColor}] transition-all duration-200 cursor-pointer rounded-full px-[14px] sm:px-[20px] py-[6px] text-[13px] sm:text-[15px] bg-primary text-white hover:-translate-y-1 hover:shadow-[0_8px_16px_rgba(0,0,0,0.2)]`}
-            >
-              {t("login")}
-            </Link>
+        >
+          {t("login")}
+        </Link>
           )}
         </div>
       </div>

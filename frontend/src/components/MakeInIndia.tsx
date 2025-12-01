@@ -21,8 +21,8 @@ export default function MakeInIndia() {
           </div>
         </div>
 
-        <div className="right text-white leading-[5px] text-center sm:text-center">
-          <h1 className="uppercase mb-[8px] sm:mb-[10px] text-[16px] sm:text-[20px] font-extralight tracking-wide">
+        <div className="right text-white text-center sm:text-center">
+          <h1 className="uppercase mb-[8px] sm:mb-[10px] text-[16px] sm:text-[20px] font-extralight tracking-wide leading-normal">
             Proudly Supports
           </h1>
 

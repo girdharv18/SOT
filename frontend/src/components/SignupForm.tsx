@@ -64,7 +64,11 @@ export default function SignupForm() {
         avatarUrl: user.avatar || undefined,
         phoneNumber: user.phoneNumber,
         role: user.role,
+        dateOfBirth: user.dateOfBirth,
+        gender: user.gender,
+        languages: user.languages,
         createdAt: user.createdAt,
+        hasPassword: true, // Signup users have passwords
       });
 
       navigate("/");

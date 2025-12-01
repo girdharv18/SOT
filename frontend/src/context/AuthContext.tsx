@@ -14,8 +14,10 @@ export type AuthUser = {
   phoneNumber?: string;
   role?: "USER" | "EXPERT" | "ADMIN";
   dateOfBirth?: string;
+  gender?: string;
   languages?: string[];
   createdAt?: string;
+  hasPassword?: boolean;
 };
 
 type AuthContextValue = {
