@@ -57,12 +57,9 @@ export default function App() {
           path="/finance-experts/investment-counsellor"
           element={<Experts />}
         />
+        <Route path="/finance-experts/financial-expert" element={<Experts />} />
         <Route
-          path="/finance-experts/financial-expert"
-          element={<Experts />}
-        />
-        <Route
-          path="/finance-experts/gst-taxation-expert"
+          path="/finance-experts/gst-&-taxation-expert"
           element={<Experts />}
         />
       </Routes>

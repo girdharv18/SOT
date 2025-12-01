@@ -1,17 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import googleIcon from "../assets/google.svg";
+import { useAuth } from "../context/AuthContext";
 
 export default function LoginForm() {
   const { t } = useTranslation("common");
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   return (
     <div className="login-form flex justify-between gap-[20px] mt-[20px] rounded-lg flex-1">
-      <div className="hidden [@media(min-width:960px)]:block flex-1 overflow-hidden h-[600px]">
+      <div className="hidden [@media(min-width:960px)]:block flex-1 overflow-hidden h-[600px] animate-float-1 shadow-[0_20px_40px_rgba(0,0,0,0.35)] rounded-lg">
         <img
           src="./images/login_image.png"
           alt={t("login") + " Image"}
           className="border rounded-lg w-full h-full object-cover"
-          style={{ objectPosition: "50% 13%" }}
+          style={{ objectPosition: "0% 50%" }}
         />
       </div>
 
@@ -42,8 +46,30 @@ export default function LoginForm() {
               {t("forgotPassword")}
             </p>
 
-            <button className="w-full bg-primary font-medium text-light-100 rounded-full px-[20px] py-[10px] mt-[30px] cursor-pointer text-[clamp(14px,2vw,16px)]">
+            <button
+              className="w-full bg-primary font-medium text-light-100 rounded-full px-[20px] py-[10px] mt-[30px] cursor-pointer text-[clamp(14px,2vw,16px)]"
+              onClick={() => {
+                // TODO: replace with real API call
+                const mockUser = {
+                  id: "1",
+                  name: "Demo User",
+                  email: "demo@example.com",
+                };
+                login(mockUser);
+                navigate("/");
+              }}
+            >
               {t("login")}
+            </button>
+
+            <button
+              className="w-full bg-white font-medium text-primary rounded-full px-[20px] py-[10px] mt-[15px] cursor-pointer text-[clamp(14px,2vw,16px)] border border-border-light flex items-center justify-center gap-[10px]"
+              onClick={() => {
+                window.location.href = "http://localhost:3000/oauth/google";
+              }}
+            >
+              <img src={googleIcon} alt="Google" className="w-[27px]" />
+              Google
             </button>
 
             <p className="text-[clamp(13px,2vw,15px)] text-light-text text-center mt-[10px]">

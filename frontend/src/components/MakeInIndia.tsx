@@ -1,6 +1,6 @@
 export default function MakeInIndia() {
   return (
-    <div className="bg-make-in-india-bg py-[60px] px-[40px] max-w-[1350px] mx-auto rounded-[30px]">
+    <div className="bg-make-in-india-bg py-[60px] px-[40px] max-w-[1350px] mx-auto rounded-[30px] mb-[50px]">
       <div className="flex items-center justify-between gap-[20px]">
         <div className="left flex items-center gap-[15px]">
           <img

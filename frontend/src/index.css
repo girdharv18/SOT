@@ -21,7 +21,7 @@
   --color-logo-heading: hsl(189, 62%, 25%);
   --color-light-text: hsl(190, 44%, 22%);
   --color-input-placeholder: hsl(170, 21%, 27%);
-  --color-hero-heading: hsl(186,46%,22%);
+  --color-hero-heading: hsl(186, 46%, 22%);
 
   /* Border Colors */
   --color-border-light: hsl(193, 51%, 23%);
@@ -37,7 +37,11 @@
 
 .expert-hero-gradient {
   background: #cfdfe6;
-  background: radial-gradient(circle, rgba(207, 223, 230, 1) 0%, rgba(180, 199, 212, 1) 61%);
+  background: radial-gradient(
+    circle,
+    rgba(207, 223, 230, 1) 0%,
+    rgba(180, 199, 212, 1) 61%
+  );
 }
 
 /* Floating Animations */
@@ -93,4 +97,28 @@
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
+}
+
+/* Custom scrollbar (subtle, rounded, matches navbar colors) */
+.scrollbar-custom {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(200, 11%, 40%) hsl(200, 11%, 95%);
+}
+
+.scrollbar-custom::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: hsl(200, 11%, 95%);
+  border-radius: 999px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background: hsl(200, 11%, 40%);
+  border-radius: 999px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb:hover {
+  background: hsl(200, 11%, 30%);
 }
