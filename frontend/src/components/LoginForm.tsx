@@ -1,23 +1,86 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import googleIcon from "../assets/google.svg";
+import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
+import GoogleButton from "./GoogleButton";
+import FloatingLabelInput from "./FloatingLabelInput";
+import PrimaryButton from "./PrimaryButton";
+import ErrorMessage from "./ErrorMessage";
+import FormFooterLink from "./FormFooterLink";
+import AuthImage from "./AuthImage";
 
 export default function LoginForm() {
   const { t } = useTranslation("common");
-  const { login } = useAuth();
   const navigate = useNavigate();
+  const { login } = useAuth();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleLogin = async (event?: React.FormEvent<HTMLFormElement>) => {
+    if (event) {
+      event.preventDefault();
+    }
+
+    setError(null);
+
+    if (!email || !password) {
+      setError("All fields are required");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("http://localhost:3000/api/v1/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data?.message || "Failed to login");
+      }
+
+      const { user, token } = data;
+
+      if (token) {
+        window.localStorage.setItem("auth:token", token);
+      }
+
+      // Map backend user shape to AuthUser
+      login({
+        id: String(user.id),
+        email: user.email,
+        name: user.name,
+        avatarUrl: user.avatar,
+        phoneNumber: user.phoneNumber,
+        role: user.role,
+        dateOfBirth: user.dateOfBirth,
+        languages: user.languages,
+        createdAt: user.createdAt,
+      });
+
+      navigate("/");
+    } catch (error: any) {
+      console.error(error);
+      setError(error?.message || "Failed to login");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="login-form flex justify-between gap-[20px] mt-[20px] rounded-lg flex-1">
-      <div className="hidden [@media(min-width:960px)]:block flex-1 overflow-hidden h-[600px] animate-float-1 shadow-[0_20px_40px_rgba(0,0,0,0.35)] rounded-lg">
-        <img
-          src="./images/login_image.png"
-          alt={t("login") + " Image"}
-          className="border rounded-lg w-full h-full object-cover"
-          style={{ objectPosition: "0% 50%" }}
-        />
-      </div>
+      <AuthImage altTextKey="login" objectPosition="0% 50%" />
 
       <div className="flex-1 rounded-lg border-0 [@media(min-width:960px)]:border-2 [@media(min-width:960px)]:border-border-light flex items-center justify-center">
         <div className="rounded-lg w-full max-w-[500px] p-0 [@media(min-width:960px)]:p-[clamp(1.5rem,4vw,3rem)]">
@@ -28,17 +91,22 @@ export default function LoginForm() {
             {t("transformMentalHealthJourney")}
           </p>
 
-          <div className="mt-[30px]">
-            <div className="inputs flex flex-col gap-[10px]">
-              <input
-                type="text"
-                placeholder={t("emailOrPhone")}
-                className="border rounded-full px-[clamp(15px,3vw,20px)] py-[clamp(8px,2vw,10px)] text-[clamp(14px,2vw,16px)] bg-input-bg placeholder:text-input-placeholder w-full"
+          <form className="mt-[30px]" onSubmit={handleLogin} noValidate={false}>
+            <div className="inputs flex flex-col gap-[15px]">
+              <FloatingLabelInput
+                type="email"
+                label={t("emailOrPhone")}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
               />
-              <input
+
+              <FloatingLabelInput
                 type="password"
-                placeholder={t("password")}
-                className="border rounded-full px-[clamp(15px,3vw,20px)] py-[clamp(8px,2vw,10px)] text-[clamp(14px,2vw,16px)] bg-input-bg placeholder:text-input-placeholder w-full"
+                label={t("password")}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
               />
             </div>
 
@@ -46,39 +114,24 @@ export default function LoginForm() {
               {t("forgotPassword")}
             </p>
 
-            <button
-              className="w-full bg-primary font-medium text-light-100 rounded-full px-[20px] py-[10px] mt-[30px] cursor-pointer text-[clamp(14px,2vw,16px)]"
-              onClick={() => {
-                // TODO: replace with real API call
-                const mockUser = {
-                  id: "1",
-                  name: "Demo User",
-                  email: "demo@example.com",
-                };
-                login(mockUser);
-                navigate("/");
-              }}
-            >
-              {t("login")}
-            </button>
+            <ErrorMessage message={error} />
 
-            <button
-              className="w-full bg-white font-medium text-primary rounded-full px-[20px] py-[10px] mt-[15px] cursor-pointer text-[clamp(14px,2vw,16px)] border border-border-light flex items-center justify-center gap-[10px]"
+            <PrimaryButton isLoading={isSubmitting} loadingText="Loading">
+              {t("login")}
+            </PrimaryButton>
+
+            <GoogleButton
               onClick={() => {
                 window.location.href = "http://localhost:3000/oauth/google";
               }}
-            >
-              <img src={googleIcon} alt="Google" className="w-[27px]" />
-              Google
-            </button>
+            />
 
-            <p className="text-[clamp(13px,2vw,15px)] text-light-text text-center mt-[10px]">
-              {t("dontHaveAccount")}{" "}
-              <Link to="/signup" className="font-bold cursor-pointer underline">
-                {t("signUpItsFree")}
-              </Link>
-            </p>
-          </div>
+            <FormFooterLink
+              questionKey="dontHaveAccount"
+              linkTextKey="signUpItsFree"
+              linkTo="/signup"
+            />
+          </form>
         </div>
       </div>
     </div>

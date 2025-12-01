@@ -14,15 +14,21 @@ function OptionItem({
 }: {
   option: QuizOption & { originalText?: string; originalIndex?: number };
   onClick: (option: QuizOption) => void;
-  selectedOption: (QuizOption & { originalText?: string; originalIndex?: number }) | null;
+  selectedOption:
+    | (QuizOption & { originalText?: string; originalIndex?: number })
+    | null;
   originalOption: QuizOption;
 }) {
   // Compare based on original text or by checking if this is the selected option
-  const isSelected = selectedOption && (
-    (option.originalText && selectedOption.originalText && option.originalText === selectedOption.originalText) ||
-    (option.originalIndex !== undefined && selectedOption.originalIndex !== undefined && option.originalIndex === selectedOption.originalIndex) ||
-    option.text === selectedOption.text
-  );
+  const isSelected =
+    selectedOption &&
+    ((option.originalText &&
+      selectedOption.originalText &&
+      option.originalText === selectedOption.originalText) ||
+      (option.originalIndex !== undefined &&
+        selectedOption.originalIndex !== undefined &&
+        option.originalIndex === selectedOption.originalIndex) ||
+      option.text === selectedOption.text);
 
   return (
     <div
@@ -51,11 +57,16 @@ export default function SelfAssessmentQuestions() {
   // Get translated question and options
   const getQuestionText = (questionId: number): string => {
     const questionKey = `questions.q${questionId}`;
-    return t(`${questionKey}.question`, { ns: "quiz" }) || SELF_ASSESSMENT_QUIZ[questionId - 1].question;
+    return (
+      t(`${questionKey}.question`, { ns: "quiz" }) ||
+      SELF_ASSESSMENT_QUIZ[questionId - 1].question
+    );
   };
 
   const getOptionText = (questionId: number, optionIndex: number): string => {
-    const questionKey = `questions.q${questionId}.options.option${optionIndex + 1}`;
+    const questionKey = `questions.q${questionId}.options.option${
+      optionIndex + 1
+    }`;
     const translated = t(questionKey, { ns: "quiz" });
     if (translated && translated !== questionKey) {
       return translated;
@@ -105,12 +116,14 @@ export default function SelfAssessmentQuestions() {
 
   // Create translated options for current question - display translated text but keep original for comparison
   const currentQuizQuestion = SELF_ASSESSMENT_QUIZ[currentQuestion - 1];
-  const translatedOptions = currentQuizQuestion.options.map((option, index) => ({
-    ...option,
-    text: getOptionText(currentQuestion, index),
-    originalText: option.text, // Keep original for comparison
-    originalIndex: index,
-  }));
+  const translatedOptions = currentQuizQuestion.options.map(
+    (option, index) => ({
+      ...option,
+      text: getOptionText(currentQuestion, index),
+      originalText: option.text, // Keep original for comparison
+      originalIndex: index,
+    })
+  );
 
   // Find which translated option corresponds to the selected option
   const getSelectedTranslatedOption = () => {
@@ -130,7 +143,8 @@ export default function SelfAssessmentQuestions() {
     <div className="self-assessment-questions-page max-w-[1350px] mx-auto px-[25px]">
       <SelfAssessmentNavbar />
       <h1 className="text-[20px] font-semibold text-[#44666C] mt-[30px]">
-        {t("question", { ns: "common" })} {currentQuestion} {t("of", { ns: "common" })} {totalQuestions}
+        {t("question", { ns: "common" })} {currentQuestion}{" "}
+        {t("of", { ns: "common" })} {totalQuestions}
       </h1>
       {/* Create a progress bar here */}
       <div className="w-full h-[12px] bg-[#D9D9D9] rounded-[10px] mt-[14px]">
@@ -173,7 +187,7 @@ export default function SelfAssessmentQuestions() {
           disabled={!canGoPrevious}
           className={`px-[40px] py-[12px] rounded-[30px] text-[18px] font-medium transition-all duration-200 ${
             canGoPrevious
-              ? "bg-[#44666C] text-white hover:bg-[#365a62] cursor-pointer"
+              ? "bg-[#44666C] text-white hover:bg-[#365a62] cursor-pointer hover:-translate-y-1 hover:shadow-[0_8px_16px_rgba(0,0,0,0.2)]"
               : "bg-gray-300 text-gray-500 cursor-not-allowed"
           }`}
         >
@@ -186,7 +200,7 @@ export default function SelfAssessmentQuestions() {
             disabled={!currentSelectedOption}
             className={`px-[40px] py-[12px] rounded-[30px] text-[18px] font-medium transition-all duration-200 ${
               currentSelectedOption
-                ? "bg-[#44666C] text-white hover:bg-[#365a62] cursor-pointer"
+                ? "bg-[#44666C] text-white hover:bg-[#365a62] cursor-pointer hover:-translate-y-1 hover:shadow-[0_8px_16px_rgba(0,0,0,0.2)]"
                 : "bg-gray-300 text-gray-500 cursor-not-allowed"
             }`}
           >
@@ -198,7 +212,7 @@ export default function SelfAssessmentQuestions() {
             disabled={!canGoNext}
             className={`px-[40px] py-[12px] rounded-[30px] text-[18px] font-medium transition-all duration-200 ${
               canGoNext
-                ? "bg-[#44666C] text-white hover:bg-[#365a62] cursor-pointer"
+                ? "bg-[#44666C] text-white hover:bg-[#365a62] cursor-pointer hover:-translate-y-1 hover:shadow-[0_8px_16px_rgba(0,0,0,0.2)]"
                 : "bg-gray-300 text-gray-500 cursor-not-allowed"
             }`}
           >

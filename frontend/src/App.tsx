@@ -10,6 +10,8 @@ import WellnessExpertsIntro from "./pages/WellnessExpertsIntro";
 import EducationExpertsIntro from "./pages/EducationExpertsIntro";
 import FinanceExpertsIntro from "./pages/FinanceExpertsIntro";
 import Experts from "./pages/Experts";
+import Profile from "./pages/Profile";
+import OAuthCallback from "./pages/OAuthCallback";
 
 export default function App() {
   return (
@@ -18,6 +20,7 @@ export default function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/oauth/google/callback" element={<OAuthCallback />} />
 
         {/* Self Assessment */}
         <Route path="/self-assessment" element={<SelfAssessment />} />
@@ -62,6 +65,9 @@ export default function App() {
           path="/finance-experts/gst-&-taxation-expert"
           element={<Experts />}
         />
+
+        {/* Authenticated */}
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </ScreenProvider>
   );

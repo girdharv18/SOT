@@ -7,11 +7,15 @@ import {
 } from "react";
 
 export type AuthUser = {
-  id: string;
-  name: string;
+  id?: string;
   email: string;
+  name?: string;
   avatarUrl?: string;
-  // add more fields as your backend returns them
+  phoneNumber?: string;
+  role?: "USER" | "EXPERT" | "ADMIN";
+  dateOfBirth?: string;
+  languages?: string[];
+  createdAt?: string;
 };
 
 type AuthContextValue = {
@@ -50,6 +54,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const logout = () => {
     setUser(null);
     window.localStorage.removeItem("auth:user");
+    window.localStorage.removeItem("auth:token");
   };
 
   const value: AuthContextValue = {
@@ -64,8 +69,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
 export function useAuth() {
   const ctx = useContext(AuthContext);
+
   if (!ctx) {
     throw new Error("useAuth must be used within an AuthProvider");
   }
+
   return ctx;
 }

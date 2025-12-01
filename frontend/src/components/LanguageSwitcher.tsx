@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Languages as LanguagesIcon, ChevronDown, Check } from "lucide-react";
+import { Languages as LanguagesIcon, ChevronDown } from "lucide-react";
+import LanguageModal from "./modals/LanguageModal";
 
 const availableLanguages = [
   { code: "en", name: "English", nativeName: "English" },
@@ -53,7 +54,7 @@ export default function LanguageSwitcher() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="px-[12px] py-[8px] bg-[hsl(0,0%,90%)] border border-[#304048] rounded-full cursor-pointer hover:bg-light-200 transition-colors flex items-center gap-[8px]"
+        className="px-[12px] py-[6px] bg-[hsl(0,0%,90%)] border border-[#304048] rounded-full cursor-pointer hover:bg-light-200 transition-colors flex items-center gap-[8px]"
         aria-label="Change language"
       >
         <LanguagesIcon size={20} className="text-[#304048]" />
@@ -68,33 +69,12 @@ export default function LanguageSwitcher() {
         />
       </button>
 
-      {isOpen && (
-        <div className="absolute top-[45px] right-0 bg-white rounded-[10px] shadow-lg border border-[hsl(0,0%,80%)] min-w-[200px] z-50 overflow-hidden">
-          <div className="max-h-[300px] overflow-y-auto scrollbar-custom">
-            {availableLanguages.map((lang) => (
-              <button
-                key={lang.code}
-                onClick={() => changeLanguage(lang.code)}
-                className={`w-full text-left px-[15px] py-[10px] hover:bg-[hsl(0,0%,86%)] cursor-pointer transition-colors flex items-center justify-between ${
-                  i18n.language === lang.code ? "bg-[hsl(0,0%,86%)]" : ""
-                }`}
-              >
-                <div className="flex flex-col">
-                  <span className="text-sm font-medium text-[#304048]">
-                    {lang.name}
-                  </span>
-                  <span className="text-xs text-gray-500">
-                    {lang.nativeName}
-                  </span>
-                </div>
-                {i18n.language === lang.code && (
-                  <Check size={16} className="text-[#304048]" />
-                )}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
+      <LanguageModal
+        isOpen={isOpen}
+        availableLanguages={availableLanguages}
+        currentLanguageCode={i18n.language}
+        onLanguageChange={changeLanguage}
+      />
     </div>
   );
 }

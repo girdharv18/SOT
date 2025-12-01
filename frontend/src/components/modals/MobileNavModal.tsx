@@ -1,8 +1,9 @@
-import { ChevronDown, Moon, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ChevronDown, Moon, X, UserCircle2 } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import LanguageSwitcher from "../LanguageSwitcher";
+import { useAuth } from "../../context/AuthContext";
 
 interface MobileNavModalProps {
   isOpen: boolean;
@@ -38,6 +39,8 @@ export default function MobileNavModal({
   onClose,
 }: MobileNavModalProps) {
   const { t } = useTranslation(["common", "navigation"]);
+  const { user } = useAuth();
+  const location = useLocation();
   const [weHelpWithExpanded, setWeHelpWithExpanded] = useState(false);
 
   useEffect(() => {
@@ -145,13 +148,35 @@ export default function MobileNavModal({
               </div>
             </div>
 
-            <Link
-              to="/login"
-              className="border border-border-light text-primary transition-all duration-200 cursor-pointer rounded-full px-[20px] py-[8px] text-[15px] hover:bg-border-light hover:text-white"
-              onClick={onClose}
-            >
-              {t("login", { ns: "common" })}
-            </Link>
+            {user ? (
+              <Link
+                to="/profile"
+                className={`group p-[6px] rounded-full border border-border-light transition-colors flex items-center justify-center ${
+                  location.pathname.startsWith("/profile")
+                    ? "bg-border-light text-white"
+                    : "hover:bg-border-light hover:text-white"
+                }`}
+                onClick={onClose}
+                aria-label="Profile"
+              >
+                <UserCircle2
+                  size={26}
+                  className={`transition-colors ${
+                    location.pathname.startsWith("/profile")
+                      ? "text-white"
+                      : "text-logo-heading group-hover:text-white"
+                  }`}
+                />
+              </Link>
+            ) : (
+              <Link
+                to="/login"
+                className="border border-border-light text-primary transition-all duration-200 cursor-pointer rounded-full px-[20px] py-[8px] text-[15px] hover:bg-border-light hover:text-white"
+                onClick={onClose}
+              >
+                {t("login", { ns: "common" })}
+              </Link>
+            )}
           </div>
         </div>
       </div>

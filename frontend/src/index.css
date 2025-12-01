@@ -30,10 +30,14 @@
   /* Drop Shadows */
   --shadow-drop-shadow: 0px 0px 5px 0px hsl(0, 0%, 0%, 0.25);
   --shadow-background-light: 0 0 250px 200px hsl(194, 27%, 21%, 50%);
+  --shadow-m: inset 0 2px 1px hsl(0, 0%, 90%), 0 0px 3px hsl(0, 0%, 0%, 0.20), 0 8px 16px hsl(0, 0%, 0%, 0.15);
+  --shadow-m-profile: inset 0 1px 1px hsl(0, 0%, 90%), 0 0px 3px hsl(0, 0%, 0%, 0.20), 0 8px 16px hsl(0, 0%, 0%, 0.15);
+  --shadow-m-dark: inset 0 2px 1px hsl(0, 0%, 20%), 0 0px 3px hsl(0, 0%, 0%, 0.40), 0 8px 16px hsl(0, 0%, 0%, 0.30);
 
   /* Hover Colors */
   --color-hover-bg: hsl(194, 57%, 17%, 0.08);
 }
+
 
 .expert-hero-gradient {
   background: #cfdfe6;
@@ -89,6 +93,8 @@
   animation-delay: 1s;
 }
 
+
+
 /* Hide scrollbar but keep functionality */
 .scrollbar-hide {
   -ms-overflow-style: none; /* IE and Edge */
@@ -101,24 +107,25 @@
 
 /* Custom scrollbar (subtle, rounded, matches navbar colors) */
 .scrollbar-custom {
-  scrollbar-width: thin;
   scrollbar-color: hsl(200, 11%, 40%) hsl(200, 11%, 95%);
 }
 
 .scrollbar-custom::-webkit-scrollbar {
-  width: 6px;
+  appearance: none;
+  width: 2rem;
 }
 
 .scrollbar-custom::-webkit-scrollbar-track {
-  background: hsl(200, 11%, 95%);
-  border-radius: 999px;
+  background: hsl(200, 48%, 32%);
+  border-radius: 2px;
 }
 
 .scrollbar-custom::-webkit-scrollbar-thumb {
+  border-radius: 9px;
   background: hsl(200, 11%, 40%);
-  border-radius: 999px;
 }
 
 .scrollbar-custom::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
   background: hsl(200, 11%, 30%);
 }
