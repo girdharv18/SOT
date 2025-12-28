@@ -1,6 +1,9 @@
-import { ChevronDown, Languages, Moon, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ChevronDown, Moon, X, UserCircle2 } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "../LanguageSwitcher";
+import { useAuth } from "../../context/AuthContext";
 
 interface MobileNavModalProps {
   isOpen: boolean;
@@ -8,19 +11,26 @@ interface MobileNavModalProps {
 }
 
 function MobileNavItem({
-  text,
+  textKey,
   onClick,
+  to,
+  ns = "navigation",
 }: {
-  text: string;
+  textKey: string;
   onClick?: () => void;
+  to?: string;
+  ns?: string;
 }) {
+  const { t } = useTranslation(ns);
   return (
-    <div
-      className="cursor-pointer text-light-text px-[25px] py-[12px] hover:bg-hover-bg rounded-full transition-colors duration-200 text-[16px]"
-      onClick={onClick}
-    >
-      {text}
-    </div>
+    <Link to={to || ""} onClick={onClick}>
+      <div
+        className="cursor-pointer text-light-text px-[25px] py-[12px] hover:bg-hover-bg rounded-full transition-colors duration-200 text-[16px]"
+        onClick={onClick}
+      >
+        {t(textKey)}
+      </div>
+    </Link>
   );
 }
 
@@ -28,6 +38,9 @@ export default function MobileNavModal({
   isOpen,
   onClose,
 }: MobileNavModalProps) {
+  const { t } = useTranslation(["common", "navigation"]);
+  const { user } = useAuth();
+  const location = useLocation();
   const [weHelpWithExpanded, setWeHelpWithExpanded] = useState(false);
 
   useEffect(() => {
@@ -57,7 +70,7 @@ export default function MobileNavModal({
         {/* Header with close button */}
         <div className="flex justify-between items-center px-[25px] py-[20px] border-b border-gray-200 flex-shrink-0">
           <h1 className="text-[22px] font-semibold text-logo-heading">
-            MindCure
+            {t("appName", { ns: "common" })}
           </h1>
           <button
             onClick={onClose}
@@ -75,7 +88,9 @@ export default function MobileNavModal({
               className="flex items-center justify-between cursor-pointer px-[25px] py-[12px] hover:bg-hover-bg rounded-full transition-colors duration-200"
               onClick={() => setWeHelpWithExpanded(!weHelpWithExpanded)}
             >
-              <span className="text-light-text text-[16px]">We help with</span>
+              <span className="text-light-text text-[16px]">
+                {t("weHelpWith", { ns: "navigation" })}
+              </span>
               <ChevronDown
                 size={15}
                 className={`text-light-text transition-transform duration-200 ${
@@ -93,48 +108,75 @@ export default function MobileNavModal({
               }`}
             >
               <div className="pl-[30px] pt-[10px] flex flex-col gap-[8px]">
-                <div className="px-[20px] py-[10px] text-[16px] rounded-[10px] cursor-pointer hover:bg-gray-50 transition-colors duration-200">
-                  Therapists
-                </div>
-                <div className="px-[20px] py-[10px] text-[16px] rounded-[10px] cursor-pointer hover:bg-gray-50 transition-colors duration-200">
-                  Coaches
-                </div>
-                <div className="px-[20px] py-[10px] text-[16px] rounded-[10px] cursor-pointer hover:bg-gray-50 transition-colors duration-200">
-                  Dieticians
-                </div>
-                <div className="px-[20px] py-[10px] text-[16px] rounded-[10px] cursor-pointer hover:bg-gray-50 transition-colors duration-200">
-                  Yoga Experts
-                </div>
+                <Link
+                  to="/wellness-experts"
+                  onClick={onClose}
+                  className="px-[20px] py-[10px] text-[16px] rounded-[10px] cursor-pointer hover:bg-gray-50 transition-colors duration-200"
+                >
+                  {t("wellnessExperts", { ns: "navigation" })}
+                </Link>
+                <Link
+                  to="/education-experts"
+                  onClick={onClose}
+                  className="px-[20px] py-[10px] text-[16px] rounded-[10px] cursor-pointer hover:bg-gray-50 transition-colors duration-200"
+                >
+                  {t("educationExperts", { ns: "navigation" })}
+                </Link>
+                <Link
+                  to="/finance-experts"
+                  onClick={onClose}
+                  className="px-[20px] py-[10px] text-[16px] rounded-[10px] cursor-pointer hover:bg-gray-50 transition-colors duration-200"
+                >
+                  {t("financeExperts", { ns: "navigation" })}
+                </Link>
               </div>
             </div>
           </div>
 
-          <MobileNavItem text="Self Assessment" />
-          <MobileNavItem text="Mental Health Tools" />
-          <MobileNavItem text="Find a therapist" />
-          <MobileNavItem text="Find counsellors" />
-          <MobileNavItem text="Articles" />
+          <MobileNavItem textKey="selfAssessment" to="/self-assessment" />
+          <MobileNavItem textKey="findCounsellors" to="/find-counsellors" />
+          <MobileNavItem textKey="articles" to="/articles" />
         </div>
 
         {/* Bottom section with login and icons */}
         <div className="p-[20px] border-t border-gray-200 flex-shrink-0">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="p-[8px] bg-light-100 rounded-full cursor-pointer">
-                <Languages size={20} className="text-primary" />
-              </div>
+              <LanguageSwitcher />
               <div className="p-[8px] bg-light-100 rounded-full cursor-pointer">
                 <Moon size={20} className="text-primary" />
               </div>
             </div>
 
-            <Link
-              to="/login"
-              className="border border-border-light text-primary transition-all duration-200 cursor-pointer rounded-full px-[20px] py-[8px] text-[15px] hover:bg-border-light hover:text-white"
-              onClick={onClose}
-            >
-              Login
-            </Link>
+            {user ? (
+              <Link
+                to="/profile"
+                className={`group p-[6px] rounded-full border border-border-light transition-colors flex items-center justify-center ${
+                  location.pathname.startsWith("/profile")
+                    ? "bg-border-light text-white"
+                    : "hover:bg-border-light hover:text-white"
+                }`}
+                onClick={onClose}
+                aria-label="Profile"
+              >
+                <UserCircle2
+                  size={26}
+                  className={`transition-colors ${
+                    location.pathname.startsWith("/profile")
+                      ? "text-white"
+                      : "text-logo-heading group-hover:text-white"
+                  }`}
+                />
+              </Link>
+            ) : (
+              <Link
+                to="/login"
+                className="border border-border-light text-primary transition-all duration-200 cursor-pointer rounded-full px-[20px] py-[8px] text-[15px] hover:bg-border-light hover:text-white"
+                onClick={onClose}
+              >
+                {t("login", { ns: "common" })}
+              </Link>
+            )}
           </div>
         </div>
       </div>

@@ -8,20 +8,20 @@
 
 @theme {
   /* Base Colors */
-  --color-primary: hsl(194, 57%, 17%);
+  --color-primary: hsl(187, 73%, 16%);
   --color-light-100: hsl(0, 0%, 96%);
   --color-input-bg: hsl(187, 57%, 96%);
   --color-role-bg: hsl(170, 27%, 32%);
-  --color-create-account-btn-bg: hsl(170, 27%, 22%);
   --color-navbar-dropdown-bg: hsl(200, 11%, 17%, 0.96);
   --color-navbar-dropdown-right-outer-bg: hsl(200, 11%, 23%);
   --color-navbar-dropdown-right-inner-bg: hsl(198, 10%, 31%);
+  --color-make-in-india-bg: hsl(194, 14%, 24%);
 
   /* Text Colors */
   --color-logo-heading: hsl(189, 62%, 25%);
   --color-light-text: hsl(190, 44%, 22%);
   --color-input-placeholder: hsl(170, 21%, 27%);
-  --color-hero-heading: hsl(194, 62%, 26%);
+  --color-hero-heading: hsl(186, 46%, 22%);
 
   /* Border Colors */
   --color-border-light: hsl(193, 51%, 23%);
@@ -30,9 +30,22 @@
   /* Drop Shadows */
   --shadow-drop-shadow: 0px 0px 5px 0px hsl(0, 0%, 0%, 0.25);
   --shadow-background-light: 0 0 250px 200px hsl(194, 27%, 21%, 50%);
+  --shadow-m: inset 0 2px 1px hsl(0, 0%, 90%), 0 0px 3px hsl(0, 0%, 0%, 0.20), 0 8px 16px hsl(0, 0%, 0%, 0.15);
+  --shadow-m-profile: inset 0 1px 1px hsl(0, 0%, 90%), 0 0px 3px hsl(0, 0%, 0%, 0.20), 0 8px 16px hsl(0, 0%, 0%, 0.15);
+  --shadow-m-dark: inset 0 2px 1px hsl(0, 0%, 20%), 0 0px 3px hsl(0, 0%, 0%, 0.40), 0 8px 16px hsl(0, 0%, 0%, 0.30);
 
   /* Hover Colors */
   --color-hover-bg: hsl(194, 57%, 17%, 0.08);
+}
+
+
+.expert-hero-gradient {
+  background: #cfdfe6;
+  background: radial-gradient(
+    circle,
+    rgba(207, 223, 230, 1) 0%,
+    rgba(180, 199, 212, 1) 61%
+  );
 }
 
 /* Floating Animations */
@@ -78,4 +91,41 @@
 .animate-float-3 {
   animation: float3 3.5s ease-in-out infinite;
   animation-delay: 1s;
+}
+
+
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Custom scrollbar (subtle, rounded, matches navbar colors) */
+.scrollbar-custom {
+  scrollbar-color: hsl(200, 11%, 40%) hsl(200, 11%, 95%);
+}
+
+.scrollbar-custom::-webkit-scrollbar {
+  appearance: none;
+  width: 2rem;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: hsl(200, 48%, 32%);
+  border-radius: 2px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  border-radius: 9px;
+  background: hsl(200, 11%, 40%);
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+  background: hsl(200, 11%, 30%);
 }

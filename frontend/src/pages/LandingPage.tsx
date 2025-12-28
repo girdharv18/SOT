@@ -1,15 +1,25 @@
 import AnalyticsSection from "../components/AnalyticsSection";
-import ClinicallyValidatedTestsSection from "../components/ClinicallyValidatedTestsSection";
 import HeroSection from "../components/HeroSection";
 import ResponsiveNavbar from "../components/ResponsiveNavbar";
+import WhyChooseUsSection from "../components/WhyChooseUsSection";
+import WhatOurUsersSay from "../components/WhatOurUsersSay";
+import HowDoesItWork from "../components/HowDoesItWork";
+import Footer from "../components/Footer";
+import ExpertVerifiedAssessmentsSection from "../components/ExpertVerifiedAssessmentsSection";
+import MakeInIndia from "../components/MakeInIndia";
 
 export default function UserDashboard() {
   return (
-    <div className="landing-page">
+    <div className="landing-page px-[20px]">
       <ResponsiveNavbar />
       <HeroSection />
+      <MakeInIndia />
       <AnalyticsSection />
-      <ClinicallyValidatedTestsSection />
+      <ExpertVerifiedAssessmentsSection />
+      <WhyChooseUsSection />
+      <HowDoesItWork />
+      <WhatOurUsersSay />
+      <Footer />
     </div>
   );
 }

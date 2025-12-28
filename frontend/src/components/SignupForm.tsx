@@ -1,102 +1,151 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import type { Role } from "../lib/interfaces";
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { useAuth } from "../context/AuthContext";
+import GoogleButton from "./GoogleButton";
+import FloatingLabelInput from "./FloatingLabelInput";
+import PrimaryButton from "./PrimaryButton";
+import ErrorMessage from "./ErrorMessage";
+import FormFooterLink from "./FormFooterLink";
+import AuthImage from "./AuthImage";
 
 export default function SignupForm() {
-  const [role, setRole] = useState<Role>("user");
+  const { t } = useTranslation("common");
+  const navigate = useNavigate();
+  const { login } = useAuth();
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  function handleRoleChange() {
-    if (role == "user") {
-      setRole("therapist");
+  const handleSignup = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setError(null);
+
+    if (!email || !password || !phoneNumber) {
+      setError("All fields are required");
       return;
     }
 
-    if (role == "therapist") {
-      setRole("user");
-      return;
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("http://localhost:3000/api/v1/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+          phoneNumber,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data?.message || "Failed to sign up");
+      }
+
+      const { user, token } = data;
+
+      if (token) {
+        window.localStorage.setItem("auth:token", token);
+      }
+
+      // Map backend user shape to AuthUser
+      login({
+        id: String(user.id),
+        email: user.email,
+        name: fullName || user.name || undefined,
+        avatarUrl: user.avatar || undefined,
+        phoneNumber: user.phoneNumber,
+        role: user.role,
+        dateOfBirth: user.dateOfBirth,
+        gender: user.gender,
+        languages: user.languages,
+        createdAt: user.createdAt,
+        hasPassword: true, // Signup users have passwords
+      });
+
+      navigate("/");
+    } catch (err: any) {
+      console.error(err);
+      setError(err?.message || "Failed to sign up");
+    } finally {
+      setIsSubmitting(false);
     }
-  }
+  };
 
   return (
-    <div className="login-form flex justify-between gap-[20px] mt-[20px] rounded-lg">
-      <div className="flex-1 overflow-hidden h-[600px]">
-        <img
-          src="./images/login_image.png"
-          alt="Login Image"
-          className="border rounded-lg w-full h-full object-cover"
-          style={{ objectPosition: "0% 13%" }}
-        />
-      </div>
+    <div className="login-form flex justify-between items-start gap-[20px] mt-[20px] rounded-lg flex-1">
+      <AuthImage altTextKey="createAccount" objectPosition="0% 50%" />
 
-      <div className="flex-1 rounded-lg border-2 border-border-light flex items-center justify-center">
-        <div className="rounded-lg min-w-[500px] p-[clamp(1rem,4.1vw,3rem)]">
-          <h2 className="text-3xl font-bold text-logo-heading">
-            Create an account
+      <div className="flex-1 rounded-lg border-0 [@media(min-width:960px)]:border-2 [@media(min-width:960px)]:border-border-light flex items-center justify-center">
+        <div className="rounded-lg w-full max-w-[500px] p-0 [@media(min-width:960px)]:p-[clamp(1.5rem,4vw,3rem)]">
+          <h2 className="text-[clamp(24px,5vw,30px)] font-bold text-logo-heading">
+            {t("createAccount")}
           </h2>
-          <p className="text-[15px] font-light text-light-text">
-            Start your healing journey — your story begins here.
+          <p className="text-[clamp(13px,2vw,15px)] font-light text-light-text">
+            {t("startHealingJourney")}
           </p>
 
-          <div className="mt-[30px]">
-            {/* Choosing your role while signing up */}
-            <h2 className="font-semibold text-primary mb-[5px]">Your role</h2>
-            <div className="roles flex items-center justify-between mb-[10px] gap-[10px]">
-              <div
-                className={`user ${
-                  role == "user" ? "bg-role-bg text-white" : "bg-input-bg"
-                } flex-1 py-[10px] text-center rounded-[30px] cursor-pointer`}
-                onClick={handleRoleChange}
-              >
-                User
-              </div>
-              <div
-                className={`therapist ${
-                  role == "therapist" ? "bg-role-bg text-white" : "bg-input-bg"
-                } flex-1 py-[10px] text-center rounded-[30px] cursor-pointer`}
-                onClick={handleRoleChange}
-              >
-                Therapist
-              </div>
-            </div>
-
-            <div className="inputs flex flex-col gap-[10px]">
-              <input
+          <form className="mt-[30px]" onSubmit={handleSignup}>
+            <div className="inputs flex flex-col gap-[15px]">
+              <FloatingLabelInput
                 type="text"
-                placeholder="Full name"
-                className={`border border-border-light rounded-full px-[20px] py-[10px] bg-input-bg placeholder:text-input-placeholder w-full`}
+                label={t("fullName")}
+                variant="with-border"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
               />
-              <input
-                type="text"
-                placeholder="Email"
-                className={`border border-border-light rounded-full px-[20px] py-[10px] bg-input-bg placeholder:text-input-placeholder w-full`}
+              <FloatingLabelInput
+                type="email"
+                label={t("email")}
+                variant="with-border"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
               />
-              <input
+              <FloatingLabelInput
                 type="password"
-                placeholder="Password"
-                className={`border border-border-light rounded-full px-[20px] py-[10px] bg-input-bg placeholder:text-input-placeholder w-full`}
+                label={t("password")}
+                variant="with-border"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
               />
-              <input
-                type="text"
-                placeholder="Phone No."
-                className={`border border-border-light rounded-full px-[20px] py-[10px] bg-input-bg placeholder:text-input-placeholder w-full`}
+              <FloatingLabelInput
+                type="tel"
+                label={t("phoneNo")}
+                variant="with-border"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+                required
               />
             </div>
 
-            <p className="text-[15px] font-semibold text-light-text text-right mt-[10px]">
-              Forgot password?
+            <p className="text-[clamp(13px,2vw,15px)] font-semibold text-light-text text-right mt-[10px]">
+              {t("forgotPassword")}
             </p>
 
-            <button className="w-full bg-create-account-btn-bg font-medium text-light-100 rounded-full px-[20px] py-[10px] mt-[30px] cursor-pointer">
-              Create account
-            </button>
+            <ErrorMessage message={error} />
 
-            <p className="text-[15px] text-light-text text-center mt-[10px]">
-              Already have an account?{" "}
-              <Link to="/login" className="font-bold cursor-pointer underline">
-                Login
-              </Link>
-            </p>
-          </div>
+            <PrimaryButton isLoading={isSubmitting} loadingText="Loading">
+              {t("createAccount")}
+            </PrimaryButton>
+
+            <GoogleButton text="Sign up with Google" />
+
+            <FormFooterLink
+              questionKey="alreadyHaveAccount"
+              linkTextKey="login"
+              linkTo="/login"
+            />
+          </form>
         </div>
       </div>
     </div>
